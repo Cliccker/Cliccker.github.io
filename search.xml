@@ -4,13 +4,27 @@
   
     
     <entry>
-      <title>2020-7-16-读论文——On2Vec：基于嵌入的本体群体关系预测</title>
+      <title>读论文——On2Vec：基于嵌入的本体群体关系预测</title>
       <link href="/2020/07/16/2020-7-16-%E8%AF%BB%E8%AE%BA%E6%96%87%E2%80%94%E2%80%94On2Vec%EF%BC%9A%E5%9F%BA%E4%BA%8E%E5%B5%8C%E5%85%A5%E7%9A%84%E6%9C%AC%E4%BD%93%E7%BE%A4%E4%BD%93%E5%85%B3%E7%B3%BB%E9%A2%84%E6%B5%8B/"/>
       <url>/2020/07/16/2020-7-16-%E8%AF%BB%E8%AE%BA%E6%96%87%E2%80%94%E2%80%94On2Vec%EF%BC%9A%E5%9F%BA%E4%BA%8E%E5%B5%8C%E5%85%A5%E7%9A%84%E6%9C%AC%E4%BD%93%E7%BE%A4%E4%BD%93%E5%85%B3%E7%B3%BB%E9%A2%84%E6%B5%8B/</url>
       
-        <content type="html"><![CDATA[<hr><p>title: 读论文——On2Vec：基于嵌入的本体群体关系预测<br>date: 2020-7-16 12:36:00<br>author: Hank<br>toc: false<br>mathjax: true<br>categories: 学习<br>tags:</p><ul><li>本体</li><li>知识嵌入<br>​—</li></ul><h2 id="这是我用MarkDown语法写下的第一篇文章。"><a href="#这是我用MarkDown语法写下的第一篇文章。" class="headerlink" title="这是我用MarkDown语法写下的第一篇文章。"></a>这是我用MarkDown语法写下的第一篇文章。</h2><h1 id="读论文——On2Vec：基于嵌入的本体群体关系预测"><a href="#读论文——On2Vec：基于嵌入的本体群体关系预测" class="headerlink" title="读论文——On2Vec：基于嵌入的本体群体关系预测"></a>读论文——On2Vec：基于嵌入的本体群体关系预测</h1><p><em>原标题*：On2Vec: Embedding-based Relation Prediction for Ontology Population  *<a href="https://arxiv.org/abs/1809.02382" target="_blank" rel="noopener">来源</a></em></p><h2 id="研究背景"><a href="#研究背景" class="headerlink" title="研究背景"></a>研究背景</h2><h3 id="要做什么？"><a href="#要做什么？" class="headerlink" title="要做什么？"></a>要做什么？</h3><p>Ontology population(本体填充)，指将原始信息（可以是非结构化、半结构化或者结构化的数据）转换为本体实例的过程。</p><h3 id="遇到了什么问题？"><a href="#遇到了什么问题？" class="headerlink" title="遇到了什么问题？"></a>遇到了什么问题？</h3><p>现有的研究已经能将基于翻译的知识嵌入模式应用到实例层级的图谱中，实现较好的填充效果。相比于实例图谱，本体视图中的关系事实包含了更多复杂的语义关系，包括<strong>可传递性</strong>和<strong>对称性</strong>以及<strong>层次关系</strong>。这种关系对于现有的嵌入模式来说过于复杂，且直接应用不可行。</p><h3 id="提出了什么技术？"><a href="#提出了什么技术？" class="headerlink" title="提出了什么技术？"></a>提出了什么技术？</h3><p>由两个模型组件组成的On2vec，包括：</p><ol><li>Component-specific Model （组件特定模型）将概念和关系编码嵌入低维空间，且不丢失相关属性；</li><li>Hierarchy Model  （层次模型）集中处理层级关系。</li></ol><p><img src="/medias/loading.gif" data-original="https://my-picbed.oss-cn-hangzhou.aliyuncs.com/img/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20190807182236.png" alt=""></p>]]></content>
+        <content type="html"><![CDATA[<h1 id="读论文——On2Vec：基于嵌入的本体群体关系预测"><a href="#读论文——On2Vec：基于嵌入的本体群体关系预测" class="headerlink" title="读论文——On2Vec：基于嵌入的本体群体关系预测"></a>读论文——On2Vec：基于嵌入的本体群体关系预测</h1><p><em>原标题*：On2Vec: Embedding-based Relation Prediction for Ontology Population  *<a href="https://arxiv.org/abs/1809.02382" target="_blank" rel="noopener">来源</a></em></p><h2 id="研究背景"><a href="#研究背景" class="headerlink" title="研究背景"></a>研究背景</h2><h3 id="要做什么？"><a href="#要做什么？" class="headerlink" title="要做什么？"></a>要做什么？</h3><p>Ontology population(本体填充)，指将原始信息（可以是非结构化、半结构化或者结构化的数据）转换为本体实例的过程。</p><h3 id="遇到了什么问题？"><a href="#遇到了什么问题？" class="headerlink" title="遇到了什么问题？"></a>遇到了什么问题？</h3><p>现有的研究已经能将基于翻译的知识嵌入模式应用到实例层级的图谱中，实现较好的填充效果。相比于实例图谱，本体视图中的关系事实包含了更多复杂的语义关系，包括<strong>可传递性</strong>和<strong>对称性</strong>以及<strong>层次关系</strong>。这种关系对于现有的嵌入模式来说过于复杂，且直接应用不可行。</p><img src="/medias/loading.gif" data-original="https://my-picbed.oss-cn-hangzhou.aliyuncs.com/img/批注 2020-07-16 162227.png" alt="图1" title="图1" style="zoom:50%;" /><p>我们可以按照图1去解释这种复杂的关系</p><ul><li><p>A是B的祖先，B是C的祖先，则A是C的祖先，可见“···是···的祖先”这是一种传递关系。把它放在向量空间上，用r_ancestor表示两者之间的转换向量，有<br>$$<br>A+r_{ancestor}\approx B，B+r_{ancestor}\approx C<br>$$<br>按照传递性的原则应当有：<br>$$<br>A+r_{ancestor}\approx C<br>$$<br>然而结果却是：<br>$$<br>r_{(A,C)} \ne r_{ancestor}<br>$$<br>也就是说“···是···的祖先”是一种隐含着层级关系的传递关系，这可能听起来很拗口，但是这种关系的确存在而且不可避免。你想想，如果没有这一层层级关系，爷爷和爸爸不就同辈了吗？</p></li><li><p>E是F的朋友，F是E的朋友，“···是···的朋友”这是一种对称性关系。同样的在向量空间上，应该有<br>$$<br>E+r_{friend}\approx F，F+r_{friend}\approx E<br>$$<br>然而事实上<br>$$<br>E+r_{friend}\approx F，but \ F+r_{friend}\ne E<br>$$<br>意味着转换向量并不能既把E映射到F上，又也把F映射到E上。你把我当普通朋友，我把你当知心好友（当然这样解释并不恰当）</p></li><li></li></ul><h3 id="提出了什么技术？"><a href="#提出了什么技术？" class="headerlink" title="提出了什么技术？"></a>提出了什么技术？</h3><p>由两个模型组件组成的On2vec，包括：</p><ol><li>Component-specific Model （组件特定模型）将概念和关系编码嵌入低维空间，且不丢失相关属性；</li><li>Hierarchy Model  （层次模型）集中处理层级关系。</li></ol><h2 id="技术路线"><a href="#技术路线" class="headerlink" title="技术路线"></a>技术路线</h2><h3 id="建模"><a href="#建模" class="headerlink" title="建模"></a>建模</h3>]]></content>
       
       
+      <categories>
+          
+          <category> 学习 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 本体 </tag>
+            
+            <tag> 知识嵌入 </tag>
+            
+        </tags>
       
     </entry>
     
