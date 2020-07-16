@@ -4,19 +4,6 @@
   
     
     <entry>
-      <title>89</title>
-      <link href="/2020/07/15/89/"/>
-      <url>/2020/07/15/89/</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-      
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>Hello World</title>
       <link href="/2020/07/15/hello-world/"/>
       <url>/2020/07/15/hello-world/</url>
@@ -24,29 +11,6 @@
         <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre class=" language-bash"><code class="language-bash">$ hexo new <span class="token string">"My New Post"</span></code></pre><p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre class=" language-bash"><code class="language-bash">$ hexo server</code></pre><p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre class=" language-bash"><code class="language-bash">$ hexo generate</code></pre><p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre class=" language-bash"><code class="language-bash">$ hexo deploy</code></pre><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>]]></content>
       
       
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>烧卖有梗</title>
-      <link href="/2020/07/14/146-1/"/>
-      <url>/2020/07/14/146-1/</url>
-      
-        <content type="html"><![CDATA[<p>从今年开始，学生们最恐怖的噩梦从梦到上学没穿裤子变成了网课没关麦。</p>]]></content>
-      
-      
-      
-        <tags>
-            
-            <tag> 日志 </tag>
-            
-            <tag> 一个小笑话 </tag>
-            
-            <tag> 想法 </tag>
-            
-        </tags>
       
     </entry>
     
@@ -101,73 +65,6 @@
     
     
     <entry>
-      <title>《知识图谱：方法、实践与应用》阅读笔记——知识图谱表示与建模（2）</title>
-      <link href="/2020/07/14/%E3%80%8A%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1%EF%BC%9A%E6%96%B9%E6%B3%95%E3%80%81%E5%AE%9E%E8%B7%B5%E4%B8%8E%E5%BA%94%E7%94%A8%E3%80%8B%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0-%E7%9F%A5-3-1/"/>
-      <url>/2020/07/14/%E3%80%8A%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1%EF%BC%9A%E6%96%B9%E6%B3%95%E3%80%81%E5%AE%9E%E8%B7%B5%E4%B8%8E%E5%BA%94%E7%94%A8%E3%80%8B%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0-%E7%9F%A5-3-1/</url>
-      
-        <content type="html"><![CDATA[<p>距离上一篇读书笔记已经有一段日子了，中间打了很多代码，也摸了很多🐟。有时候还是比较细化打代码的，感觉比码字有意思。但是有意思的事做太多就不会有积累了，所以接着填这个坑叭！</p><h2 id="互联网时代的语义网知识表示框架"><a href="#互联网时代的语义网知识表示框架" class="headerlink" title="互联网时代的语义网知识表示框架"></a>互联网时代的语义网知识表示框架</h2><p>上一篇文章中提到的“语义网”让知识表示迎来了新的春天，不过也出现了新的挑战——标准语言在哪里？HTML和XML已经跟不上这个时代了（时代变了，大人）。W3C提出了新的标准语言RDF和OWL，我们一起来欣赏一下吧。</p><h3 id="核心成员RDF"><a href="#核心成员RDF" class="headerlink" title="核心成员RDF"></a>核心成员RDF</h3><p>RDF中的知识永远是以三元组的形式呈现出来，就是(subject,predicate,object)， 亦即（主语，谓语，宾语）。我们可以把它看成一个传统意义上的句子结构中的主谓宾，比如“我喜欢吃冰淇淋，吃完就长肉”👉（我，喜欢，吃冰淇淋）（我，长，肉）。同时我们也可以用（我，在什么时候吃雪糕，“12点”^xsd:date）表示“我在12点吃了雪糕”。从中我们可以看出，RDF中的主语一定是一个个体（individual），书中也解释了个体是类的实例，比如我是人“类”的一个实例，谓语表示属性，宾语可以是个体也可是实例。</p><p>我们拿我怎么变胖来构建来建立一个图谱，如下</p><p><img src="http://121.199.51.214/wp-content/uploads/2020/07/%E6%89%B9%E6%B3%A8-2020-07-14-153445.png" alt=""></p><p>我变胖的一个图谱</p><p>再来把他写成英文，如下</p><p><img src="http://121.199.51.214/wp-content/uploads/2020/07/%E6%89%B9%E6%B3%A8-2020-07-14-153804-1.png" alt=""></p><p>a KG of my growing weights</p><p>由于在RDF中的主谓宾都有一个全局标识，所以我们再给这个图谱中的元素加点料</p><p><img src="http://121.199.51.214/wp-content/uploads/2020/07/%E6%89%B9%E6%B3%A8-2020-07-14-155352-1.png" alt=""></p><p>看起来是不是更像回事了？</p><p>全局URL可以简化为前缀URL，当然也可以出现没有前缀的空白节点（BlankNode），长这样</p><p><img src="http://121.199.51.214/wp-content/uploads/2020/07/%E6%89%B9%E6%B3%A8-2020-07-14-160905.png" alt=""></p><p>空白节点可以代入你我他哦</p><h3 id="开放世界假设"><a href="#开放世界假设" class="headerlink" title="开放世界假设"></a>开放世界假设</h3><p>这个假设听起来是不是很酷呢？实际上他比听起来更酷。开放世界假设使得RDF图谱里的知识可以是不完整的，例如我喜欢吃冰激凌，并不意味着我只喜欢吃冰激凌，雪糕当然也是不错的选择😋，(i,enjoy,ice-cream)代表冰淇淋至少是我的一个爱好！采用开放世界假设有什么好处呢？答案是可以实现分布式存储，像这样：</p><p><img src="http://121.199.51.214/wp-content/uploads/2020/07/%E6%89%B9%E6%B3%A8-2020-07-14-162100.png" alt=""></p><p>我喜欢冰淇淋&amp;冰淇淋是光明牌的</p><p><img src="http://121.199.51.214/wp-content/uploads/2020/07/%E6%89%B9%E6%B3%A8-2020-07-14-162503.png" alt=""></p><p>我喜欢吃光明的冰淇淋</p><h3 id="RDF-Schema——RDFS"><a href="#RDF-Schema——RDFS" class="headerlink" title="RDF Schema——RDFS"></a>RDF Schema——RDFS</h3><p>RDFSchema（RDF模式，简称RDFS）提供了对类和属性的简单描述，包括上下级关系（subclass_of)，定义域(domian)，值域（range）等。这一步我直接上书上的图：</p><p><img src="http://121.199.51.214/wp-content/uploads/2020/07/%E6%89%B9%E6%B3%A8-2020-07-14-163732.png" alt=""></p><p>可谓图糙理不糙，上面是本体视图，下面是实例视图</p><hr><h2 id="主力成员OWL🦉"><a href="#主力成员OWL🦉" class="headerlink" title="主力成员OWL🦉"></a>主力成员OWL🦉</h2><p>RDF(S)可以表示一些简单的语义，但是如果场景更加复杂的化，RDF就不太行了。RDF本身缺少很多常用的特征，把书中写出来的几个简单罗列：</p><p>1.无法准确的描述属性的定义、特征；</p><p>2.无法描述类、个体属性是否等价（是我杀了我？）</p><p>3.基数约束，即一个人不可能有两个爸爸（出了于谦儿子郭小宝）</p><p>总之，RDF在描述事实的时候就像是一个年幼的孩子👶，很多事情很多关系他还不懂，我们需要一个更成熟的本体语言来替我们表达知识！</p><h3 id="OWL语言特征"><a href="#OWL语言特征" class="headerlink" title="OWL语言特征"></a>OWL语言特征</h3><p>OWL1.0有三个子语言，OWL Lite&lt;OWL DL&lt;OWL Full。书中写道这三者选择的原则</p><blockquote><p>●选择OWL Lite还是OWL DL主要取决于用户需要整个语言在多大程度上给出约束的可表达性；</p><p>●选择OWL DL还是OWL Full主要取决于用户在多大程度上需要RDF的元模型机制，如定义类型的类型以及为类型赋予属性；</p><p>●当使用OWL Full而不是OWL DL时，推理的支持可能不能工作，因为目前还没有完全支持OWL Full的系统实现。</p></blockquote><p>OWL不是完全独立于RDF的，他们在很多地方都有相似之处，不过我觉得知道这个没用！</p><h3 id="OWL重要词汇"><a href="#OWL重要词汇" class="headerlink" title="OWL重要词汇"></a>OWL重要词汇</h3><ol><li>等价性声明</li><li>属性传递声明👉a大于b，b大于c 可以推出 a大于c</li><li>属性互逆声明 👉a大于b，b小于a 大于小于这两个属性互逆</li><li>属性的函数声明👉a的大写是A</li><li>属性的对称性声明👉a=b，b=a</li><li>属性的全称限定声明👉如：母亲一定是女人</li><li>属性的存在限定声明👉如：我一部分的文章发在知乎上</li><li>属性的基数限定声明👉如：我只能有“一个”父亲</li><li>相交的类声明👉如：妈妈是有孩子的人，即有孩子和人的交集</li></ol><p>这些词汇在书上写的很详细，这个笔记抄下来就没意思了。</p><h3 id="OWL版本"><a href="#OWL版本" class="headerlink" title="OWL版本"></a>OWL版本</h3><p>OWL2的三大子语言是OWL 2 RL、OWL 2 QL和OWL 2 EL，关于这三种语言的词汇，书中有写错的地方，需要去别处找更准确的总结。</p><hr><h2 id="语义Markup表示语言"><a href="#语义Markup表示语言" class="headerlink" title="语义Markup表示语言"></a>语义Markup表示语言</h2><p>语义网进一步定义了在网页中嵌入语义Markup的方法和表示语言。被谷歌知识图谱以及Schema.Org采用的语义Markup语言主要包括JSON-LD、RDFa和HTML5 MicroData。</p><p><strong>我似乎感觉到这本书不怎么样了，因为书里一直在罗列概念也没说要自己动手做。还是只看自己感兴趣的内容吧</strong></p><p><strong><em>To Be Continued</em></strong></p>]]></content>
-      
-      
-      
-        <tags>
-            
-            <tag> 学习 </tag>
-            
-            <tag> owl </tag>
-            
-            <tag> rdf </tag>
-            
-            <tag> 知识图谱 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>关于如何搭建自己的个人网站</title>
-      <link href="/2020/07/13/%E5%85%B3%E4%BA%8E%E5%A6%82%E4%BD%95%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99-1/"/>
-      <url>/2020/07/13/%E5%85%B3%E4%BA%8E%E5%A6%82%E4%BD%95%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99-1/</url>
-      
-        <content type="html"><![CDATA[<p>这位up讲的非常清楚了，拿过来存个档。</p>]]></content>
-      
-      
-      
-        <tags>
-            
-            <tag> 视频 </tag>
-            
-            <tag> 新知 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>关于如何搭建自己的个人网站</title>
-      <link href="/2020/07/13/%E5%85%B3%E4%BA%8E%E5%A6%82%E4%BD%95%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/"/>
-      <url>/2020/07/13/%E5%85%B3%E4%BA%8E%E5%A6%82%E4%BD%95%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/</url>
-      
-        <content type="html"><![CDATA[<p>这位up讲的非常清楚了，拿过来存个档。</p>]]></content>
-      
-      
-      
-        <tags>
-            
-            <tag> 视频 </tag>
-            
-            <tag> 新知 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>《知识图谱：方法、实践与应用》阅读笔记——知识图谱概述</title>
       <link href="/2020/07/13/%E3%80%8A%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1%EF%BC%9A%E6%96%B9%E6%B3%95%E3%80%81%E5%AE%9E%E8%B7%B5%E4%B8%8E%E5%BA%94%E7%94%A8%E3%80%8B%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0-%E7%9F%A5-2/"/>
       <url>/2020/07/13/%E3%80%8A%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1%EF%BC%9A%E6%96%B9%E6%B3%95%E3%80%81%E5%AE%9E%E8%B7%B5%E4%B8%8E%E5%BA%94%E7%94%A8%E3%80%8B%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0-%E7%9F%A5-2/</url>
@@ -187,129 +84,11 @@
     
     
     <entry>
-      <title>《知识图谱：方法、实践与应用》阅读笔记——知识图谱概述</title>
-      <link href="/2020/07/13/%E3%80%8A%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1%EF%BC%9A%E6%96%B9%E6%B3%95%E3%80%81%E5%AE%9E%E8%B7%B5%E4%B8%8E%E5%BA%94%E7%94%A8%E3%80%8B%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0-%E7%9F%A5-2-1/"/>
-      <url>/2020/07/13/%E3%80%8A%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1%EF%BC%9A%E6%96%B9%E6%B3%95%E3%80%81%E5%AE%9E%E8%B7%B5%E4%B8%8E%E5%BA%94%E7%94%A8%E3%80%8B%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0-%E7%9F%A5-2-1/</url>
-      
-        <content type="html"><![CDATA[<h2 id="什么是知识图谱？"><a href="#什么是知识图谱？" class="headerlink" title="什么是知识图谱？"></a>什么是知识图谱？</h2><p>一种用<strong>图模型</strong>(probabilistic graphic models)来描述知识和建模世界万物之间的关联关系的技术方法。由<strong>节点</strong>和<strong>边</strong>组成</p><h2 id="知识图谱的价值"><a href="#知识图谱的价值" class="headerlink" title="知识图谱的价值"></a>知识图谱的价值</h2><ol><li>辅助搜索</li><li>辅助问答</li><li>辅助大数据分析</li><li>辅助语言理解，人机之间的相互理解</li></ol><p><img src="https://pic4.zhimg.com/v2-c83e96721a4635920b7aac623783042f_b.png" alt=""></p><p>这道看似简单的题，机器却毫无办法。“到底谁大谁小？”</p><p>5.辅助设备互联，机器与机器之间的相互理解书中一直强调的辅助作用，是不是意味着知识图谱更像一种锦上添花的工具？</p><h2 id="一些知识图谱项目"><a href="#一些知识图谱项目" class="headerlink" title="一些知识图谱项目"></a>一些知识图谱项目</h2><p>freebase​</p><p>wikidata（需要梯子）</p><p><img src="https://pic4.zhimg.com/v2-8ef39dbe4682280e4814220dfcbc49d3_b.png" alt=""></p><p>如何构建一个规模化的知识图谱</p><p>值得注意的是阿里巴巴有自己的电商知识图谱，规模达到了百亿级别。</p><h2 id="知识图谱的技术流程"><a href="#知识图谱的技术流程" class="headerlink" title="知识图谱的技术流程"></a>知识图谱的技术流程</h2><ul><li>知识图谱采用更加规范而标准的概念模型、本题术语和语法格式来建模和描述数据</li><li>通过语义链接来增强数据之间的关系</li></ul><p>_就像是一张网。_知识图谱方法论涉及知识表示、知识获取、知识处理和知识利用多个方面。一般流程为：</p><ol><li>首先确定知识表示模型，然后根据数据来源选择不同的知识获取手段导入知识</li><li>接着综合利用知识推理、知识融合、知识挖掘等技术对构建的知识图谱进行质量提升，</li><li>最后根据场景需求设计不同的知知识访问与呈现方法，如语义搜索、问答交互、图谱可视化分析等。</li></ol><h3 id="1-知识来源"><a href="#1-知识来源" class="headerlink" title="1.知识来源"></a>1.知识来源</h3><p>有多种来源来获取知识，除了文本，我们还可以考虑结构化数据库、多媒体数据、传感器数据和人工众包。对于文本数据源，我们要用到<strong>自然语言处理技术。</strong>对于各种结构化数据库，<strong>需要将结构化数据定义到本体模型之间的语义映射，再通过编写语义翻译工具实现转化。</strong></p><h3 id="2-知识表示"><a href="#2-知识表示" class="headerlink" title="2.知识表示"></a><strong>2.知识表示</strong></h3><p>即用计算机符号来表述人类的语言</p><p><img src="https://pic2.zhimg.com/v2-9ef1ddd2692744e97469778a17e53765_b.png" alt=""></p><p>知识表示的产出目标</p><p><img src="https://pic1.zhimg.com/v2-c3c4263647d7b65e840280206d4be42c_b.png" alt=""></p><p>知识图谱分类</p><h3 id="3-知识抽取"><a href="#3-知识抽取" class="headerlink" title="3.知识抽取"></a>3.知识抽取</h3><p>知识抽取按任务划分可以分为概念抽取、实体识别、关系抽取、事件抽取和规则抽取等</p><p><img src="https://pic2.zhimg.com/v2-46f64c05ef7f4c2de99f6324ca7bda29_b.png" alt=""></p><p>知识抽取的划分</p><p>书中解释了远程监督的思想远程监督的思想是，利用一个大型的语义数据库自动获取关系类型标签。这些标签可能是含有噪声的，但是大量的训练数据在一定程度上可以抵消这些噪声。另外，一些工作通过多任务学习等方法将实体和关系做联合抽取。最新的一些研究则利用强化学习减少人工标注并自动降低噪声。如何减少人工标注，是我现阶段工作的重点。</p><h3 id="4-知识融合"><a href="#4-知识融合" class="headerlink" title="4.知识融合"></a>4.知识融合</h3><p>外部数据库合并到本体知识库时，需要解决两个问题</p><ol><li>通过模式层(?)的融合，将新的本体融入已有的本体库中，以及新旧本体的融合</li><li>数据层的融合，包括实体的指称、属性、关系和所属类别。</li></ol><p><strong>关键问题是如何避免实例以及关系的冲突问题，造成不必要的冗余</strong></p><p><em>文中提到的本体概念，这边没有太理解，需要另找专门的文献再熟悉熟悉</em></p><h3 id="5-知识图谱的补全和推理（重头戏"><a href="#5-知识图谱的补全和推理（重头戏" class="headerlink" title="5.知识图谱的补全和推理（重头戏)"></a>5.知识图谱的补全和推理（重头戏)</h3><h3 id="6-知识检索和知识分析"><a href="#6-知识检索和知识分析" class="headerlink" title="6.知识检索和知识分析"></a>6.知识检索和知识分析</h3><p>包括语义检索和智能问答</p><h2 id="知识图谱相关技术"><a href="#知识图谱相关技术" class="headerlink" title="知识图谱相关技术"></a>知识图谱相关技术</h2><p><img src="https://pic4.zhimg.com/v2-7793c97d516a7921e3efbda54397813f_b.png" alt=""></p><p>数据库与数据模型</p><p><img src="https://pic4.zhimg.com/v2-258314714963e49e9bb038c5ade3ce93_b.png" alt=""></p><p>知识问答</p><p><img src="https://pic2.zhimg.com/v2-a47b6ecd00ed64de048f2419e3aebbd1_b.png" alt=""></p><p>知识推理</p><p>基于表示学习的知识图谱推理研究的主要研究趋势是，一方面提高表示学习结果对知识图谱中含有的语义信息的捕捉能力，目前的研究多集中在链接预测任务上，其他推理任务有待跟进研究；另一方面是利用分布式表示作为桥梁，将知识图谱与文本、图像等异质信息结合，实现信息互补以及更多样化的综合推理。如果说我们人的思维是一个已经存在的知识图谱，那么我们在学习知识的时候，基于知识表示的学习方法一定是更快的，相比于基于规则的推理而言，知识来源的渠道更广泛，更丰富，更能激发“兴趣”。后面还写到了推荐系统与去中心化，这里暂且不论。</p><p><strong><em>第一章 完</em></strong></p>]]></content>
-      
-      
-      
-        <tags>
-            
-            <tag> 学习 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>网易云音乐测试</title>
-      <link href="/2020/07/13/%E7%BD%91%E6%98%93%E4%BA%91%E9%9F%B3%E4%B9%90%E6%B5%8B%E8%AF%95-1/"/>
-      <url>/2020/07/13/%E7%BD%91%E6%98%93%E4%BA%91%E9%9F%B3%E4%B9%90%E6%B5%8B%E8%AF%95-1/</url>
-      
-        <content type="html"><![CDATA[<p>测试一下网易云的播放器，这里放的是我最近听的比较多的一些歌，似乎还用不了歌单功能，而且首页显示不了播放器，奇奇怪怪。</p><p>- 。-</p><p><a href="http://music.163.com/#/song?id=66265" target="_blank" rel="noopener">http://music.163.com/#/song?id=66265</a></p><p><a href="http://music.163.com/#/song?id=28068737" target="_blank" rel="noopener">http://music.163.com/#/song?id=28068737</a></p>]]></content>
-      
-      
-      
-        <tags>
-            
-            <tag> 日志 </tag>
-            
-            <tag> 新知 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>网易云音乐测试</title>
-      <link href="/2020/07/13/%E7%BD%91%E6%98%93%E4%BA%91%E9%9F%B3%E4%B9%90%E6%B5%8B%E8%AF%95/"/>
-      <url>/2020/07/13/%E7%BD%91%E6%98%93%E4%BA%91%E9%9F%B3%E4%B9%90%E6%B5%8B%E8%AF%95/</url>
-      
-        <content type="html"><![CDATA[<p>测试一下网易云的播放器，这里放的是我最近听的比较多的一些歌，似乎还用不了歌单功能，而且首页显示不了播放器，奇奇怪怪。</p><p>- 。-</p><p><a href="http://music.163.com/#/song?id=66265" target="_blank" rel="noopener">http://music.163.com/#/song?id=66265</a></p><p><a href="http://music.163.com/#/song?id=28068737" target="_blank" rel="noopener">http://music.163.com/#/song?id=28068737</a></p>]]></content>
-      
-      
-      
-        <tags>
-            
-            <tag> 日志 </tag>
-            
-            <tag> 新知 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>《知识图谱：方法、实践与应用》阅读笔记——知识图谱表示与建模（1）</title>
-      <link href="/2020/07/13/%E3%80%8A%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1%EF%BC%9A%E6%96%B9%E6%B3%95%E3%80%81%E5%AE%9E%E8%B7%B5%E4%B8%8E%E5%BA%94%E7%94%A8%E3%80%8B%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0-%E7%9F%A5-4/"/>
-      <url>/2020/07/13/%E3%80%8A%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1%EF%BC%9A%E6%96%B9%E6%B3%95%E3%80%81%E5%AE%9E%E8%B7%B5%E4%B8%8E%E5%BA%94%E7%94%A8%E3%80%8B%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0-%E7%9F%A5-4/</url>
-      
-        <content type="html"><![CDATA[<p>上一篇文章中我们介绍了什么是知识图谱，而这一篇讲述了知识图谱的表示和建模方法。和编程之前需要选择平台一样，知识图谱的建模也需要我们来选择一种方法。本章主要讲述了如何使用这些方法对知识进行建模。</p><h2 id="1-什么是知识表示"><a href="#1-什么是知识表示" class="headerlink" title="1.什么是知识表示"></a>1.什么是知识表示</h2><p>知识表示的五大用途和特点<strong>客观事物的机器标示</strong>（A KR is a Surrogate），即知识表示首先需要定义客观实体的机器指代或指称。 <strong>一组本体约定和概念模型</strong>（A KR is a Set of Ontological Commitments），即知识表示还需要定义用于描述客观事物的概念和类别体系。 <strong>支持推理的表示基础</strong>（A KR is a Theory of Intelligent Reasoning），即知识表示还需要提供机器推理的模型与方法。 <strong>用于高效计算的数据结构</strong>（A KR is a medium for Efficient Computation），即知识表示也是一种用于高效计算的数据结构。 <strong>人可理解的机器语言</strong>（A KR is a Medium of Human Expression），即知识表示还必须接近于人的认知，是人可理解的机器语言。再来梳理一下知识表示发展的脉络</p><p><img src="https://pic2.zhimg.com/v2-a1c0be286efd3f1dcd5c86f8a1b6287d_b.png" alt="" title="知识表示发展脉络"></p><p>知识表示发展脉络</p><p>Q：为什么要引入向量的概念？A: 简单来讲，向量能够表示更多字符无法表示的隐藏的知识，且更易于推理。</p><hr><h3 id="2-早期的一些表示方法"><a href="#2-早期的一些表示方法" class="headerlink" title="2.早期的一些表示方法"></a>2.早期的一些表示方法</h3><ul><li><strong>一阶谓词逻辑</strong></li></ul><p><strong><em>第一步：列出一些基本逻辑</em></strong></p><p>COMPUTER（x）：x是计算机系的学生。LIKE（x，y）：x喜欢y。HIGHER（x，y）：x比y长得高。</p><p><strong><em>第二步：将个体代入谓词中</em></strong></p><p>这里涉及的个体有：张晓辉（zhangxh），编程序（programming），李晓鹏（lixp），以函数father（lixp）表示李晓鹏的父亲。</p><p><img src="https://www.zhihu.com/equation?tex=COMPUTER(zhangxh)%20%2C~LIKE(zhangxh%2C%20programming)%20%20%2CHIGHER(lip%2C%20father%EF%BC%88lixp%EF%BC%89)" alt="COMPUTER(zhangxh) ,~LIKE(zhangxh, programming)  ,HIGHER(lip, father（lixp）)">)COMPUTER(zhangxh) ,~LIKE(zhangxh, programming) ,HIGHER(lip, father（lixp）)</p><p><strong><em>第三步：根据语义，用逻辑联接词将它们联接起来，就得到了表示上述知识的谓词公式</em></strong><img src="https://www.zhihu.com/equation?tex=COMPUTER(zhangxh)%20%E2%88%A7LIKE(zhangxh%2C%20programming)" alt="COMPUTER(zhangxh) ∧LIKE(zhangxh, programming)"></p><p>COMPUTER(zhangxh) ∧LIKE(zhangxh, programming)</p><p><em>张晓辉是一个计算机系的学生，他喜欢编程</em></p><p>HIGHER(lixp, father( lixp))</p><p><em>李晓鹏比他父亲长得高</em></p><ul><li><strong>霍恩子句和霍恩逻辑</strong></li></ul><p><strong>霍恩子句（Horn Clause）得名于逻辑学家Alfred Horn[6]。一个子句是文字的析取。霍恩子句是带有最多一个肯定（positive）文字的子句，肯定文字指的是没有否定符号的文字。例如，Øp1∨…∨Øpn∨ q是一个霍恩子句，它可以被等价地写为（p1∧…∧pn）→ q。Alfred Horn于1951年撰文指出这种子句的重要性。</strong>这一段书里讲的内容属实没看明白，但是也不是特别重要，因为在知识表示方面他已经是过去式了！</p><ul><li><strong>语义网络</strong></li></ul><p>语义网络在形式上式一个带有标识的有向图，由节点和连接弧组成。如图</p><p><img src="https://pic1.zhimg.com/v2-b1be71183c8a9d116fc9fe7e66d25528_b.png" alt=""></p><p>语义网络的构成</p><p>语义网络的<strong>缺点</strong>是</p><ol><li>同一段知识可能有多种多样的表示形式。不同的表示形式会提高处理不同语义网络的复杂性。</li><li>如果你想要理解一个语义网络的含义，那你只能依靠其处理程序。即语义网络缺少一套公认的形式表示体系。这会产生什么样的影响呢？举个栗子，假如全世界各个国家的人只说自己本国的语言，那跨国交流就只能依靠打手势了，使得知识表示非常容易产生偏差。</li></ol><p><strong><em>“我对着她竖起了中指，她却以为我爱上了她”</em></strong></p><ul><li><strong>框架</strong></li></ul><p><strong>其理论的基本思想是：认为人们对现实世界中各种事物的认识都以一种类似于框架的结构存储在记忆中。</strong></p><p><img src="https://pic3.zhimg.com/v2-71697617962190b91b396e34f73f9ef6_b.png" alt=""></p><p>一个框架的实例</p><p>我们可以看到框架中有很多默认值，这种默认值会大大增加推理的难度。</p><ul><li><strong>描述逻辑</strong></li></ul><p><strong>描述逻辑可以被看成是利用一阶逻辑对语义网络和框架进行形式化后的产物。描述逻辑一般支持一元谓词和二元谓词。一元谓词称为类，二元谓词称为关系。描述逻辑的重要特征是同时具有很强的表达能力和可判定性。</strong>描述逻辑是OWL的理论基础，下一篇文章再详细讨论</p><p><strong><em>To Be Continued ….</em></strong></p>]]></content>
-      
-      
-      
-        <tags>
-            
-            <tag> 学习 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>《知识图谱：方法、实践与应用》阅读笔记——知识图谱表示与建模（1）</title>
       <link href="/2020/07/13/%E3%80%8A%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1%EF%BC%9A%E6%96%B9%E6%B3%95%E3%80%81%E5%AE%9E%E8%B7%B5%E4%B8%8E%E5%BA%94%E7%94%A8%E3%80%8B%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0-%E7%9F%A5/"/>
       <url>/2020/07/13/%E3%80%8A%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1%EF%BC%9A%E6%96%B9%E6%B3%95%E3%80%81%E5%AE%9E%E8%B7%B5%E4%B8%8E%E5%BA%94%E7%94%A8%E3%80%8B%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0-%E7%9F%A5/</url>
       
         <content type="html"><![CDATA[<p>上一篇文章中我们介绍了什么是知识图谱，而这一篇讲述了知识图谱的表示和建模方法。和编程之前需要选择平台一样，知识图谱的建模也需要我们来选择一种方法。本章主要讲述了如何使用这些方法对知识进行建模。</p><h2 id="1-什么是知识表示"><a href="#1-什么是知识表示" class="headerlink" title="1.什么是知识表示"></a>1.什么是知识表示</h2><p>知识表示的五大用途和特点<strong>客观事物的机器标示</strong>（A KR is a Surrogate），即知识表示首先需要定义客观实体的机器指代或指称。 <strong>一组本体约定和概念模型</strong>（A KR is a Set of Ontological Commitments），即知识表示还需要定义用于描述客观事物的概念和类别体系。 <strong>支持推理的表示基础</strong>（A KR is a Theory of Intelligent Reasoning），即知识表示还需要提供机器推理的模型与方法。 <strong>用于高效计算的数据结构</strong>（A KR is a medium for Efficient Computation），即知识表示也是一种用于高效计算的数据结构。 <strong>人可理解的机器语言</strong>（A KR is a Medium of Human Expression），即知识表示还必须接近于人的认知，是人可理解的机器语言。再来梳理一下知识表示发展的脉络</p><p><img src="https://pic2.zhimg.com/v2-a1c0be286efd3f1dcd5c86f8a1b6287d_b.png" alt="" title="知识表示发展脉络"></p><p>知识表示发展脉络</p><p>Q：为什么要引入向量的概念？A: 简单来讲，向量能够表示更多字符无法表示的隐藏的知识，且更易于推理。</p><hr><h3 id="2-早期的一些表示方法"><a href="#2-早期的一些表示方法" class="headerlink" title="2.早期的一些表示方法"></a>2.早期的一些表示方法</h3><ul><li><strong>一阶谓词逻辑</strong></li></ul><p><strong><em>第一步：列出一些基本逻辑</em></strong></p><p>COMPUTER（x）：x是计算机系的学生。LIKE（x，y）：x喜欢y。HIGHER（x，y）：x比y长得高。</p><p><strong><em>第二步：将个体代入谓词中</em></strong></p><p>这里涉及的个体有：张晓辉（zhangxh），编程序（programming），李晓鹏（lixp），以函数father（lixp）表示李晓鹏的父亲。</p><p><img src="https://www.zhihu.com/equation?tex=COMPUTER(zhangxh)%20%2C~LIKE(zhangxh%2C%20programming)%20%20%2CHIGHER(lip%2C%20father%EF%BC%88lixp%EF%BC%89)" alt="COMPUTER(zhangxh) ,~LIKE(zhangxh, programming)  ,HIGHER(lip, father（lixp）)">)COMPUTER(zhangxh) ,~LIKE(zhangxh, programming) ,HIGHER(lip, father（lixp）)</p><p><strong><em>第三步：根据语义，用逻辑联接词将它们联接起来，就得到了表示上述知识的谓词公式</em></strong><img src="https://www.zhihu.com/equation?tex=COMPUTER(zhangxh)%20%E2%88%A7LIKE(zhangxh%2C%20programming)" alt="COMPUTER(zhangxh) ∧LIKE(zhangxh, programming)"></p><p>COMPUTER(zhangxh) ∧LIKE(zhangxh, programming)</p><p><em>张晓辉是一个计算机系的学生，他喜欢编程</em></p><p>HIGHER(lixp, father( lixp))</p><p><em>李晓鹏比他父亲长得高</em></p><ul><li><strong>霍恩子句和霍恩逻辑</strong></li></ul><p><strong>霍恩子句（Horn Clause）得名于逻辑学家Alfred Horn[6]。一个子句是文字的析取。霍恩子句是带有最多一个肯定（positive）文字的子句，肯定文字指的是没有否定符号的文字。例如，Øp1∨…∨Øpn∨ q是一个霍恩子句，它可以被等价地写为（p1∧…∧pn）→ q。Alfred Horn于1951年撰文指出这种子句的重要性。</strong>这一段书里讲的内容属实没看明白，但是也不是特别重要，因为在知识表示方面他已经是过去式了！</p><ul><li><strong>语义网络</strong></li></ul><p>语义网络在形式上式一个带有标识的有向图，由节点和连接弧组成。如图</p><p><img src="https://pic1.zhimg.com/v2-b1be71183c8a9d116fc9fe7e66d25528_b.png" alt=""></p><p>语义网络的构成</p><p>语义网络的<strong>缺点</strong>是</p><ol><li>同一段知识可能有多种多样的表示形式。不同的表示形式会提高处理不同语义网络的复杂性。</li><li>如果你想要理解一个语义网络的含义，那你只能依靠其处理程序。即语义网络缺少一套公认的形式表示体系。这会产生什么样的影响呢？举个栗子，假如全世界各个国家的人只说自己本国的语言，那跨国交流就只能依靠打手势了，使得知识表示非常容易产生偏差。</li></ol><p><strong><em>“我对着她竖起了中指，她却以为我爱上了她”</em></strong></p><ul><li><strong>框架</strong></li></ul><p><strong>其理论的基本思想是：认为人们对现实世界中各种事物的认识都以一种类似于框架的结构存储在记忆中。</strong></p><p><img src="https://pic3.zhimg.com/v2-71697617962190b91b396e34f73f9ef6_b.png" alt=""></p><p>一个框架的实例</p><p>我们可以看到框架中有很多默认值，这种默认值会大大增加推理的难度。</p><ul><li><strong>描述逻辑</strong></li></ul><p><strong>描述逻辑可以被看成是利用一阶逻辑对语义网络和框架进行形式化后的产物。描述逻辑一般支持一元谓词和二元谓词。一元谓词称为类，二元谓词称为关系。描述逻辑的重要特征是同时具有很强的表达能力和可判定性。</strong>描述逻辑是OWL的理论基础，下一篇文章再详细讨论</p><p><strong><em>To Be Continued ….</em></strong></p>]]></content>
-      
-      
-      
-        <tags>
-            
-            <tag> 学习 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>烧卖的第二台服务器</title>
-      <link href="/2020/07/13/hello-world-1/"/>
-      <url>/2020/07/13/hello-world-1/</url>
-      
-        <content type="html"><![CDATA[<p>这次用的是阿里云</p><p>我们能听用它实现什么呢 ?</p><p>让我们拭目以待叭</p>]]></content>
-      
-      
-      
-        <tags>
-            
-            <tag> 学习 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>烧卖的第二台服务器</title>
-      <link href="/2020/07/13/hello-world-2/"/>
-      <url>/2020/07/13/hello-world-2/</url>
-      
-        <content type="html"><![CDATA[<p>这次用的是阿里云</p><p>我们能听用它实现什么呢 ?</p><p>让我们拭目以待叭</p>]]></content>
       
       
       
