@@ -104,28 +104,6 @@
     
   </li>
   
-  <li class="hide-on-med-and-down nav-item">
-    
-    <a href="/contact" class="waves-effect waves-light">
-      
-      <i class="fas fa-comments" style="zoom: 0.6;"></i>
-      
-      <span>留言板</span>
-    </a>
-    
-  </li>
-  
-  <li class="hide-on-med-and-down nav-item">
-    
-    <a href="/friends" class="waves-effect waves-light">
-      
-      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
-      
-      <span>友情链接</span>
-    </a>
-    
-  </li>
-  
   <li>
     <a href="#searchModal" class="modal-trigger waves-effect waves-light">
       <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
@@ -203,28 +181,6 @@
 			    <i class="fa-fw fas fa-user-circle"></i>
 			
 			关于
-		</a>
-          
-        </li>
-        
-        <li class="m-nav-item">
-	  
-		<a href="/contact" class="waves-effect waves-light">
-			
-			    <i class="fa-fw fas fa-comments"></i>
-			
-			留言板
-		</a>
-          
-        </li>
-        
-        <li class="m-nav-item">
-	  
-		<a href="/friends" class="waves-effect waves-light">
-			
-			    <i class="fa-fw fas fa-address-book"></i>
-			
-			友情链接
 		</a>
           
         </li>
@@ -413,7 +369,7 @@
 
                                 </div>
                                 <div class="title">Hank</div>
-                                <div class="career">研究生"</div>
+                                <div class="career">一只猫</div>
                                 <div class="social-link hide-on-large-only" data-aos="zoom-in-left">
                                     
     <a href="https://github.com/Cliccker" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
@@ -497,7 +453,7 @@
                     </div>
                 </div>
 
-                <div class="introduction center-align" data-aos="fade-up">三言两语概括不了我。</div>
+                <div class="introduction center-align" data-aos="fade-up">三言两语概括不了我~</div>
 
                 <style type="text/css">
     #posts-chart,
@@ -600,7 +556,7 @@
                 type: 'pie',
                 radius: '50%',
                 color: ['#6772e5', '#ff9e0f', '#fa755a', '#3ecf8e', '#82d3f4', '#ab47bc', '#525f7f', '#f51c47', '#26A69A'],
-                data: [{"name":"想法","value":1},{"name":"学习","value":4}],
+                data: [{"name":"学习","value":4},{"name":"想法","value":1}],
                 itemStyle: {
                     emphasis: {
                         shadowBlur: 10,
@@ -624,7 +580,7 @@
         xAxis: [
             {
                 type: 'category',
-                data: ["知识图谱","一个小笑话","owl","rdf","本体","知识嵌入"]
+                data: ["知识图谱","本体","知识嵌入","一个小笑话","owl","rdf"]
             }
         ],
         yAxis: [
@@ -722,6 +678,18 @@
         <div class="tag-chips center-align">
             
             
+            <a href="/tags/%E6%9C%AC%E4%BD%93/">
+                <span class="chip center-align waves-effect waves-light chip-default">本体</span>
+            </a>
+            
+            
+            
+            <a href="/tags/%E7%9F%A5%E8%AF%86%E5%B5%8C%E5%85%A5/">
+                <span class="chip center-align waves-effect waves-light chip-default">知识嵌入</span>
+            </a>
+            
+            
+            
             <a href="/tags/%E4%B8%80%E4%B8%AA%E5%B0%8F%E7%AC%91%E8%AF%9D/">
                 <span class="chip center-align waves-effect waves-light chip-default">一个小笑话</span>
             </a>
@@ -742,18 +710,6 @@
             
             <a href="/tags/rdf/">
                 <span class="chip center-align waves-effect waves-light chip-default">rdf</span>
-            </a>
-            
-            
-            
-            <a href="/tags/%E6%9C%AC%E4%BD%93/">
-                <span class="chip center-align waves-effect waves-light chip-default">本体</span>
-            </a>
-            
-            
-            
-            <a href="/tags/%E7%9F%A5%E8%AF%86%E5%B5%8C%E5%85%A5/">
-                <span class="chip center-align waves-effect waves-light chip-default">知识嵌入</span>
             </a>
             
             
@@ -1012,10 +968,12 @@ $(function () {
 
     
     
-    <script type="text/javascript" size="150" alpha='0.6'
+    <script type="text/javascript" size="150" alpha='0.8'
         zIndex="-1" src="/libs/background/ribbon-refresh.min.js" async="async"></script>
     
 
+    
+    <script type="text/javascript" src="/libs/background/ribbon-dynamic.js" async="async"></script>
     
 
     

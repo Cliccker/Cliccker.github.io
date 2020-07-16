@@ -104,28 +104,6 @@
     
   </li>
   
-  <li class="hide-on-med-and-down nav-item">
-    
-    <a href="/contact" class="waves-effect waves-light">
-      
-      <i class="fas fa-comments" style="zoom: 0.6;"></i>
-      
-      <span>留言板</span>
-    </a>
-    
-  </li>
-  
-  <li class="hide-on-med-and-down nav-item">
-    
-    <a href="/friends" class="waves-effect waves-light">
-      
-      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
-      
-      <span>友情链接</span>
-    </a>
-    
-  </li>
-  
   <li>
     <a href="#searchModal" class="modal-trigger waves-effect waves-light">
       <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
@@ -203,28 +181,6 @@
 			    <i class="fa-fw fas fa-user-circle"></i>
 			
 			关于
-		</a>
-          
-        </li>
-        
-        <li class="m-nav-item">
-	  
-		<a href="/contact" class="waves-effect waves-light">
-			
-			    <i class="fa-fw fas fa-comments"></i>
-			
-			留言板
-		</a>
-          
-        </li>
-        
-        <li class="m-nav-item">
-	  
-		<a href="/friends" class="waves-effect waves-light">
-			
-			    <i class="fa-fw fas fa-address-book"></i>
-			
-			友情链接
 		</a>
           
         </li>
@@ -360,20 +316,20 @@
                 
                 
                 
-                <a href="/categories/%E6%83%B3%E6%B3%95/" title="想法: 1">
+                <a href="/categories/%E5%AD%A6%E4%B9%A0/" title="学习: 4">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            style="background-color: #F9EBEA;">想法
-                        <span class="tag-length">1</span>
+                            style="background-color: #F9EBEA;">学习
+                        <span class="tag-length">4</span>
                     </span>
                 </a>
                 
                 
-                <a href="/categories/%E5%AD%A6%E4%B9%A0/" title="学习: 4">
+                <a href="/categories/%E6%83%B3%E6%B3%95/" title="想法: 1">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            style="background-color: #F5EEF8;">学习
-                        <span class="tag-length">4</span>
+                            style="background-color: #F5EEF8;">想法
+                        <span class="tag-length">1</span>
                     </span>
                 </a>
                 
@@ -420,7 +376,7 @@
                     color: '#3C4858'
                 }
             },
-            indicator: [{"name":"想法","max":5},{"name":"学习","max":5}],
+            indicator: [{"name":"学习","max":5},{"name":"想法","max":5}],
             nameGap: 5,
             center: ['50%','55%'],
             radius: '66%'
@@ -431,7 +387,7 @@
             itemStyle: {normal: {areaStyle: {type: 'default'}}},
             data : [
                 {
-                    value : [1,4],
+                    value : [4,1],
                     name : '文章分类数量'
                 }
             ]
@@ -685,10 +641,12 @@ $(function () {
 
     
     
-    <script type="text/javascript" size="150" alpha='0.6'
+    <script type="text/javascript" size="150" alpha='0.8'
         zIndex="-1" src="/libs/background/ribbon-refresh.min.js" async="async"></script>
     
 
+    
+    <script type="text/javascript" src="/libs/background/ribbon-dynamic.js" async="async"></script>
     
 
     

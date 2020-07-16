@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="读论文——On2Vec：基于嵌入的本体群体关系预测, 分享、成长">
+    <meta name="keywords" content="《知识图谱：方法、实践与应用》阅读笔记——知识图谱概述, 分享、成长">
     <meta name="description" content="如果可以的话，我想多要一双眼睛">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>读论文——On2Vec：基于嵌入的本体群体关系预测 | 不言物语</title>
+    <title>《知识图谱：方法、实践与应用》阅读笔记——知识图谱概述 | 不言物语</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -104,28 +104,6 @@
     
   </li>
   
-  <li class="hide-on-med-and-down nav-item">
-    
-    <a href="/contact" class="waves-effect waves-light">
-      
-      <i class="fas fa-comments" style="zoom: 0.6;"></i>
-      
-      <span>留言板</span>
-    </a>
-    
-  </li>
-  
-  <li class="hide-on-med-and-down nav-item">
-    
-    <a href="/friends" class="waves-effect waves-light">
-      
-      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
-      
-      <span>友情链接</span>
-    </a>
-    
-  </li>
-  
   <li>
     <a href="#searchModal" class="modal-trigger waves-effect waves-light">
       <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
@@ -203,28 +181,6 @@
 			    <i class="fa-fw fas fa-user-circle"></i>
 			
 			关于
-		</a>
-          
-        </li>
-        
-        <li class="m-nav-item">
-	  
-		<a href="/contact" class="waves-effect waves-light">
-			
-			    <i class="fa-fw fas fa-comments"></i>
-			
-			留言板
-		</a>
-          
-        </li>
-        
-        <li class="m-nav-item">
-	  
-		<a href="/friends" class="waves-effect waves-light">
-			
-			    <i class="fa-fw fas fa-address-book"></i>
-			
-			友情链接
 		</a>
           
         </li>
@@ -308,12 +264,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/19.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/11.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">读论文——On2Vec：基于嵌入的本体群体关系预测</h1>
+                    <h1 class="description center-align post-title">《知识图谱：方法、实践与应用》阅读笔记——知识图谱概述</h1>
                 </div>
             </div>
         </div>
@@ -430,12 +386,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E6%9C%AC%E4%BD%93/">
-                                <span class="chip bg-color">本体</span>
-                            </a>
-                        
-                            <a href="/tags/%E7%9F%A5%E8%AF%86%E5%B5%8C%E5%85%A5/">
-                                <span class="chip bg-color">知识嵌入</span>
+                            <a href="/tags/%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1/">
+                                <span class="chip bg-color">知识图谱</span>
                             </a>
                         
                     </div>
@@ -459,7 +411,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-07-16
+                    2020-07-13
                 </div>
                 
 
@@ -480,25 +432,58 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="读论文——On2Vec：基于嵌入的本体群体关系预测"><a href="#读论文——On2Vec：基于嵌入的本体群体关系预测" class="headerlink" title="读论文——On2Vec：基于嵌入的本体群体关系预测"></a>读论文——On2Vec：基于嵌入的本体群体关系预测</h1><p><em>原标题*：On2Vec: Embedding-based Relation Prediction for Ontology Population  *<a href="https://arxiv.org/abs/1809.02382" target="_blank" rel="noopener">来源</a></em></p>
-<h2 id="研究背景"><a href="#研究背景" class="headerlink" title="研究背景"></a>研究背景</h2><h3 id="要做什么？"><a href="#要做什么？" class="headerlink" title="要做什么？"></a>要做什么？</h3><p>Ontology population(本体填充)，指将原始信息（可以是非结构化、半结构化或者结构化的数据）转换为本体实例的过程。</p>
-<h3 id="遇到了什么问题？"><a href="#遇到了什么问题？" class="headerlink" title="遇到了什么问题？"></a>遇到了什么问题？</h3><p>现有的研究已经能将基于翻译的知识嵌入模式应用到实例层级的图谱中，实现较好的填充效果。相比于实例图谱，本体视图中的关系事实包含了更多复杂的语义关系，包括<strong>可传递性</strong>和<strong>对称性</strong>以及<strong>层次关系</strong>。这种关系对于现有的嵌入模式来说过于复杂，且直接应用不可行。</p>
-<img src="/medias/loading.gif" data-original="https://my-picbed.oss-cn-hangzhou.aliyuncs.com/img/批注 2020-07-16 162227.png" alt="图1" title="图1" style="zoom:50%;" />
-
-<p>我们可以按照图1去解释这种复杂的关系</p>
-<ul>
-<li><p>A是B的祖先，B是C的祖先，则A是C的祖先，可见“···是···的祖先”这是一种传递关系。把它放在向量空间上，用r_ancestor表示两者之间的转换向量，有<br>$$<br>A+r_{ancestor}\approx B，B+r_{ancestor}\approx C<br>$$<br>按照传递性的原则应当有：<br>$$<br>A+r_{ancestor}\approx C<br>$$<br>然而结果却是：<br>$$<br>r_{(A,C)} \ne r_{ancestor}<br>$$<br>也就是说“···是···的祖先”是一种隐含着层级关系的传递关系，这可能听起来很拗口，但是这种关系的确存在而且不可避免。你想想，如果没有这一层层级关系，爷爷和爸爸不就同辈了吗？</p>
-</li>
-<li><p>E是F的朋友，F是E的朋友，“···是···的朋友”这是一种对称性关系。同样的在向量空间上，应该有<br>$$<br>E+r_{friend}\approx F，F+r_{friend}\approx E<br>$$<br>然而事实上<br>$$<br>E+r_{friend}\approx F，but \ F+r_{friend}\ne E<br>$$<br>意味着转换向量并不能既把E映射到F上，又也把F映射到E上。你把我当普通朋友，我把你当知心好友（当然这样解释并不恰当）</p>
-</li>
-<li></li>
-</ul>
-<h3 id="提出了什么技术？"><a href="#提出了什么技术？" class="headerlink" title="提出了什么技术？"></a>提出了什么技术？</h3><p>由两个模型组件组成的On2vec，包括：</p>
-<ol>
-<li>Component-specific Model （组件特定模型）将概念和关系编码嵌入低维空间，且不丢失相关属性；</li>
-<li>Hierarchy Model  （层次模型）集中处理层级关系。</li>
+                <h2 id="什么是知识图谱？"><a href="#什么是知识图谱？" class="headerlink" title="什么是知识图谱？"></a>什么是知识图谱？</h2><p>一种用<strong>图模型</strong>(probabilistic graphic models)来描述知识和建模世界万物之间的关联关系的技术方法。由<strong>节点</strong>和<strong>边</strong>组成</p>
+<h2 id="知识图谱的价值"><a href="#知识图谱的价值" class="headerlink" title="知识图谱的价值"></a>知识图谱的价值</h2><ol>
+<li>辅助搜索</li>
+<li>辅助问答</li>
+<li>辅助大数据分析</li>
+<li>辅助语言理解，人机之间的相互理解</li>
 </ol>
-<h2 id="技术路线"><a href="#技术路线" class="headerlink" title="技术路线"></a>技术路线</h2><h3 id="建模"><a href="#建模" class="headerlink" title="建模"></a>建模</h3>
+<p><img src="/medias/loading.gif" data-original="https://pic4.zhimg.com/v2-c83e96721a4635920b7aac623783042f_b.png" alt=""></p>
+<p>这道看似简单的题，机器却毫无办法。“到底谁大谁小？”</p>
+<p>5.辅助设备互联，机器与机器之间的相互理解书中一直强调的辅助作用，是不是意味着知识图谱更像一种锦上添花的工具？</p>
+<h2 id="一些知识图谱项目"><a href="#一些知识图谱项目" class="headerlink" title="一些知识图谱项目"></a>一些知识图谱项目</h2><p>freebase​</p>
+<p>wikidata（需要梯子）</p>
+<p><img src="/medias/loading.gif" data-original="https://pic4.zhimg.com/v2-8ef39dbe4682280e4814220dfcbc49d3_b.png" alt=""></p>
+<p>如何构建一个规模化的知识图谱</p>
+<p>值得注意的是阿里巴巴有自己的电商知识图谱，规模达到了百亿级别。</p>
+<h2 id="知识图谱的技术流程"><a href="#知识图谱的技术流程" class="headerlink" title="知识图谱的技术流程"></a>知识图谱的技术流程</h2><ul>
+<li>知识图谱采用更加规范而标准的概念模型、本题术语和语法格式来建模和描述数据</li>
+<li>通过语义链接来增强数据之间的关系</li>
+</ul>
+<p>_就像是一张网。_知识图谱方法论涉及知识表示、知识获取、知识处理和知识利用多个方面。一般流程为：</p>
+<ol>
+<li>首先确定知识表示模型，然后根据数据来源选择不同的知识获取手段导入知识</li>
+<li>接着综合利用知识推理、知识融合、知识挖掘等技术对构建的知识图谱进行质量提升，</li>
+<li>最后根据场景需求设计不同的知知识访问与呈现方法，如语义搜索、问答交互、图谱可视化分析等。</li>
+</ol>
+<h3 id="1-知识来源"><a href="#1-知识来源" class="headerlink" title="1.知识来源"></a>1.知识来源</h3><p>有多种来源来获取知识，除了文本，我们还可以考虑结构化数据库、多媒体数据、传感器数据和人工众包。对于文本数据源，我们要用到<strong>自然语言处理技术。</strong>对于各种结构化数据库，<strong>需要将结构化数据定义到本体模型之间的语义映射，再通过编写语义翻译工具实现转化。</strong></p>
+<h3 id="2-知识表示"><a href="#2-知识表示" class="headerlink" title="2.知识表示"></a><strong>2.知识表示</strong></h3><p>即用计算机符号来表述人类的语言</p>
+<p><img src="/medias/loading.gif" data-original="https://pic2.zhimg.com/v2-9ef1ddd2692744e97469778a17e53765_b.png" alt=""></p>
+<p>知识表示的产出目标</p>
+<p><img src="/medias/loading.gif" data-original="https://pic1.zhimg.com/v2-c3c4263647d7b65e840280206d4be42c_b.png" alt=""></p>
+<p>知识图谱分类</p>
+<h3 id="3-知识抽取"><a href="#3-知识抽取" class="headerlink" title="3.知识抽取"></a>3.知识抽取</h3><p>知识抽取按任务划分可以分为概念抽取、实体识别、关系抽取、事件抽取和规则抽取等</p>
+<p><img src="/medias/loading.gif" data-original="https://pic2.zhimg.com/v2-46f64c05ef7f4c2de99f6324ca7bda29_b.png" alt=""></p>
+<p>知识抽取的划分</p>
+<p>书中解释了远程监督的思想远程监督的思想是，利用一个大型的语义数据库自动获取关系类型标签。这些标签可能是含有噪声的，但是大量的训练数据在一定程度上可以抵消这些噪声。另外，一些工作通过多任务学习等方法将实体和关系做联合抽取。最新的一些研究则利用强化学习减少人工标注并自动降低噪声。如何减少人工标注，是我现阶段工作的重点。</p>
+<h3 id="4-知识融合"><a href="#4-知识融合" class="headerlink" title="4.知识融合"></a>4.知识融合</h3><p>外部数据库合并到本体知识库时，需要解决两个问题</p>
+<ol>
+<li>通过模式层(?)的融合，将新的本体融入已有的本体库中，以及新旧本体的融合</li>
+<li>数据层的融合，包括实体的指称、属性、关系和所属类别。</li>
+</ol>
+<p><strong>关键问题是如何避免实例以及关系的冲突问题，造成不必要的冗余</strong></p>
+<p><em>文中提到的本体概念，这边没有太理解，需要另找专门的文献再熟悉熟悉</em></p>
+<h3 id="5-知识图谱的补全和推理（重头戏"><a href="#5-知识图谱的补全和推理（重头戏" class="headerlink" title="5.知识图谱的补全和推理（重头戏)"></a>5.知识图谱的补全和推理（重头戏)</h3><h3 id="6-知识检索和知识分析"><a href="#6-知识检索和知识分析" class="headerlink" title="6.知识检索和知识分析"></a>6.知识检索和知识分析</h3><p>包括语义检索和智能问答</p>
+<h2 id="知识图谱相关技术"><a href="#知识图谱相关技术" class="headerlink" title="知识图谱相关技术"></a>知识图谱相关技术</h2><p><img src="/medias/loading.gif" data-original="https://pic4.zhimg.com/v2-7793c97d516a7921e3efbda54397813f_b.png" alt=""></p>
+<p>数据库与数据模型</p>
+<p><img src="/medias/loading.gif" data-original="https://pic4.zhimg.com/v2-258314714963e49e9bb038c5ade3ce93_b.png" alt=""></p>
+<p>知识问答</p>
+<p><img src="/medias/loading.gif" data-original="https://pic2.zhimg.com/v2-a47b6ecd00ed64de048f2419e3aebbd1_b.png" alt=""></p>
+<p>知识推理</p>
+<p>基于表示学习的知识图谱推理研究的主要研究趋势是，一方面提高表示学习结果对知识图谱中含有的语义信息的捕捉能力，目前的研究多集中在链接预测任务上，其他推理任务有待跟进研究；另一方面是利用分布式表示作为桥梁，将知识图谱与文本、图像等异质信息结合，实现信息互补以及更多样化的综合推理。如果说我们人的思维是一个已经存在的知识图谱，那么我们在学习知识的时候，基于知识表示的学习方法一定是更快的，相比于基于规则的推理而言，知识来源的渠道更广泛，更丰富，更能激发“兴趣”。后面还写到了推荐系统与去中心化，这里暂且不论。</p>
+<p><strong><em>第一章 完</em></strong></p>
+
             </div>
             <hr/>
 
@@ -523,7 +508,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://yoursite.com/2020/07/16/2020-7-16-%E8%AF%BB%E8%AE%BA%E6%96%87%E2%80%94%E2%80%94On2Vec%EF%BC%9A%E5%9F%BA%E4%BA%8E%E5%B5%8C%E5%85%A5%E7%9A%84%E6%9C%AC%E4%BD%93%E7%BE%A4%E4%BD%93%E5%85%B3%E7%B3%BB%E9%A2%84%E6%B5%8B/">http://yoursite.com/2020/07/16/2020-7-16-%E8%AF%BB%E8%AE%BA%E6%96%87%E2%80%94%E2%80%94On2Vec%EF%BC%9A%E5%9F%BA%E4%BA%8E%E5%B5%8C%E5%85%A5%E7%9A%84%E6%9C%AC%E4%BD%93%E7%BE%A4%E4%BD%93%E5%85%B3%E7%B3%BB%E9%A2%84%E6%B5%8B/</a>
+                    <a href="http://yoursite.com/2020/07/13/zhi-shi-tu-pu-fang-fa-shi-jian-yu-ying-yong-yue-du-bi-ji-zhi-2/">http://yoursite.com/2020/07/13/zhi-shi-tu-pu-fang-fa-shi-jian-yu-ying-yong-yue-du-bi-ji-zhi-2/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -561,12 +546,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E6%9C%AC%E4%BD%93/">
-                                    <span class="chip bg-color">本体</span>
-                                </a>
-                            
-                                <a href="/tags/%E7%9F%A5%E8%AF%86%E5%B5%8C%E5%85%A5/">
-                                    <span class="chip bg-color">知识嵌入</span>
+                                <a href="/tags/%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1/">
+                                    <span class="chip bg-color">知识图谱</span>
                                 </a>
                             
                         </div>
@@ -997,31 +978,30 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2020/07/16/2020-7-16-%E8%AF%BB%E8%AE%BA%E6%96%87%E2%80%94%E2%80%94On2Vec%EF%BC%9A%E5%9F%BA%E4%BA%8E%E5%B5%8C%E5%85%A5%E7%9A%84%E6%9C%AC%E4%BD%93%E7%BE%A4%E4%BD%93%E5%85%B3%E7%B3%BB%E9%A2%84%E6%B5%8B/">
+                <a href="/2020/07/14/zhi-shi-tu-pu-fang-fa-shi-jian-yu-ying-yong-yue-du-bi-ji-zhi-3/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/loading.gif" data-original="/medias/featureimages/19.jpg" class="responsive-img" alt="读论文——On2Vec：基于嵌入的本体群体关系预测">
+                        <img src="/medias/loading.gif" data-original="/medias/featureimages/5.jpg" class="responsive-img" alt="《知识图谱：方法、实践与应用》阅读笔记——知识图谱表示与建模（2）">
                         
-                        <span class="card-title">读论文——On2Vec：基于嵌入的本体群体关系预测</span>
+                        <span class="card-title">《知识图谱：方法、实践与应用》阅读笔记——知识图谱表示与建模（2）</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            读论文——On2Vec：基于嵌入的本体群体关系预测原标题*：On2Vec: Embedding-based Relation Prediction for Ontology Population  *来源
-研究背景要做什么？Ontology
+                            距离上一篇读书笔记已经有一段日子了，中间打了很多代码，也摸了很多🐟。有时候还是比较细化打代码的，感觉比码字有意思。但是有意思的事做太多就不会有积累了，所以接着填这个坑叭！
+互联网时代的语义网知识表示框架上一篇文章中提到的“语义网”让知识表
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-16
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-07-14
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -1034,16 +1014,19 @@
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E6%9C%AC%E4%BD%93/">
-                        <span class="chip bg-color">本体</span>
+                    <a href="/tags/%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1/">
+                        <span class="chip bg-color">知识图谱</span>
                     </a>
                     
-                    <a href="/tags/%E7%9F%A5%E8%AF%86%E5%B5%8C%E5%85%A5/">
-                        <span class="chip bg-color">知识嵌入</span>
+                    <a href="/tags/owl/">
+                        <span class="chip bg-color">owl</span>
+                    </a>
+                    
+                    <a href="/tags/rdf/">
+                        <span class="chip bg-color">rdf</span>
                     </a>
                     
                 </div>
@@ -1057,32 +1040,45 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/07/15/hello-world/">
+                <a href="/2020/07/13/zhi-shi-tu-pu-fang-fa-shi-jian-yu-ying-yong-yue-du-bi-ji-zhi/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/loading.gif" data-original="/medias/featureimages/12.jpg" class="responsive-img" alt="Hello World">
+                        <img src="/medias/loading.gif" data-original="/medias/featureimages/12.jpg" class="responsive-img" alt="《知识图谱：方法、实践与应用》阅读笔记——知识图谱表示与建模（1）">
                         
-                        <span class="card-title">Hello World</span>
+                        <span class="card-title">《知识图谱：方法、实践与应用》阅读笔记——知识图谱表示与建模（1）</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hex
+                            上一篇文章中我们介绍了什么是知识图谱，而这一篇讲述了知识图谱的表示和建模方法。和编程之前需要选择平台一样，知识图谱的建模也需要我们来选择一种方法。本章主要讲述了如何使用这些方法对知识进行建模。
+1.什么是知识表示知识表示的五大用途和特点客观
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-15
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-13
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            Hank
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E5%AD%A6%E4%B9%A0/" class="post-category">
+                                    学习
+                                </a>
+                            
                             
                         </span>
                     </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1/">
+                        <span class="chip bg-color">知识图谱</span>
+                    </a>
+                    
                 </div>
                 
             </div>
@@ -1218,13 +1214,6 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
 
 </main>
 
-
-<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-<script>
-    MathJax.Hub.Config({
-        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
-    });
-</script>
 
 
 
@@ -1467,10 +1456,12 @@ $(function () {
 
     
     
-    <script type="text/javascript" size="150" alpha='0.6'
+    <script type="text/javascript" size="150" alpha='0.8'
         zIndex="-1" src="/libs/background/ribbon-refresh.min.js" async="async"></script>
     
 
+    
+    <script type="text/javascript" src="/libs/background/ribbon-dynamic.js" async="async"></script>
     
 
     
