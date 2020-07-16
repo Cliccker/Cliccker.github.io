@@ -434,7 +434,7 @@
             <div id="articleContent">
                 <p>上一篇文章中我们介绍了什么是知识图谱，而这一篇讲述了知识图谱的表示和建模方法。和编程之前需要选择平台一样，知识图谱的建模也需要我们来选择一种方法。本章主要讲述了如何使用这些方法对知识进行建模。</p>
 <h2 id="1-什么是知识表示"><a href="#1-什么是知识表示" class="headerlink" title="1.什么是知识表示"></a>1.什么是知识表示</h2><p>知识表示的五大用途和特点<strong>客观事物的机器标示</strong>（A KR is a Surrogate），即知识表示首先需要定义客观实体的机器指代或指称。 <strong>一组本体约定和概念模型</strong>（A KR is a Set of Ontological Commitments），即知识表示还需要定义用于描述客观事物的概念和类别体系。 <strong>支持推理的表示基础</strong>（A KR is a Theory of Intelligent Reasoning），即知识表示还需要提供机器推理的模型与方法。 <strong>用于高效计算的数据结构</strong>（A KR is a medium for Efficient Computation），即知识表示也是一种用于高效计算的数据结构。 <strong>人可理解的机器语言</strong>（A KR is a Medium of Human Expression），即知识表示还必须接近于人的认知，是人可理解的机器语言。再来梳理一下知识表示发展的脉络</p>
-<p><img src="/medias/loading.gif" data-original="https://pic2.zhimg.com/v2-a1c0be286efd3f1dcd5c86f8a1b6287d_b.png" alt="" title="知识表示发展脉络"></p>
+<p><img src="https://pic2.zhimg.com/v2-a1c0be286efd3f1dcd5c86f8a1b6287d_b.png" alt="" title="知识表示发展脉络"></p>
 <p>知识表示发展脉络</p>
 <p>Q：为什么要引入向量的概念？A: 简单来讲，向量能够表示更多字符无法表示的隐藏的知识，且更易于推理。</p>
 <hr>
@@ -445,8 +445,8 @@
 <p>COMPUTER（x）：x是计算机系的学生。LIKE（x，y）：x喜欢y。HIGHER（x，y）：x比y长得高。</p>
 <p><strong><em>第二步：将个体代入谓词中</em></strong></p>
 <p>这里涉及的个体有：张晓辉（zhangxh），编程序（programming），李晓鹏（lixp），以函数father（lixp）表示李晓鹏的父亲。</p>
-<p><img src="/medias/loading.gif" data-original="https://www.zhihu.com/equation?tex=COMPUTER(zhangxh)%20%2C~LIKE(zhangxh%2C%20programming)%20%20%2CHIGHER(lip%2C%20father%EF%BC%88lixp%EF%BC%89)" alt="COMPUTER(zhangxh) ,~LIKE(zhangxh, programming)  ,HIGHER(lip, father（lixp）)">)COMPUTER(zhangxh) ,~LIKE(zhangxh, programming) ,HIGHER(lip, father（lixp）)</p>
-<p><strong><em>第三步：根据语义，用逻辑联接词将它们联接起来，就得到了表示上述知识的谓词公式</em></strong><img src="/medias/loading.gif" data-original="https://www.zhihu.com/equation?tex=COMPUTER(zhangxh)%20%E2%88%A7LIKE(zhangxh%2C%20programming)" alt="COMPUTER(zhangxh) ∧LIKE(zhangxh, programming)"></p>
+<p><img src="https://www.zhihu.com/equation?tex=COMPUTER(zhangxh)%20%2C~LIKE(zhangxh%2C%20programming)%20%20%2CHIGHER(lip%2C%20father%EF%BC%88lixp%EF%BC%89)" alt="COMPUTER(zhangxh) ,~LIKE(zhangxh, programming)  ,HIGHER(lip, father（lixp）)">)COMPUTER(zhangxh) ,~LIKE(zhangxh, programming) ,HIGHER(lip, father（lixp）)</p>
+<p><strong><em>第三步：根据语义，用逻辑联接词将它们联接起来，就得到了表示上述知识的谓词公式</em></strong><img src="https://www.zhihu.com/equation?tex=COMPUTER(zhangxh)%20%E2%88%A7LIKE(zhangxh%2C%20programming)" alt="COMPUTER(zhangxh) ∧LIKE(zhangxh, programming)"></p>
 <p>COMPUTER(zhangxh) ∧LIKE(zhangxh, programming)</p>
 <p><em>张晓辉是一个计算机系的学生，他喜欢编程</em></p>
 <p>HIGHER(lixp, father( lixp))</p>
@@ -459,7 +459,7 @@
 <li><strong>语义网络</strong></li>
 </ul>
 <p>语义网络在形式上式一个带有标识的有向图，由节点和连接弧组成。如图</p>
-<p><img src="/medias/loading.gif" data-original="https://pic1.zhimg.com/v2-b1be71183c8a9d116fc9fe7e66d25528_b.png" alt=""></p>
+<p><img src="https://pic1.zhimg.com/v2-b1be71183c8a9d116fc9fe7e66d25528_b.png" alt=""></p>
 <p>语义网络的构成</p>
 <p>语义网络的<strong>缺点</strong>是</p>
 <ol>
@@ -471,7 +471,7 @@
 <li><strong>框架</strong></li>
 </ul>
 <p><strong>其理论的基本思想是：认为人们对现实世界中各种事物的认识都以一种类似于框架的结构存储在记忆中。</strong></p>
-<p><img src="/medias/loading.gif" data-original="https://pic3.zhimg.com/v2-71697617962190b91b396e34f73f9ef6_b.png" alt=""></p>
+<p><img src="https://pic3.zhimg.com/v2-71697617962190b91b396e34f73f9ef6_b.png" alt=""></p>
 <p>一个框架的实例</p>
 <p>我们可以看到框架中有很多默认值，这种默认值会大大增加推理的难度。</p>
 <ul>

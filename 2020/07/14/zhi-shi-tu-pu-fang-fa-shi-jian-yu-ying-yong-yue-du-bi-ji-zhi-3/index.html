@@ -444,24 +444,24 @@
 <h2 id="互联网时代的语义网知识表示框架"><a href="#互联网时代的语义网知识表示框架" class="headerlink" title="互联网时代的语义网知识表示框架"></a>互联网时代的语义网知识表示框架</h2><p>上一篇文章中提到的“语义网”让知识表示迎来了新的春天，不过也出现了新的挑战——标准语言在哪里？HTML和XML已经跟不上这个时代了（时代变了，大人）。W3C提出了新的标准语言RDF和OWL，我们一起来欣赏一下吧。</p>
 <h3 id="核心成员RDF"><a href="#核心成员RDF" class="headerlink" title="核心成员RDF"></a>核心成员RDF</h3><p>RDF中的知识永远是以三元组的形式呈现出来，就是(subject,predicate,object)， 亦即（主语，谓语，宾语）。我们可以把它看成一个传统意义上的句子结构中的主谓宾，比如“我喜欢吃冰淇淋，吃完就长肉”👉（我，喜欢，吃冰淇淋）（我，长，肉）。同时我们也可以用（我，在什么时候吃雪糕，“12点”^xsd:date）表示“我在12点吃了雪糕”。从中我们可以看出，RDF中的主语一定是一个个体（individual），书中也解释了个体是类的实例，比如我是人“类”的一个实例，谓语表示属性，宾语可以是个体也可是实例。</p>
 <p>我们拿我怎么变胖来构建来建立一个图谱，如下</p>
-<p><img src="/medias/loading.gif" data-original="http://121.199.51.214/wp-content/uploads/2020/07/%E6%89%B9%E6%B3%A8-2020-07-14-153445.png" alt=""></p>
+<p><img src="http://121.199.51.214/wp-content/uploads/2020/07/%E6%89%B9%E6%B3%A8-2020-07-14-153445.png" alt=""></p>
 <p>我变胖的一个图谱</p>
 <p>再来把他写成英文，如下</p>
-<p><img src="/medias/loading.gif" data-original="http://121.199.51.214/wp-content/uploads/2020/07/%E6%89%B9%E6%B3%A8-2020-07-14-153804-1.png" alt=""></p>
+<p><img src="http://121.199.51.214/wp-content/uploads/2020/07/%E6%89%B9%E6%B3%A8-2020-07-14-153804-1.png" alt=""></p>
 <p>a KG of my growing weights</p>
 <p>由于在RDF中的主谓宾都有一个全局标识，所以我们再给这个图谱中的元素加点料</p>
-<p><img src="/medias/loading.gif" data-original="http://121.199.51.214/wp-content/uploads/2020/07/%E6%89%B9%E6%B3%A8-2020-07-14-155352-1.png" alt=""></p>
+<p><img src="http://121.199.51.214/wp-content/uploads/2020/07/%E6%89%B9%E6%B3%A8-2020-07-14-155352-1.png" alt=""></p>
 <p>看起来是不是更像回事了？</p>
 <p>全局URL可以简化为前缀URL，当然也可以出现没有前缀的空白节点（BlankNode），长这样</p>
-<p><img src="/medias/loading.gif" data-original="http://121.199.51.214/wp-content/uploads/2020/07/%E6%89%B9%E6%B3%A8-2020-07-14-160905.png" alt=""></p>
+<p><img src="http://121.199.51.214/wp-content/uploads/2020/07/%E6%89%B9%E6%B3%A8-2020-07-14-160905.png" alt=""></p>
 <p>空白节点可以代入你我他哦</p>
 <h3 id="开放世界假设"><a href="#开放世界假设" class="headerlink" title="开放世界假设"></a>开放世界假设</h3><p>这个假设听起来是不是很酷呢？实际上他比听起来更酷。开放世界假设使得RDF图谱里的知识可以是不完整的，例如我喜欢吃冰激凌，并不意味着我只喜欢吃冰激凌，雪糕当然也是不错的选择😋，(i,enjoy,ice-cream)代表冰淇淋至少是我的一个爱好！采用开放世界假设有什么好处呢？答案是可以实现分布式存储，像这样：</p>
-<p><img src="/medias/loading.gif" data-original="http://121.199.51.214/wp-content/uploads/2020/07/%E6%89%B9%E6%B3%A8-2020-07-14-162100.png" alt=""></p>
+<p><img src="http://121.199.51.214/wp-content/uploads/2020/07/%E6%89%B9%E6%B3%A8-2020-07-14-162100.png" alt=""></p>
 <p>我喜欢冰淇淋&amp;冰淇淋是光明牌的</p>
-<p><img src="/medias/loading.gif" data-original="http://121.199.51.214/wp-content/uploads/2020/07/%E6%89%B9%E6%B3%A8-2020-07-14-162503.png" alt=""></p>
+<p><img src="http://121.199.51.214/wp-content/uploads/2020/07/%E6%89%B9%E6%B3%A8-2020-07-14-162503.png" alt=""></p>
 <p>我喜欢吃光明的冰淇淋</p>
 <h3 id="RDF-Schema——RDFS"><a href="#RDF-Schema——RDFS" class="headerlink" title="RDF Schema——RDFS"></a>RDF Schema——RDFS</h3><p>RDFSchema（RDF模式，简称RDFS）提供了对类和属性的简单描述，包括上下级关系（subclass_of)，定义域(domian)，值域（range）等。这一步我直接上书上的图：</p>
-<p><img src="/medias/loading.gif" data-original="http://121.199.51.214/wp-content/uploads/2020/07/%E6%89%B9%E6%B3%A8-2020-07-14-163732.png" alt=""></p>
+<p><img src="http://121.199.51.214/wp-content/uploads/2020/07/%E6%89%B9%E6%B3%A8-2020-07-14-163732.png" alt=""></p>
 <p>可谓图糙理不糙，上面是本体视图，下面是实例视图</p>
 <hr>
 <h2 id="主力成员OWL🦉"><a href="#主力成员OWL🦉" class="headerlink" title="主力成员OWL🦉"></a>主力成员OWL🦉</h2><p>RDF(S)可以表示一些简单的语义，但是如果场景更加复杂的化，RDF就不太行了。RDF本身缺少很多常用的特征，把书中写出来的几个简单罗列：</p>
