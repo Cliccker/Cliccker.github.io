@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Hello World, 分享、成长">
+    <meta name="keywords" content="《知识图谱：方法、实践与应用》阅读笔记——知识图谱表示与建模（1）, 分享、成长">
     <meta name="description" content="最后还是喧杂再github上搭自己的博客">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Hello World | 不言物语</title>
+    <title>《知识图谱：方法、实践与应用》阅读笔记——知识图谱表示与建模（1） | 不言物语</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -313,7 +313,7 @@
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Hello World</h1>
+                    <h1 class="description center-align post-title">《知识图谱：方法、实践与应用》阅读笔记——知识图谱表示与建模（1）</h1>
                 </div>
             </div>
         </div>
@@ -428,9 +428,13 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">No tag</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E5%AD%A6%E4%B9%A0/">
+                                <span class="chip bg-color">学习</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
@@ -442,7 +446,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
-                    2020-07-15
+                    2020-07-13
                 </div>
                 
 
@@ -463,15 +467,53 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre class=" language-bash"><code class="language-bash">$ hexo new <span class="token string">"My New Post"</span></code></pre>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre class=" language-bash"><code class="language-bash">$ hexo server</code></pre>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre class=" language-bash"><code class="language-bash">$ hexo generate</code></pre>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre class=" language-bash"><code class="language-bash">$ hexo deploy</code></pre>
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+                <p>上一篇文章中我们介绍了什么是知识图谱，而这一篇讲述了知识图谱的表示和建模方法。和编程之前需要选择平台一样，知识图谱的建模也需要我们来选择一种方法。本章主要讲述了如何使用这些方法对知识进行建模。</p>
+<h2 id="1-什么是知识表示"><a href="#1-什么是知识表示" class="headerlink" title="1.什么是知识表示"></a>1.什么是知识表示</h2><p>知识表示的五大用途和特点<strong>客观事物的机器标示</strong>（A KR is a Surrogate），即知识表示首先需要定义客观实体的机器指代或指称。 <strong>一组本体约定和概念模型</strong>（A KR is a Set of Ontological Commitments），即知识表示还需要定义用于描述客观事物的概念和类别体系。 <strong>支持推理的表示基础</strong>（A KR is a Theory of Intelligent Reasoning），即知识表示还需要提供机器推理的模型与方法。 <strong>用于高效计算的数据结构</strong>（A KR is a medium for Efficient Computation），即知识表示也是一种用于高效计算的数据结构。 <strong>人可理解的机器语言</strong>（A KR is a Medium of Human Expression），即知识表示还必须接近于人的认知，是人可理解的机器语言。再来梳理一下知识表示发展的脉络</p>
+<p><img src="https://pic2.zhimg.com/v2-a1c0be286efd3f1dcd5c86f8a1b6287d_b.png" alt="" title="知识表示发展脉络"></p>
+<p>知识表示发展脉络</p>
+<p>Q：为什么要引入向量的概念？A: 简单来讲，向量能够表示更多字符无法表示的隐藏的知识，且更易于推理。</p>
+<hr>
+<h3 id="2-早期的一些表示方法"><a href="#2-早期的一些表示方法" class="headerlink" title="2.早期的一些表示方法"></a>2.早期的一些表示方法</h3><ul>
+<li><strong>一阶谓词逻辑</strong></li>
+</ul>
+<p><strong><em>第一步：列出一些基本逻辑</em></strong></p>
+<p>COMPUTER（x）：x是计算机系的学生。LIKE（x，y）：x喜欢y。HIGHER（x，y）：x比y长得高。</p>
+<p><strong><em>第二步：将个体代入谓词中</em></strong></p>
+<p>这里涉及的个体有：张晓辉（zhangxh），编程序（programming），李晓鹏（lixp），以函数father（lixp）表示李晓鹏的父亲。</p>
+<p><img src="https://www.zhihu.com/equation?tex=COMPUTER(zhangxh)%20%2C~LIKE(zhangxh%2C%20programming)%20%20%2CHIGHER(lip%2C%20father%EF%BC%88lixp%EF%BC%89)" alt="COMPUTER(zhangxh) ,~LIKE(zhangxh, programming)  ,HIGHER(lip, father（lixp）)">)COMPUTER(zhangxh) ,~LIKE(zhangxh, programming) ,HIGHER(lip, father（lixp）)</p>
+<p><strong><em>第三步：根据语义，用逻辑联接词将它们联接起来，就得到了表示上述知识的谓词公式</em></strong><img src="https://www.zhihu.com/equation?tex=COMPUTER(zhangxh)%20%E2%88%A7LIKE(zhangxh%2C%20programming)" alt="COMPUTER(zhangxh) ∧LIKE(zhangxh, programming)"></p>
+<p>COMPUTER(zhangxh) ∧LIKE(zhangxh, programming)</p>
+<p><em>张晓辉是一个计算机系的学生，他喜欢编程</em></p>
+<p>HIGHER(lixp, father( lixp))</p>
+<p><em>李晓鹏比他父亲长得高</em></p>
+<ul>
+<li><strong>霍恩子句和霍恩逻辑</strong></li>
+</ul>
+<p><strong>霍恩子句（Horn Clause）得名于逻辑学家Alfred Horn[6]。一个子句是文字的析取。霍恩子句是带有最多一个肯定（positive）文字的子句，肯定文字指的是没有否定符号的文字。例如，Øp1∨…∨Øpn∨ q是一个霍恩子句，它可以被等价地写为（p1∧…∧pn）→ q。Alfred Horn于1951年撰文指出这种子句的重要性。</strong>这一段书里讲的内容属实没看明白，但是也不是特别重要，因为在知识表示方面他已经是过去式了！</p>
+<ul>
+<li><strong>语义网络</strong></li>
+</ul>
+<p>语义网络在形式上式一个带有标识的有向图，由节点和连接弧组成。如图</p>
+<p><img src="https://pic1.zhimg.com/v2-b1be71183c8a9d116fc9fe7e66d25528_b.png" alt=""></p>
+<p>语义网络的构成</p>
+<p>语义网络的<strong>缺点</strong>是</p>
+<ol>
+<li>同一段知识可能有多种多样的表示形式。不同的表示形式会提高处理不同语义网络的复杂性。</li>
+<li>如果你想要理解一个语义网络的含义，那你只能依靠其处理程序。即语义网络缺少一套公认的形式表示体系。这会产生什么样的影响呢？举个栗子，假如全世界各个国家的人只说自己本国的语言，那跨国交流就只能依靠打手势了，使得知识表示非常容易产生偏差。</li>
+</ol>
+<p><strong><em>“我对着她竖起了中指，她却以为我爱上了她”</em></strong></p>
+<ul>
+<li><strong>框架</strong></li>
+</ul>
+<p><strong>其理论的基本思想是：认为人们对现实世界中各种事物的认识都以一种类似于框架的结构存储在记忆中。</strong></p>
+<p><img src="https://pic3.zhimg.com/v2-71697617962190b91b396e34f73f9ef6_b.png" alt=""></p>
+<p>一个框架的实例</p>
+<p>我们可以看到框架中有很多默认值，这种默认值会大大增加推理的难度。</p>
+<ul>
+<li><strong>描述逻辑</strong></li>
+</ul>
+<p><strong>描述逻辑可以被看成是利用一阶逻辑对语义网络和框架进行形式化后的产物。描述逻辑一般支持一元谓词和二元谓词。一元谓词称为类，二元谓词称为关系。描述逻辑的重要特征是同时具有很强的表达能力和可判定性。</strong>描述逻辑是OWL的理论基础，下一篇文章再详细讨论</p>
+<p><strong><em>To Be Continued ….</em></strong></p>
 
             </div>
             <hr/>
@@ -497,7 +539,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://yoursite.com/2020/07/15/hello-world/">http://yoursite.com/2020/07/15/hello-world/</a>
+                    <a href="http://yoursite.com/2020/07/13/%E3%80%8A%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1%EF%BC%9A%E6%96%B9%E6%B3%95%E3%80%81%E5%AE%9E%E8%B7%B5%E4%B8%8E%E5%BA%94%E7%94%A8%E3%80%8B%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0-%E7%9F%A5/">http://yoursite.com/2020/07/13/%E3%80%8A%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1%EF%BC%9A%E6%96%B9%E6%B3%95%E3%80%81%E5%AE%9E%E8%B7%B5%E4%B8%8E%E5%BA%94%E7%94%A8%E3%80%8B%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0-%E7%9F%A5/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -534,7 +576,11 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            <span class="chip bg-color">No tag</span>
+                            
+                                <a href="/tags/%E5%AD%A6%E4%B9%A0/">
+                                    <span class="chip bg-color">学习</span>
+                                </a>
+                            
                         </div>
                     
                 </div>
@@ -704,24 +750,25 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
             <div class="card">
-                <a href="/2020/07/15/89/">
+                <a href="/2020/07/13/%E3%80%8A%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1%EF%BC%9A%E6%96%B9%E6%B3%95%E3%80%81%E5%AE%9E%E8%B7%B5%E4%B8%8E%E5%BA%94%E7%94%A8%E3%80%8B%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0-%E7%9F%A5-4/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="89">
+                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="《知识图谱：方法、实践与应用》阅读笔记——知识图谱表示与建模（1）">
                         
-                        <span class="card-title">89</span>
+                        <span class="card-title">《知识图谱：方法、实践与应用》阅读笔记——知识图谱表示与建模（1）</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
+                            上一篇文章中我们介绍了什么是知识图谱，而这一篇讲述了知识图谱的表示和建模方法。和编程之前需要选择平台一样，知识图谱的建模也需要我们来选择一种方法。本章主要讲述了如何使用这些方法对知识进行建模。
+1.什么是知识表示知识表示的五大用途和特点客观
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-07-15
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-07-13
                         </span>
                         <span class="publish-author">
                             
@@ -730,6 +777,14 @@
                             
                         </span>
                     </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E5%AD%A6%E4%B9%A0/">
+                        <span class="chip bg-color">学习</span>
+                    </a>
+                    
                 </div>
                 
             </div>
@@ -741,25 +796,27 @@
                 Next&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/07/14/146-1/">
+                <a href="/2020/07/13/hello-world-1/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="烧卖有梗">
+                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="烧卖的第二台服务器">
                         
-                        <span class="card-title">烧卖有梗</span>
+                        <span class="card-title">烧卖的第二台服务器</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            从今年开始，学生们最恐怖的噩梦从梦到上学没穿裤子变成了网课没关麦。
+                            这次用的是阿里云
+我们能听用它实现什么呢 ?
+让我们拭目以待叭
 
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-14
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-13
                             </span>
                         <span class="publish-author">
                             
@@ -772,16 +829,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E6%97%A5%E5%BF%97/">
-                        <span class="chip bg-color">日志</span>
-                    </a>
-                    
-                    <a href="/tags/%E4%B8%80%E4%B8%AA%E5%B0%8F%E7%AC%91%E8%AF%9D/">
-                        <span class="chip bg-color">一个小笑话</span>
-                    </a>
-                    
-                    <a href="/tags/%E6%83%B3%E6%B3%95/">
-                        <span class="chip bg-color">想法</span>
+                    <a href="/tags/%E5%AD%A6%E4%B9%A0/">
+                        <span class="chip bg-color">学习</span>
                     </a>
                     
                 </div>
