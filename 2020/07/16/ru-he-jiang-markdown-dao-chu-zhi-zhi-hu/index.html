@@ -432,17 +432,36 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p><a href="https://www.cnblogs.com/TTyb/p/12634665.html" target="_blank" rel="noopener">转自该博客</a></p>
-<p>使用了<code>notepad++</code></p>
-<p><img src="https://my-picbed.oss-cn-hangzhou.aliyuncs.com/img/20200716201315.png" alt="image-20200716201315885"></p>
-<p>将文章公式中的$$替换</p>
-<pre class=" language-html"><code class="language-html">\$\$\n*((.|\n)*?)\n*\$\$</code></pre>
-<p>成</p>
-<pre class=" language-html"><code class="language-html">\n<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>img</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>https://www.zhihu.com/equation?tex<span class="token punctuation">=</span>\1<span class="token punctuation">"</span></span> <span class="token attr-name">alt</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>\1<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>ee_img tr_noresize<span class="token punctuation">"</span></span> <span class="token attr-name">eeimg</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>1<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>\n</code></pre>
-<p>将文章公式中</p>
-<pre class=" language-html"><code class="language-html">\$\n*(.*?)\n*\$</code></pre>
-<p>替换成</p>
-<pre class=" language-html"><code class="language-html">\n<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>img</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>https://www.zhihu.com/equation?tex<span class="token punctuation">=</span>\1<span class="token punctuation">"</span></span> <span class="token attr-name">alt</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>\1<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>ee_img tr_noresize<span class="token punctuation">"</span></span> <span class="token attr-name">eeimg</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>1<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>\n</code></pre>
+                <pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true"># 2019-11-26</span>
+
+<span class="token keyword">import</span> re
+<span class="token keyword">import</span> sys
+<span class="token keyword">def</span> <span class="token function">replace</span><span class="token punctuation">(</span>file_name<span class="token punctuation">,</span> output_file_name<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">try</span><span class="token punctuation">:</span>
+        pattern1 <span class="token operator">=</span> r<span class="token string">"\$\$\n*([\s\S]*?)\n*\$\$"</span>
+        new_pattern1 <span class="token operator">=</span> r<span class="token string">'\n&lt;img src="https://www.zhihu.com/equation?tex=\1" alt="\1" class="ee_img tr_noresize" eeimg="1">\n'</span>
+        pattern2 <span class="token operator">=</span> r<span class="token string">"\$\n*(.*?)\n*\$"</span>
+        new_pattern2 <span class="token operator">=</span>r<span class="token string">'\n&lt;img src="https://www.zhihu.com/equation?tex=\1" alt="\1" class="ee_img tr_noresize" eeimg="1">\n'</span>
+        f <span class="token operator">=</span> open<span class="token punctuation">(</span>file_name<span class="token punctuation">,</span> <span class="token string">'r'</span><span class="token punctuation">,</span>encoding<span class="token operator">=</span><span class="token string">'utf-8'</span><span class="token punctuation">)</span>
+        f_output <span class="token operator">=</span> open<span class="token punctuation">(</span>output_file_name<span class="token punctuation">,</span> <span class="token string">'w'</span><span class="token punctuation">,</span>encoding<span class="token operator">=</span><span class="token string">'utf-8'</span><span class="token punctuation">)</span>
+        all_lines <span class="token operator">=</span> f<span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        new_lines1 <span class="token operator">=</span> re<span class="token punctuation">.</span>sub<span class="token punctuation">(</span>pattern1<span class="token punctuation">,</span> new_pattern1<span class="token punctuation">,</span> all_lines<span class="token punctuation">)</span>
+        new_lines2 <span class="token operator">=</span> re<span class="token punctuation">.</span>sub<span class="token punctuation">(</span>pattern2<span class="token punctuation">,</span> new_pattern2<span class="token punctuation">,</span> new_lines1<span class="token punctuation">)</span>
+        f_output<span class="token punctuation">.</span>write<span class="token punctuation">(</span>new_lines2<span class="token punctuation">)</span>
+
+        f<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        f_output<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">except</span> Exception <span class="token keyword">as</span> e<span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span>
+
+
+<span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">'__main__'</span><span class="token punctuation">:</span>
+    file_name <span class="token operator">=</span> <span class="token string">'original_version.md'</span>
+    file_name_pre <span class="token operator">=</span> file_name<span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token string">"."</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
+    output_file_name <span class="token operator">=</span> <span class="token string">"zhihu_version.md"</span>
+    replace<span class="token punctuation">(</span>file_name<span class="token punctuation">,</span> output_file_name<span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'Trans from {} to {}'</span><span class="token punctuation">.</span>format<span class="token punctuation">(</span>file_name<span class="token punctuation">,</span> output_file_name<span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
+<p>放在同一文件夹下，将markdown文件改名为’original_version.md’，运行就可以了</p>
 
             </div>
             <hr/>
@@ -955,13 +974,7 @@
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            转自该博客
-使用了notepad++
-
-将文章公式中的$$替换
-\$\$\n*((.|\n)*?)\n*\$\$
-成
-\n&lt;img src="https://www.zhihu.com/equation?tex=\1" alt="\1
+                            知乎上的一段代码
                         
                     </div>
                     <div class="publish-info">
