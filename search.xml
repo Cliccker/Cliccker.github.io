@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>《算法设计与分析课程》笔记</title>
+      <link href="/2020/07/19/xue-suan-fa/"/>
+      <url>/2020/07/19/xue-suan-fa/</url>
+      
+        <content type="html"><![CDATA[<h2 id="1-1-算法的基本概念"><a href="#1-1-算法的基本概念" class="headerlink" title="1.1__算法的基本概念"></a>1.1__算法的基本概念</h2><p>算法的重要属性——<code>正确</code>和<code>高效</code></p><img src="https://my-picbed.oss-cn-hangzhou.aliyuncs.com/img/20200719143345.png" alt="事件复杂度" style="zoom:50%;" /><h2 id="1-2-算法举例"><a href="#1-2-算法举例" class="headerlink" title="1.2__算法举例"></a>1.2__算法举例</h2><h3 id="局部高点"><a href="#局部高点" class="headerlink" title="局部高点"></a>局部高点</h3><p>定义：存在列表$A$，若$A[i-1] \leq A[i] \geq A[i+1]$，则称$A[i]$为局部高点。不是所有序列都有局部高点，这里限制边界条件$A[-1] = A[n]= -\infty$。</p><h4 id="简单算法："><a href="#简单算法：" class="headerlink" title="简单算法："></a>简单算法：</h4><p>找出数列中任意一个局部高点</p><p>逐个索引，比较前后元素之间的大小</p><ul><li>最好的情况：第一个元素就是局部高点 <code>1次</code></li><li>最坏的情况：最后一个元素才是局部高点<code>n次</code></li></ul><p><font color="#4590a3" size="4px">算法分析应考虑最坏的情况</font>，实际分析中应尽量忽略数据的分布</p><p>所以简单算法的效率事$O(n)$，函数是一个单调递增的线性函数</p><h4 id="更高效的算法："><a href="#更高效的算法：" class="headerlink" title="更高效的算法："></a>更高效的算法：</h4><p>考虑每次查找都缩小查找的范围</p><p><img src="https://my-picbed.oss-cn-hangzhou.aliyuncs.com/img/20200719151316.png" alt="三种可能存在的情况"></p><p>从中间的元素开始查找，可以在一次比较厚，缩小一半的搜索范围（二分法）</p><p>算法的效率为$O(log_2n)$</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 学习 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> python </tag>
+            
+            <tag> 算法 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>如何将MarkDown笔记导出至知乎</title>
       <link href="/2020/07/16/ru-he-jiang-markdown-dao-chu-zhi-zhi-hu/"/>
       <url>/2020/07/16/ru-he-jiang-markdown-dao-chu-zhi-zhi-hu/</url>
