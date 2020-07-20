@@ -501,12 +501,12 @@
 <tr>
 <td align="center">$R_{tr}$</td>
 <td align="center">传递关系</td>
-<td align="center"></td>
+<td align="center">如isConnectedTo</td>
 </tr>
 <tr>
 <td align="center">$R_s$</td>
 <td align="center">对称关系</td>
-<td align="center"></td>
+<td align="center">如isMarriedTo</td>
 </tr>
 <tr>
 <td align="center">$R_h$</td>
@@ -521,7 +521,7 @@
 <tr>
 <td align="center">$R_c$</td>
 <td align="center">将细概念划分到粗概念的强制关系</td>
-<td align="center">如islocatedIn</td>
+<td align="center">如isLocatedIn</td>
 </tr>
 <tr>
 <td align="center">$R_o$</td>
@@ -567,8 +567,11 @@
 <ul>
 <li>$\theta$ 是包括嵌入向量和投影矩阵的一系列的参数的集合</li>
 <li>$\alpha_{1} S_{\mathrm{HM}}$中的$\alpha_1$用来调整两个模型的权重</li>
-<li>$\alpha_1S_N$中的$\alpha_1$是一个大于零小于等一的数，$S_N$用来对嵌入和投影施加约束，防止出现向量趋向于无限大的情况。其形式如下<br>$$<br>\begin{aligned}<br>S_{\mathrm{N}}(C, R)=&amp; \sum_{c \in C}\left([|\mathbf{c}|-1]<em>{+}+\left[\left|f</em>{1, r}(\mathbf{c})\right|-1\right]<em>{+}\right.\<br>&amp;\left.+\left[\left|f</em>{2, r}(\mathbf{c})\right|-1\right]<em>{+}\right)+\sum</em>{r \in R}[|\mathbf{r}|-2]_{+}<br>\end{aligned}<br>$$<br>最后给出了具体算法流程如图</li>
+<li>$\alpha_1S_N$中的$\alpha_1$是一个大于零小于等一的数，$S_N$用来对嵌入和投影施加约束，防止出现向量趋向于无限大的情况。其形式如下</li>
 </ul>
+<img src="https://my-picbed.oss-cn-hangzhou.aliyuncs.com/img/20200720152243.png" alt="$S_N$" style="zoom: 50%;" />
+
+<p>最后给出了具体算法流程如图</p>
 <img src="https://my-picbed.oss-cn-hangzhou.aliyuncs.com/img/20200717171122.png" alt="图4 算法" style="zoom:67%;" />
 
 <h3 id="数据集"><a href="#数据集" class="headerlink" title="数据集"></a>数据集</h3><img src="https://my-picbed.oss-cn-hangzhou.aliyuncs.com/img/20200717172910.png" alt="图5 数据集" style="zoom:67%;" />
