@@ -563,11 +563,17 @@
 <p>$s’$和$t’$在这里做负面样本，其中</p>
 <p>$$<br>S_{h r}=\left[\omega\left(f_{1, r}(\mathbf{s})+\mathbf{r}, f_{2, r}(\mathbf{t})\right)-\omega\left(f_{1, r}(\mathbf{s})+\mathbf{r}, f_{2, r}\left(\mathbf{t}^{\prime}\right)\right)+\gamma_{2}\right]_{+}<br>$$</p>
 <p>$$<br>S_{h c}=\left[\omega\left(f_{2, r}(\mathbf{t})-\mathbf{r}, f_{1, r}(\mathbf{s})\right)-\omega\left(f_{2, r}(\mathbf{t})-\mathbf{r}, f_{1, r}\left(\mathbf{s}^{\prime}\right)\right)+\gamma_{2}\right]_{+}<br>$$</p>
-<h3 id="算法流程"><a href="#算法流程" class="headerlink" title="算法流程"></a>算法流程</h3><img src="https://my-picbed.oss-cn-hangzhou.aliyuncs.com/img/20200717171122.png" alt="图4 算法" style="zoom:67%;" />
+<h3 id="学习流程"><a href="#学习流程" class="headerlink" title="学习流程"></a>学习流程</h3><p>学习的目标是联合损失最小，联合损失的表达式如下<br>$$<br>J(\theta)=S_{\mathrm{CSM}}+\alpha_{1} S_{\mathrm{HM}}+\alpha_{2} S_{\mathrm{N}}<br>$$</p>
+<ul>
+<li>$\theta$ 是包括嵌入向量和投影矩阵的一系列的参数的集合</li>
+<li>$\alpha_{1} S_{\mathrm{HM}}$中的$\alpha_1$用来调整两个模型的权重</li>
+<li>$\alpha_1S_N$中的$\alpha_1$是一个大于零小于等一的数，$S_N$用来对嵌入和投影施加约束，防止出现向量趋向于无限大的情况。其形式如下<br>$$<br>\begin{aligned}<br>S_{\mathrm{N}}(C, R)=&amp; \sum_{c \in C}\left([|\mathbf{c}|-1]<em>{+}+\left[\left|f</em>{1, r}(\mathbf{c})\right|-1\right]<em>{+}\right.\<br>&amp;\left.+\left[\left|f</em>{2, r}(\mathbf{c})\right|-1\right]<em>{+}\right)+\sum</em>{r \in R}[|\mathbf{r}|-2]_{+}<br>\end{aligned}<br>$$<br>最后给出了具体算法流程如图</li>
+</ul>
+<img src="https://my-picbed.oss-cn-hangzhou.aliyuncs.com/img/20200717171122.png" alt="图4 算法" style="zoom:67%;" />
 
 <h3 id="数据集"><a href="#数据集" class="headerlink" title="数据集"></a>数据集</h3><img src="https://my-picbed.oss-cn-hangzhou.aliyuncs.com/img/20200717172910.png" alt="图5 数据集" style="zoom:67%;" />
 
-<p>在实验中，这个模型被用来做<code>关系预测</code>和<code>关系识别</code></p>
+<p>在实验中，这个模型被用来做<code>关系预测</code>和<code>关系识别</code>。</p>
 <h2 id="写在最后"><a href="#写在最后" class="headerlink" title="写在最后"></a>写在最后</h2><p>这篇论文看的我蛮痛苦的，因为里面好多用词都不是那么精准，而且也没有合适的图例表达算法逻辑，和之前发出来那篇差了好多，许多地方并不能说服我，有时间再看看他的源码吧。果然好论文一定是容易读的论文！</p>
 
             </div>
