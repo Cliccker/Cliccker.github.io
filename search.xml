@@ -5,8 +5,8 @@
     
     <entry>
       <title>如何加速Github访问速度</title>
-      <link href="/2020/07/22/ru-he-jia-su-gay-de-hub/"/>
-      <url>/2020/07/22/ru-he-jia-su-gay-de-hub/</url>
+      <link href="/2020/07/22/ru-he-jia-su-github/"/>
+      <url>/2020/07/22/ru-he-jia-su-github/</url>
       
         <content type="html"><![CDATA[<p>最近比较烦时常抽风的GitHub，搞得我不能愉快的<del>克隆</del>借鉴代码，再加上之前一直在用的鸡场场长跑路了，所以尝试改hosts来实现。</p><h2 id="首先把hosts放出来"><a href="#首先把hosts放出来" class="headerlink" title="首先把hosts放出来"></a>首先把hosts放出来</h2><p>路径是</p><pre><code>C:\Windows\System32\drivers\etc\hosts</code></pre><p>你可以把它复制到桌面上，增加三行，再覆盖原文件。</p><pre><code>140.82.112.3                github.com185.199.108.153             assets-cdn.github.com199.232.69.194              github.global.ssl.fastly.net</code></pre><p>当然这只是我的配置，你可以拿去用但是我不知道能不能奏效。</p><p>如果效果不好，你可以自己在<a href="https://www.ipaddress.com/" target="_blank" rel="noopener">ipaddress</a>上查找对应域名的ip然后进行更改。</p><p>值得注意的是第二个加速域名有多个ip，任选一个即可。</p><h2 id="到这里还没完"><a href="#到这里还没完" class="headerlink" title="到这里还没完"></a>到这里还没完</h2><p>打开CMD，输入</p><pre><code>ipconfig /flushdns</code></pre><p>回车后执行刷新本地DNS缓存数据。</p><p>试试看访问我的<a href="https://github.com/Cliccker" target="_blank" rel="noopener">个人主页</a>，如果能快速加载出来就说明奏效了。</p><h2 id="但是"><a href="#但是" class="headerlink" title="但是"></a>但是</h2><p>访问速度是快了不少，下载还是龟速怎么办？</p><p>一种方法是在码云上新建一个仓库，然后把Repo搬过来下载，个人觉得这样做有点麻烦。</p><p>另一种方法比较推荐，就是利用文件代下载服务，如<a href="https://shrill-pond-3e81.hunsh.workers.dev/" target="_blank" rel="noopener">https://shrill-pond-3e81.hunsh.workers.dev/</a></p><p><img src="https://my-picbed.oss-cn-hangzhou.aliyuncs.com/img/20200722162047.png" alt="加速下载"></p><p>感谢热衷于分享的程序⚪们！</p>]]></content>
       
