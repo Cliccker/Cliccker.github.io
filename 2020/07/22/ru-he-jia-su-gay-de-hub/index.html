@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="《算法设计与分析课程》笔记, 分享、成长">
+    <meta name="keywords" content="如何加速Github访问速度, 分享、成长">
     <meta name="description" content="如果可以的话，我想多要一双眼睛">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>《算法设计与分析课程》笔记 | 不言物语</title>
+    <title>如何加速Github访问速度 | 不言物语</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -264,12 +264,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/3.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/5.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">《算法设计与分析课程》笔记</h1>
+                    <h1 class="description center-align post-title">如何加速Github访问速度</h1>
                 </div>
             </div>
         </div>
@@ -386,12 +386,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/python/">
-                                <span class="chip bg-color">python</span>
+                            <a href="/tags/GitHub/">
+                                <span class="chip bg-color">GitHub</span>
                             </a>
                         
-                            <a href="/tags/%E7%AE%97%E6%B3%95/">
-                                <span class="chip bg-color">算法</span>
+                            <a href="/tags/%E5%8A%A0%E9%80%9F/">
+                                <span class="chip bg-color">加速</span>
                             </a>
                         
                     </div>
@@ -402,8 +402,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E5%AD%A6%E4%B9%A0/" class="post-category">
-                                学习
+                            <a href="/categories/%E6%8A%80%E5%B7%A7/" class="post-category">
+                                技巧
                             </a>
                         
                     </div>
@@ -415,7 +415,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-07-19
+                    2020-07-22
                 </div>
                 
 
@@ -436,23 +436,16 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="1-1-算法的基本概念"><a href="#1-1-算法的基本概念" class="headerlink" title="1.1__算法的基本概念"></a>1.1__算法的基本概念</h2><p>算法的重要属性——<code>正确</code>和<code>高效</code></p>
-<img src="https://my-picbed.oss-cn-hangzhou.aliyuncs.com/img/20200719143345.png" alt="时间复杂度" style="zoom:50%;" />
-
-<h2 id="1-2-算法举例"><a href="#1-2-算法举例" class="headerlink" title="1.2__算法举例"></a>1.2__算法举例</h2><h3 id="局部高点"><a href="#局部高点" class="headerlink" title="局部高点"></a>局部高点</h3><p>定义：存在列表$A$，若$A[i-1] \leq A[i] \geq A[i+1]$，则称$A[i]$为局部高点。不是所有序列都有局部高点，这里限制边界条件$A[-1] = A[n]= -\infty$。</p>
-<h4 id="简单算法："><a href="#简单算法：" class="headerlink" title="简单算法："></a>简单算法：</h4><p>找出数列中任意一个局部高点</p>
-<p>逐个索引，比较前后元素之间的大小</p>
-<ul>
-<li>最好的情况：第一个元素就是局部高点 <code>1次</code></li>
-<li>最坏的情况：最后一个元素才是局部高点<code>n次</code></li>
-</ul>
-<p><font color="#4590a3" size="4px">算法分析应考虑最坏的情况</font>，实际分析中应尽量忽略数据的分布</p>
-<p>所以简单算法的效率事$O(n)$，函数是一个单调递增的线性函数</p>
-<h4 id="更高效的算法："><a href="#更高效的算法：" class="headerlink" title="更高效的算法："></a>更高效的算法：</h4><p>考虑每次查找都缩小查找的范围</p>
-<p><img src="https://my-picbed.oss-cn-hangzhou.aliyuncs.com/img/20200719160534.png" alt="三种可能存在的情况"></p>
-<p>从中间的元素开始查找，可以在一次比较后，缩小一半的搜索范围（二分法）</p>
-<p>算法的效率为$O(log_2n)$</p>
-
+                <p>最近比较烦时常抽风的GitHub，搞得我不能愉快的<del>克隆</del>借鉴代码，再加上之前一直在用的鸡场场长跑路了，所以尝试改hosts来实现。</p>
+<h2 id="首先把hosts放出来"><a href="#首先把hosts放出来" class="headerlink" title="首先把hosts放出来"></a>首先把hosts放出来</h2><p>路径是</p>
+<pre><code>C:\Windows\System32\drivers\etc\hosts</code></pre><p>你可以把它复制到桌面上，在源文件的基础上加三行，再覆盖原文件。</p>
+<pre><code>140.82.112.3                github.com
+185.199.108.153             assets-cdn.github.com
+199.232.69.194              github.global.ssl.fastly.net</code></pre><p>当然这只是我的配置，你可以拿去用但是我不知道能不能奏效。保险一点你可以自己在<a href="https://www.ipaddress.com/" target="_blank" rel="noopener">ipaddress</a>上查找对应域名的ip然后进行更改。值得注意的是第二个加速域名有多个ip，任选一个。</p>
+<h2 id="到这里还没完"><a href="#到这里还没完" class="headerlink" title="到这里还没完"></a>到这里还没完</h2><p>打开CMD，输入</p>
+<pre><code>ipconfig /flushdns</code></pre><p>回车后执行刷新本地dns缓存数据即可。</p>
+<p>知乎上好多评论说这个没效果，但是我我觉得效果极其明显，因为之前万年加载不出来的<a href="https://cliccker.github.io/" target="_blank" rel="noopener">github.io</a>能顺利加载出来了。</p>
+<h2 id="Enjoy-it"><a href="#Enjoy-it" class="headerlink" title="Enjoy it"></a>Enjoy it</h2>
             </div>
             <hr/>
 
@@ -477,7 +470,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://uxh8qq.coding-pages.com/2020/07/19/xue-suan-fa/">http://uxh8qq.coding-pages.com/2020/07/19/xue-suan-fa/</a>
+                    <a href="http://uxh8qq.coding-pages.com/2020/07/22/ru-he-jia-su-gay-de-hub/">http://uxh8qq.coding-pages.com/2020/07/22/ru-he-jia-su-gay-de-hub/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -515,12 +508,12 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/python/">
-                                    <span class="chip bg-color">python</span>
+                                <a href="/tags/GitHub/">
+                                    <span class="chip bg-color">GitHub</span>
                                 </a>
                             
-                                <a href="/tags/%E7%AE%97%E6%B3%95/">
-                                    <span class="chip bg-color">算法</span>
+                                <a href="/tags/%E5%8A%A0%E9%80%9F/">
+                                    <span class="chip bg-color">加速</span>
                                 </a>
                             
                         </div>
@@ -951,9 +944,10 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2020/07/22/ru-he-jia-su-gay-de-hub/">
                     <div class="card-image">
@@ -971,9 +965,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-07-22
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-22
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -986,6 +980,7 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -1008,31 +1003,31 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/07/16/ru-he-jiang-markdown-dao-chu-zhi-zhi-hu/">
+                <a href="/2020/07/19/xue-suan-fa/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="如何将MarkDown笔记导出至知乎">
+                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="《算法设计与分析课程》笔记">
                         
-                        <span class="card-title">如何将MarkDown笔记导出至知乎</span>
+                        <span class="card-title">《算法设计与分析课程》笔记</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            知乎上的一段代码
+                            这是我导师在B站上更新的一门课程，我将持续更新我的课程笔记。
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-16
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-19
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E6%8A%80%E5%B7%A7/" class="post-category">
-                                    技巧
+                            <a href="/categories/%E5%AD%A6%E4%B9%A0/" class="post-category">
+                                    学习
                                 </a>
                             
                             
@@ -1042,8 +1037,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/MarkDown/">
-                        <span class="chip bg-color">MarkDown</span>
+                    <a href="/tags/python/">
+                        <span class="chip bg-color">python</span>
+                    </a>
+                    
+                    <a href="/tags/%E7%AE%97%E6%B3%95/">
+                        <span class="chip bg-color">算法</span>
                     </a>
                     
                 </div>
@@ -1181,13 +1180,6 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
 
 </main>
 
-
-<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-<script>
-    MathJax.Hub.Config({
-        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
-    });
-</script>
 
 
 
