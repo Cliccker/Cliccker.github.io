@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="如何申请GitHub学生包, 分享、成长">
+    <meta name="keywords" content="向量相似度计算方法, 分享、成长">
     <meta name="description" content="如果可以的话，我想多要一双眼睛">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>如何申请GitHub学生包 | 不言物语</title>
+    <title>向量相似度计算方法 | 不言物语</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -269,7 +269,7 @@
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">如何申请GitHub学生包</h1>
+                    <h1 class="description center-align post-title">向量相似度计算方法</h1>
                 </div>
             </div>
         </div>
@@ -386,12 +386,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/GitHub/">
-                                <span class="chip bg-color">GitHub</span>
+                            <a href="/tags/%E7%9F%A5%E8%AF%86%E5%B5%8C%E5%85%A5/">
+                                <span class="chip bg-color">知识嵌入</span>
                             </a>
                         
-                            <a href="/tags/%E7%99%BD%E5%AB%96/">
-                                <span class="chip bg-color">白嫖</span>
+                            <a href="/tags/%E5%90%91%E9%87%8F/">
+                                <span class="chip bg-color">向量</span>
                             </a>
                         
                     </div>
@@ -402,8 +402,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E6%8A%80%E5%B7%A7/" class="post-category">
-                                技巧
+                            <a href="/categories/%E5%AD%A6%E4%B9%A0/" class="post-category">
+                                学习
                             </a>
                         
                     </div>
@@ -415,7 +415,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-07-22
+                    2020-07-27
                 </div>
                 
 
@@ -436,28 +436,63 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>事情是这样的，刚打开Pycharm出现了这样的一幕：</p>
-<img src="https://my-picbed.oss-cn-hangzhou.aliyuncs.com/img/20200722181810.png" alt="证书他又双叒过期了" style="zoom:50%;" />
+                <p>最近在做的嵌入模型比较，需要用到比较向量相似度，在知乎上看到了<a href="https://zhuanlan.zhihu.com/p/33164335" target="_blank" rel="noopener">一篇文章</a>，简单搬运过来做一些笔记和代码实践。这里列举一些向量相似度计算的方法：</p>
+<ol>
+<li>欧式距离（Euclidean Distance）</li>
+<li>余弦相似度（Cosine）</li>
+<li>皮尔逊相关系数（Pearson）</li>
+<li>修正余弦相似度（Adjusted Cosine）</li>
+<li>汉明距离（Hamming Distance）</li>
+<li>曼哈顿距离（Manhattan Distance）</li>
+</ol>
+<h2 id="欧式距离（Euclidean-Distance）"><a href="#欧式距离（Euclidean-Distance）" class="headerlink" title="欧式距离（Euclidean Distance）"></a>欧式距离（Euclidean Distance）</h2><h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><p>欧氏距离比较容易理解，就是两点之间的直线距离，二以此类推空间中的两点$a(x_1,y_1)和b(x_2,y_2)$的欧式距离可以表示为：<br>$$<br>d=\sqrt{(x_1-x_2)^{2}+(y_1-y_2)^{2}}<br>$$<br>多维空间中的两点之间欧式距离可以表示为：<br>$$<br>d=\sqrt{(x_1-x_2)^{2}+(y_1-y_2)^{2}+(z_1-z_2)^{2}+···}<br>$$</p>
+<h3 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h3><p>python简单实现：</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">EuclideanDistance</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span> y<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    d <span class="token operator">=</span> <span class="token number">0</span>
+    <span class="token keyword">for</span> a<span class="token punctuation">,</span> b <span class="token keyword">in</span> zip<span class="token punctuation">(</span>x<span class="token punctuation">,</span> y<span class="token punctuation">)</span><span class="token punctuation">:</span>  <span class="token comment" spellcheck="true"># zip将两个列表打包为元组的列表</span>
+        d <span class="token operator">+=</span> <span class="token punctuation">(</span>a <span class="token operator">-</span> b<span class="token punctuation">)</span> <span class="token operator">**</span> <span class="token number">2</span>
+    <span class="token keyword">return</span> d <span class="token operator">**</span> <span class="token number">0.5</span></code></pre>
+<p>使用numpy计算：</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">EuclideanDistance_np</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span> y<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token comment" spellcheck="true"># np.linalg.norm 用于范数计算，默认是二范数，相当于平方和开根号</span>
+    <span class="token keyword">return</span> np<span class="token punctuation">.</span>linalg<span class="token punctuation">.</span>norm<span class="token punctuation">(</span>np<span class="token punctuation">.</span>array<span class="token punctuation">(</span>x<span class="token punctuation">)</span> <span class="token operator">-</span> np<span class="token punctuation">.</span>array<span class="token punctuation">(</span>y<span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
+<p>经测试，对于同样的两组向量，两个函数的结果相同。</p>
+<h2 id="余弦相似度（Cosine）"><a href="#余弦相似度（Cosine）" class="headerlink" title="余弦相似度（Cosine）"></a>余弦相似度（Cosine）</h2><h3 id="定义-1"><a href="#定义-1" class="headerlink" title="定义"></a>定义</h3><blockquote>
+<p>首先，样本数据的夹角余弦并不是真正几何意义上的夹角余弦，只不过是借了它的名字，实际是借用了它的概念变成了是代数意义上的“夹角余弦”，用来衡量样本向量间的差异。</p>
+</blockquote>
+<p>夹角越小，余弦值越接近1，反之越接近-1。假设有两个向量$\vec x_1,\vec x_2$:<br>$$<br>\cos (\theta)=\frac{\sum_{k=1}^{n} x_{1 k} x_{2 k}}{\sqrt{\sum_{k=1}^{n} x_{1 k}^{2}} \sqrt{\sum_{k=1}^{n} x_{2 k}^{2}}}<br>$$</p>
+<h3 id="实现-1"><a href="#实现-1" class="headerlink" title="实现"></a>实现</h3><p>用python实现该公式：</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">Cosine</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span> y<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    sum_xy <span class="token operator">=</span> <span class="token number">0</span>
+    num_x <span class="token operator">=</span> <span class="token number">0</span>
+    num_y <span class="token operator">=</span> <span class="token number">0</span>
+    <span class="token keyword">for</span> a<span class="token punctuation">,</span> b <span class="token keyword">in</span> zip<span class="token punctuation">(</span>x<span class="token punctuation">,</span> y<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        sum_xy <span class="token operator">+=</span> a <span class="token operator">*</span> b
+        num_x <span class="token operator">+=</span> a <span class="token operator">**</span> <span class="token number">2</span>
+        num_y <span class="token operator">+=</span> b <span class="token operator">**</span> <span class="token number">2</span>
+    <span class="token keyword">if</span> num_x <span class="token operator">==</span> <span class="token number">0</span> <span class="token operator">or</span> num_y <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">:</span>  <span class="token comment" spellcheck="true"># 判断分母是否为零</span>
+        <span class="token keyword">return</span> None
+    <span class="token keyword">else</span><span class="token punctuation">:</span>
+        <span class="token keyword">return</span> sum_xy <span class="token operator">/</span> <span class="token punctuation">(</span>num_y <span class="token operator">*</span> num_x<span class="token punctuation">)</span> <span class="token operator">**</span> <span class="token number">0.5</span>
 
-<p>遂想找个方法再续上一续，结果发现了Jetbrain其实开放了学生免费使用Pycharm开发，网址<a href="https://sales.jetbrains.com/hc/zh-cn/articles/207154369-%E5%AD%A6%E7%94%9F%E6%8E%88%E6%9D%83%E7%94%B3%E8%AF%B7%E6%96%B9%E5%BC%8F" target="_blank" rel="noopener">戳我</a></p>
-<img src="https://my-picbed.oss-cn-hangzhou.aliyuncs.com/img/20200722181957.png" alt="JetBrain上的申请说明" style="zoom:67%;" />
+V_x <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">7</span><span class="token punctuation">,</span> <span class="token number">8</span><span class="token punctuation">,</span> <span class="token number">9</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">]</span>
+V_y <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">7</span><span class="token punctuation">,</span> <span class="token number">7</span><span class="token punctuation">,</span> <span class="token number">9</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span>
+V_z <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">14</span><span class="token punctuation">,</span> <span class="token number">16</span><span class="token punctuation">,</span> <span class="token number">18</span><span class="token punctuation">,</span> <span class="token number">8</span><span class="token punctuation">]</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>Cosine<span class="token punctuation">(</span>V_x<span class="token punctuation">,</span> V_y<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true"># 0.9956602816447043</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>Cosine<span class="token punctuation">(</span>V_x<span class="token punctuation">,</span> V_z<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true"># 1.0</span></code></pre>
+<p>用numpy简化计算过程，用相同的向量测试：</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">Cosine_np</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span> y<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    a <span class="token operator">=</span> np<span class="token punctuation">.</span>mat<span class="token punctuation">(</span>x<span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># 需要转换成矩阵才能实现转置</span>
+    b <span class="token operator">=</span> np<span class="token punctuation">.</span>mat<span class="token punctuation">(</span>y<span class="token punctuation">)</span>
+    d <span class="token operator">=</span> a <span class="token operator">*</span> b<span class="token punctuation">.</span>T
+    denom <span class="token operator">=</span> np<span class="token punctuation">.</span>linalg<span class="token punctuation">.</span>norm<span class="token punctuation">(</span>a<span class="token punctuation">)</span> <span class="token operator">*</span> np<span class="token punctuation">.</span>linalg<span class="token punctuation">.</span>norm<span class="token punctuation">(</span>b<span class="token punctuation">)</span>
+    <span class="token keyword">return</span> d <span class="token operator">/</span> denom
 
-<p>这才意识到我不就是学生吗！遂准备申请，点进去看到了这样的选项：</p>
-<img src="https://my-picbed.oss-cn-hangzhou.aliyuncs.com/img/20200722182653.png" alt="又看到我们的老朋友Github" style="zoom:67%;" />
-
-<p>原来GitHub为学生准备了专门的开发包</p>
-<img src="https://my-picbed.oss-cn-hangzhou.aliyuncs.com/img/20200722191656.png" style="zoom:50%;" />
-
-<p>内容很丰富，都列举不完，<a href="https://education.github.com/pack" target="_blank" rel="noopener">戳我查看</a>，来一起看看如何申请这个包吧！</p>
-<h2 id="流程"><a href="#流程" class="headerlink" title="流程"></a>流程</h2><p>点击<code>Get the pack</code>，选择最左侧的<code>Get students benefits</code>。然后你会看到这样一个界面</p>
-<p><img src="https://my-picbed.oss-cn-hangzhou.aliyuncs.com/img/20200722190935.png" alt="第一步"></p>
-<img src="https://my-picbed.oss-cn-hangzhou.aliyuncs.com/img/20200722190944.png" alt="批注 2020-07-22 185645" style="zoom:80%;" />
-
-
-
-<p>如何填写我都放在图片里了。</p>
-<p>点击提交你会看到<img src="https://my-picbed.oss-cn-hangzhou.aliyuncs.com/img/20200722191150.png" alt="哇要等18天呐（其实应该不用那么久）" style="zoom: 67%;" /></p>
-<p>好，到这里我们开始等待吧，如果成功了我就把这篇发在别的地方。</p>
+V_x <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">7</span><span class="token punctuation">,</span> <span class="token number">8</span><span class="token punctuation">,</span> <span class="token number">9</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">]</span>
+V_y <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">7</span><span class="token punctuation">,</span> <span class="token number">7</span><span class="token punctuation">,</span> <span class="token number">9</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span>
+V_z <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">14</span><span class="token punctuation">,</span> <span class="token number">16</span><span class="token punctuation">,</span> <span class="token number">18</span><span class="token punctuation">,</span> <span class="token number">8</span><span class="token punctuation">]</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>Cosine<span class="token punctuation">(</span>V_x<span class="token punctuation">,</span> V_y<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true"># [[0.99566028]]</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>Cosine<span class="token punctuation">(</span>V_x<span class="token punctuation">,</span> V_z<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true"># [[1.]]</span></code></pre>
 
             </div>
             <hr/>
@@ -483,7 +518,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://uxh8qq.coding-pages.com/2020/07/22/guan-yu-github-xue-sheng-bao/">http://uxh8qq.coding-pages.com/2020/07/22/guan-yu-github-xue-sheng-bao/</a>
+                    <a href="http://uxh8qq.coding-pages.com/2020/07/27/xiang-liang-xiang-si-du-ji-suan-fang-fa/">http://uxh8qq.coding-pages.com/2020/07/27/xiang-liang-xiang-si-du-ji-suan-fang-fa/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -521,12 +556,12 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/GitHub/">
-                                    <span class="chip bg-color">GitHub</span>
+                                <a href="/tags/%E7%9F%A5%E8%AF%86%E5%B5%8C%E5%85%A5/">
+                                    <span class="chip bg-color">知识嵌入</span>
                                 </a>
                             
-                                <a href="/tags/%E7%99%BD%E5%AB%96/">
-                                    <span class="chip bg-color">白嫖</span>
+                                <a href="/tags/%E5%90%91%E9%87%8F/">
+                                    <span class="chip bg-color">向量</span>
                                 </a>
                             
                         </div>
@@ -957,9 +992,10 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2020/07/27/xiang-liang-xiang-si-du-ji-suan-fang-fa/">
                     <div class="card-image">
@@ -977,9 +1013,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-07-27
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-27
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -992,6 +1028,7 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -1014,21 +1051,19 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/07/22/ru-he-jia-su-github/">
+                <a href="/2020/07/22/guan-yu-github-xue-sheng-bao/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="如何加速Github访问速度">
+                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="如何申请GitHub学生包">
                         
-                        <span class="card-title">如何加速Github访问速度</span>
+                        <span class="card-title">如何申请GitHub学生包</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            最近比较烦时常抽风的GitHub，搞得我不能愉快的克隆借鉴代码，再加上之前一直在用的鸡场场长跑路了，所以尝试改hosts来实现。
-首先把hosts放出来路径是
-C:\Windows\System32\drivers\etc\hosts你可以
+                            在我的Pycharm过期之后，我决定尝试申请免费的学生包！
                         
                     </div>
                     <div class="publish-info">
@@ -1054,8 +1089,8 @@ C:\Windows\System32\drivers\etc\hosts你可以
                         <span class="chip bg-color">GitHub</span>
                     </a>
                     
-                    <a href="/tags/%E5%8A%A0%E9%80%9F/">
-                        <span class="chip bg-color">加速</span>
+                    <a href="/tags/%E7%99%BD%E5%AB%96/">
+                        <span class="chip bg-color">白嫖</span>
                     </a>
                     
                 </div>
@@ -1193,6 +1228,13 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
 
 </main>
 
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
+    });
+</script>
 
 
 
