@@ -439,7 +439,7 @@
                 <p>最近在做的嵌入模型比较，需要用到比较向量相似度，在知乎上看到了<a href="https://zhuanlan.zhihu.com/p/33164335" target="_blank" rel="noopener">一篇文章</a>，简单搬运过来做一些笔记和代码实践。这里列举一些向量相似度计算的方法：</p>
 <ol>
 <li>欧式距离（Euclidean Distance）</li>
-<li>余弦相似度（Cosine）</li>
+<li>余弦相似度（Cosine Similarity）</li>
 <li>皮尔逊相关系数（Pearson）</li>
 <li>修正余弦相似度（Adjusted Cosine）</li>
 <li>汉明距离（Hamming Distance）</li>
@@ -457,7 +457,7 @@
     <span class="token comment" spellcheck="true"># np.linalg.norm 用于范数计算，默认是二范数，相当于平方和开根号</span>
     <span class="token keyword">return</span> np<span class="token punctuation">.</span>linalg<span class="token punctuation">.</span>norm<span class="token punctuation">(</span>np<span class="token punctuation">.</span>array<span class="token punctuation">(</span>x<span class="token punctuation">)</span> <span class="token operator">-</span> np<span class="token punctuation">.</span>array<span class="token punctuation">(</span>y<span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
 <p>经测试，对于同样的两组向量，两个函数的结果相同。</p>
-<h2 id="余弦相似度（Cosine）"><a href="#余弦相似度（Cosine）" class="headerlink" title="余弦相似度（Cosine）"></a>余弦相似度（Cosine）</h2><h3 id="定义-1"><a href="#定义-1" class="headerlink" title="定义"></a>定义</h3><blockquote>
+<h2 id="余弦相似度（Cosine-Similarity）"><a href="#余弦相似度（Cosine-Similarity）" class="headerlink" title="余弦相似度（Cosine Similarity）"></a>余弦相似度（Cosine Similarity）</h2><h3 id="定义-1"><a href="#定义-1" class="headerlink" title="定义"></a>定义</h3><blockquote>
 <p>首先，样本数据的夹角余弦并不是真正几何意义上的夹角余弦，只不过是借了它的名字，实际是借用了它的概念变成了是代数意义上的“夹角余弦”，用来衡量样本向量间的差异。</p>
 </blockquote>
 <p>夹角越小，余弦值越接近1，反之越接近-1。假设有两个向量$\vec x_1,\vec x_2$:<br>$$<br>\cos (\theta)=\frac{\sum_{k=1}^{n} x_{1 k} x_{2 k}}{\sqrt{\sum_{k=1}^{n} x_{1 k}^{2}} \sqrt{\sum_{k=1}^{n} x_{2 k}^{2}}}<br>$$</p>
@@ -532,7 +532,7 @@ V_z <span class="token operator">=</span> <span class="token punctuation">[</spa
     b <span class="token operator">=</span> np<span class="token punctuation">.</span>array<span class="token punctuation">(</span>y<span class="token punctuation">)</span>
     <span class="token comment" spellcheck="true"># .corrcoef()是numpy中内置的计算皮尔逊相关系数的方法，同时需要进行归一化处理</span>
     <span class="token keyword">return</span> <span class="token number">0.5</span> <span class="token operator">+</span> <span class="token number">0.5</span> <span class="token operator">*</span> <span class="token punctuation">(</span>np<span class="token punctuation">.</span>corrcoef<span class="token punctuation">(</span>x<span class="token punctuation">,</span> y<span class="token punctuation">,</span> rowvar<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span></code></pre>
-<img src="https://my-picbed.oss-cn-hangzhou.aliyuncs.com/img/20200727192841.png" alt="关于`.corrcoef()`返回的值" style="zoom:67%;" />
+<img src="https://my-picbed.oss-cn-hangzhou.aliyuncs.com/img/20200727192841.png" alt="关于.corrcoef()返回的值" style="zoom:67%;" />
 
 <p>当然也可以不使用该方法计算相似度，这里不多解释。</p>
 <h2 id="余弦相似度于皮尔逊相关系数的比较"><a href="#余弦相似度于皮尔逊相关系数的比较" class="headerlink" title="余弦相似度于皮尔逊相关系数的比较"></a>余弦相似度于皮尔逊相关系数的比较</h2><pre class=" language-python"><code class="language-python">V_x <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">7</span><span class="token punctuation">,</span> <span class="token number">8</span><span class="token punctuation">,</span> <span class="token number">9</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">]</span>
@@ -547,7 +547,98 @@ V_z <span class="token operator">=</span> <span class="token punctuation">[</spa
 <blockquote>
 <p>中心化的意思是说, 对每个向量, 我先计算所有元素的平均值avg, 然后向量中每个维度的值都减去这个avg, 得到的这个向量叫做被中心化的向量. 机器学习, 数据挖掘要计算向量余弦相似度的时候, 由于向量经常在某个维度上有数据的缺失, 预处理阶段都要对所有维度的数值进行中心化处理.</p>
 </blockquote>
-<p><em>剩下的明天写</em></p>
+<h2 id="修正余弦相似度（Adjusted-Cosine-Similarity）"><a href="#修正余弦相似度（Adjusted-Cosine-Similarity）" class="headerlink" title="修正余弦相似度（Adjusted Cosine Similarity）"></a>修正余弦相似度（Adjusted Cosine Similarity）</h2><h3 id="定义-3"><a href="#定义-3" class="headerlink" title="定义"></a>定义</h3><p>正如前文所说，余弦相似度对数值并不敏感，这种不敏感会使数值出现误差，因此我们要对其进行修正。</p>
+<p>🌰：假设A用户为两部电影打分（1，2）B用户打分（9，10），这两个分数的余弦相似度是0.96，但是很显然，A并没有B那么喜欢第二部电影，这就产生了误差。</p>
+<p>如何避免这种误差？答案是再引入去中心化的方法。其公式可以写成：<br>$$<br>\operatorname{adjcos<br>}\left(x_{1}, x_{2}\right)=\frac{\sum_{k=1}^{n}\left(x_{1 k}-\overline{x_{11}+x_{21}}\right)\left(x_{2 k}-\overline{x_{21}+x_{11}}\right)}{\sqrt{\sum_{k=1}^{n}\left(x_{1 k}-\overline{x_{11}+x_{21}}\right)^{2}} \sqrt{\sum_{k=1}^{n}\left(x_{2 k}-\overline{x_{21}+x_{11}}\right)^{2}}}<br>$$<br>仔细观察，他和公式（4）差别在哪里？每一项都减去了向量中第一项的平均值。</p>
+<h3 id="实现-3"><a href="#实现-3" class="headerlink" title="实现"></a>实现</h3><p>尝试用python实现：</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">AdjCosine</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span> y<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    sum_xy <span class="token operator">=</span> <span class="token number">0</span>
+    num_x <span class="token operator">=</span> <span class="token number">0</span>
+    num_y <span class="token operator">=</span> <span class="token number">0</span>
+    <span class="token keyword">for</span> a<span class="token punctuation">,</span> b <span class="token keyword">in</span> zip<span class="token punctuation">(</span>x<span class="token punctuation">,</span> y<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        avr <span class="token operator">=</span> <span class="token punctuation">(</span>x<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">+</span> y<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">/</span> <span class="token number">2</span>
+        sum_xy <span class="token operator">+=</span> <span class="token punctuation">(</span>a <span class="token operator">-</span> avr<span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token punctuation">(</span>b <span class="token operator">-</span> avr<span class="token punctuation">)</span>
+        num_x <span class="token operator">+=</span> <span class="token punctuation">(</span>a <span class="token operator">-</span> avr<span class="token punctuation">)</span> <span class="token operator">**</span> <span class="token number">2</span>
+        num_y <span class="token operator">+=</span> <span class="token punctuation">(</span>b <span class="token operator">-</span> avr<span class="token punctuation">)</span> <span class="token operator">**</span> <span class="token number">2</span>
+    <span class="token keyword">if</span> num_x <span class="token operator">==</span> <span class="token number">0</span> <span class="token operator">or</span> num_y <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">:</span>  <span class="token comment" spellcheck="true"># 判断分母是否为零</span>
+        <span class="token keyword">return</span> None
+    <span class="token keyword">else</span><span class="token punctuation">:</span>
+        <span class="token keyword">return</span> <span class="token number">0.5</span> <span class="token operator">+</span> <span class="token number">0.5</span> <span class="token operator">*</span> <span class="token punctuation">(</span>sum_xy <span class="token operator">/</span> <span class="token punctuation">(</span><span class="token punctuation">(</span>num_y <span class="token operator">*</span> num_x<span class="token punctuation">)</span> <span class="token operator">**</span> <span class="token number">0.5</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
+<p>使用numpy简化：</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">AdjCosine_np</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span> y<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    a <span class="token operator">=</span> np<span class="token punctuation">.</span>array<span class="token punctuation">(</span>x<span class="token punctuation">)</span>
+    b <span class="token operator">=</span> np<span class="token punctuation">.</span>array<span class="token punctuation">(</span>y<span class="token punctuation">)</span>
+    avr <span class="token operator">=</span> <span class="token punctuation">(</span>x<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">+</span> y<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">/</span> <span class="token number">2</span>
+    d <span class="token operator">=</span> np<span class="token punctuation">.</span>linalg<span class="token punctuation">.</span>norm<span class="token punctuation">(</span>a<span class="token operator">-</span>avr<span class="token punctuation">)</span> <span class="token operator">*</span> np<span class="token punctuation">.</span>linalg<span class="token punctuation">.</span>norm<span class="token punctuation">(</span>b<span class="token operator">-</span>avr<span class="token punctuation">)</span>
+    <span class="token keyword">return</span> <span class="token number">0.5</span> <span class="token operator">+</span> <span class="token number">0.5</span> <span class="token operator">*</span> <span class="token punctuation">(</span>np<span class="token punctuation">.</span>dot<span class="token punctuation">(</span>a<span class="token operator">-</span>avr<span class="token punctuation">,</span> b<span class="token operator">-</span>avr<span class="token punctuation">)</span> <span class="token operator">/</span> d<span class="token punctuation">)</span></code></pre>
+<p>于余弦相似度进行对比：</p>
+<pre class=" language-python"><code class="language-python">V_x <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span>
+V_y <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">]</span>
+V_z <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">]</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>AdjCosine_np<span class="token punctuation">(</span>V_x<span class="token punctuation">,</span> V_y<span class="token punctuation">)</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># 0.951797128930044</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>AdjCosine_np<span class="token punctuation">(</span>V_x<span class="token punctuation">,</span> V_z<span class="token punctuation">)</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># 0.6889822365046137</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>Cosine_np<span class="token punctuation">(</span>V_x<span class="token punctuation">,</span> V_y<span class="token punctuation">)</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># 1.0</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>Cosine_np<span class="token punctuation">(</span>V_x<span class="token punctuation">,</span> V_z<span class="token punctuation">)</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># 0.9913538149119954</span></code></pre>
+<p>可以看到两者的差别还是挺大的，说明数值的确产生了比较大的影响。</p>
+<p>❓：思考一下，如果向量中的第0个元素相同，要怎么办呢？尝试一下：</p>
+<pre class=" language-python"><code class="language-python">V_x <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span>
+V_y <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">]</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>AdjCosine_np<span class="token punctuation">(</span>V_x<span class="token punctuation">,</span> V_y<span class="token punctuation">)</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># 0.9985272427507907</span></code></pre>
+<p>果然，结果显示两个向量非常相似。要解决这个问题，我们可以参考Pearson的处理方法，用平均数构造修正函数。</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">AdjCosine_np_2</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span> y<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    a <span class="token operator">=</span> np<span class="token punctuation">.</span>array<span class="token punctuation">(</span>x<span class="token punctuation">)</span>
+    b <span class="token operator">=</span> np<span class="token punctuation">.</span>array<span class="token punctuation">(</span>y<span class="token punctuation">)</span>
+    avr <span class="token operator">=</span> np<span class="token punctuation">.</span>mean<span class="token punctuation">(</span>np<span class="token punctuation">.</span>append<span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">,</span> axis<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># 合并矩阵并求矩阵的平均值</span>
+    d <span class="token operator">=</span> np<span class="token punctuation">.</span>linalg<span class="token punctuation">.</span>norm<span class="token punctuation">(</span>a <span class="token operator">-</span> avr<span class="token punctuation">)</span> <span class="token operator">*</span> np<span class="token punctuation">.</span>linalg<span class="token punctuation">.</span>norm<span class="token punctuation">(</span>b <span class="token operator">-</span> avr<span class="token punctuation">)</span>
+    <span class="token keyword">return</span> <span class="token number">0.5</span> <span class="token operator">+</span> <span class="token number">0.5</span> <span class="token operator">*</span> <span class="token punctuation">(</span>np<span class="token punctuation">.</span>dot<span class="token punctuation">(</span>a <span class="token operator">-</span> avr<span class="token punctuation">,</span> b <span class="token operator">-</span> avr<span class="token punctuation">)</span> <span class="token operator">/</span> d<span class="token punctuation">)</span>
+
+
+V_x <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span>
+V_y <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">]</span>
+V_z <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">]</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>AdjCosine_np<span class="token punctuation">(</span>V_x<span class="token punctuation">,</span> V_y<span class="token punctuation">)</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># 0.9985272427507907</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>AdjCosine_np_2<span class="token punctuation">(</span>V_x<span class="token punctuation">,</span> V_y<span class="token punctuation">)</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># 0.6879115070007071</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>AdjCosine_np<span class="token punctuation">(</span>V_x<span class="token punctuation">,</span> V_z<span class="token punctuation">)</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># 0.951797128930044</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>AdjCosine_np_2<span class="token punctuation">(</span>V_x<span class="token punctuation">,</span> V_z<span class="token punctuation">)</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># 0.5674199862463242</span></code></pre>
+<p>由结果可见，数值引起的差别被放大了，但同时也保留了余弦相似度的反映变化趋势的特征。</p>
+<h2 id="汉明距离（Hamming-distance）"><a href="#汉明距离（Hamming-distance）" class="headerlink" title="汉明距离（Hamming distance）"></a>汉明距离（Hamming distance）</h2><p>最好理解的一个：字符串之间<strong>对应位不同</strong>的数量，比如“110”和“111”的汉明距离为1，可以用在信号处理上，如果是在向量对比上效率就显得有点低了。</p>
+<h2 id="曼哈顿距离（Manhattan-Distance）"><a href="#曼哈顿距离（Manhattan-Distance）" class="headerlink" title="曼哈顿距离（Manhattan Distance）"></a>曼哈顿距离（Manhattan Distance）</h2><h3 id="定义-4"><a href="#定义-4" class="headerlink" title="定义"></a>定义</h3><p>原文作者在这里提到了<code>刘昊然</code>原来他在唐探里提到过<code>曼哈顿计量法</code>。</p>
+<img src="https://my-picbed.oss-cn-hangzhou.aliyuncs.com/img/20200728145702.jpg" alt="唐探里和作法一样的曼哈顿计量法" style="zoom:67%;" />
+
+<p>那曼哈顿距离又是什么呢，可以看这张图：</p>
+<p><img src="https://my-picbed.oss-cn-hangzhou.aliyuncs.com/img/20200728145953.jpg" alt="曼哈顿距离"></p>
+<p>想象一下你是一个出租车司机，在曼哈顿街头，如果你想从A到B点，理论上最短距离应是直线距离，而实际上你不可能穿过一栋栋房屋直接到达B。曼哈顿距离表示的是你实际驾驶出租车从A到B的距离，该距离等于两个点在标准坐标系上的<strong>绝对轴距</strong>总和。用公式表示即<br>$$<br>\mathrm{d}<em>{12}=\sum</em>{k=1}^{n}\left|\mathrm{x}<em>{1 k}-x</em>{2 k}\right|<br>$$</p>
+<h3 id="实现-4"><a href="#实现-4" class="headerlink" title="实现"></a>实现</h3><pre class=" language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">Manhattan</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span> y<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    d <span class="token operator">=</span> <span class="token number">0</span>
+    <span class="token keyword">for</span> a<span class="token punctuation">,</span> b <span class="token keyword">in</span> zip<span class="token punctuation">(</span>x<span class="token punctuation">,</span> y<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        d <span class="token operator">+=</span> a <span class="token operator">-</span> b
+    <span class="token keyword">return</span> abs<span class="token punctuation">(</span>d<span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># 取绝对值</span>
+
+
+V_x <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span>
+V_y <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">]</span>
+V_z <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">]</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>Manhattan<span class="token punctuation">(</span>V_x<span class="token punctuation">,</span> V_y<span class="token punctuation">)</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># 5</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>Manhattan<span class="token punctuation">(</span>V_x<span class="token punctuation">,</span> V_z<span class="token punctuation">)</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># 6</span></code></pre>
+<h2 id="切比雪夫距离（Chebyshev-Distance）"><a href="#切比雪夫距离（Chebyshev-Distance）" class="headerlink" title="切比雪夫距离（Chebyshev Distance）"></a>切比雪夫距离（Chebyshev Distance）</h2><h3 id="定义-5"><a href="#定义-5" class="headerlink" title="定义"></a>定义</h3><img src="https://my-picbed.oss-cn-hangzhou.aliyuncs.com/img/20200728152528.png" alt="国际象棋棋盘上的切比雪夫距离" style="zoom:80%;" />
+
+<p>我们可以通过观察这个国际象棋棋盘来理解切比雪夫距离，国王走到棋盘上任意一点的步数，只和坐标差值中较大者有关。</p>
+<p>更科学地定义为</p>
+<blockquote>
+<p>切比雪夫距离：设平面空间内存在两点，它们的坐标为$(x_1,y_1)，(x_2,y_2)$ 则$is=max(|x_1−x_2|,|y_1−y_2|) $。即两点横纵坐标差的最大值 。$dis=max(AC,BC)=AC=4$。两个n维向量$(x_{11},x_{12},…,x_{1n})$与 $b(x_{21},x_{22},…,x_{2n})$间的切比雪夫距离：$d_{a b}=\max \left(\left|x_{1 i}-x_{2 i}\right|\right)$</p>
+</blockquote>
+<p><img src="https://my-picbed.oss-cn-hangzhou.aliyuncs.com/img/20200728153839.png" alt="AC为两点的切比雪夫距离"></p>
+<h3 id="实现-5"><a href="#实现-5" class="headerlink" title="实现"></a>实现</h3><pre class=" language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">Chebyshev</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span> y<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    d <span class="token operator">=</span> np<span class="token punctuation">.</span>array<span class="token punctuation">(</span>x<span class="token punctuation">)</span> <span class="token operator">-</span> np<span class="token punctuation">.</span>array<span class="token punctuation">(</span>y<span class="token punctuation">)</span>
+    <span class="token keyword">return</span> np<span class="token punctuation">.</span>max<span class="token punctuation">(</span>np<span class="token punctuation">.</span>maximum<span class="token punctuation">(</span>d<span class="token punctuation">,</span> <span class="token operator">-</span>d<span class="token punctuation">)</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># np.maximum(a, -a)这一步相当于在取绝对值</span>
+
+V_x <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span>
+V_y <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">]</span>
+V_z <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">7</span><span class="token punctuation">]</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>Chebyshev<span class="token punctuation">(</span>V_x<span class="token punctuation">,</span> V_y<span class="token punctuation">)</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># 3</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>Chebyshev<span class="token punctuation">(</span>V_x<span class="token punctuation">,</span> V_z<span class="token punctuation">)</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># 10</span></code></pre>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>当然还有别的诸多距离，如闵可夫斯基距离，标准欧式距离。但是考虑到后续工作可能主要放在向量相似度的比较上，考虑使用余弦相似度相关的计算公式更合理。</p>
+<p><strong>以上。</strong></p>
 
             </div>
             <hr/>
@@ -1064,7 +1155,7 @@ V_z <span class="token operator">=</span> <span class="token punctuation">[</spa
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            摘录了一些向量相似度计算的方法，使用python做简单实现
+                            各种向量相似度的比较方法
                         
                     </div>
                     <div class="publish-info">
