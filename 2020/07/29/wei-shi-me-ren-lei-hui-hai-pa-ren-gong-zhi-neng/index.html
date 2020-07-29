@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="如何将MarkDown笔记导出至知乎, 分享、成长">
+    <meta name="keywords" content="人们怕人工智能获得意识到底是怕哪个方面？, 分享、成长">
     <meta name="description" content="如果可以的话，我想多要一双眼睛">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>如何将MarkDown笔记导出至知乎 | 不言物语</title>
+    <title>人们怕人工智能获得意识到底是怕哪个方面？ | 不言物语</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -286,12 +286,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/5.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">如何将MarkDown笔记导出至知乎</h1>
+                    <h1 class="description center-align post-title">人们怕人工智能获得意识到底是怕哪个方面？</h1>
                 </div>
             </div>
         </div>
@@ -408,8 +408,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/MarkDown/">
-                                <span class="chip bg-color">MarkDown</span>
+                            <a href="/tags/%E7%A7%91%E5%B9%BB/">
+                                <span class="chip bg-color">科幻</span>
                             </a>
                         
                     </div>
@@ -420,8 +420,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E6%8A%80%E5%B7%A7/" class="post-category">
-                                技巧
+                            <a href="/categories/%E6%83%B3%E6%B3%95/" class="post-category">
+                                想法
                             </a>
                         
                     </div>
@@ -433,7 +433,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-07-16
+                    2020-07-29
                 </div>
                 
 
@@ -442,7 +442,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    152
+                    288
                 </div>
                 
 
@@ -464,36 +464,26 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true"># 2019-11-26</span>
-
-<span class="token keyword">import</span> re
-<span class="token keyword">import</span> sys
-<span class="token keyword">def</span> <span class="token function">replace</span><span class="token punctuation">(</span>file_name<span class="token punctuation">,</span> output_file_name<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token keyword">try</span><span class="token punctuation">:</span>
-        pattern1 <span class="token operator">=</span> r<span class="token string">"\$\$\n*([\s\S]*?)\n*\$\$"</span>
-        new_pattern1 <span class="token operator">=</span> r<span class="token string">'\n&lt;img src="https://www.zhihu.com/equation?tex=\1" alt="\1" class="ee_img tr_noresize" eeimg="1">\n'</span>
-        pattern2 <span class="token operator">=</span> r<span class="token string">"\$\n*(.*?)\n*\$"</span>
-        new_pattern2 <span class="token operator">=</span>r<span class="token string">'\n&lt;img src="https://www.zhihu.com/equation?tex=\1" alt="\1" class="ee_img tr_noresize" eeimg="1">\n'</span>
-        f <span class="token operator">=</span> open<span class="token punctuation">(</span>file_name<span class="token punctuation">,</span> <span class="token string">'r'</span><span class="token punctuation">,</span>encoding<span class="token operator">=</span><span class="token string">'utf-8'</span><span class="token punctuation">)</span>
-        f_output <span class="token operator">=</span> open<span class="token punctuation">(</span>output_file_name<span class="token punctuation">,</span> <span class="token string">'w'</span><span class="token punctuation">,</span>encoding<span class="token operator">=</span><span class="token string">'utf-8'</span><span class="token punctuation">)</span>
-        all_lines <span class="token operator">=</span> f<span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token punctuation">)</span>
-        new_lines1 <span class="token operator">=</span> re<span class="token punctuation">.</span>sub<span class="token punctuation">(</span>pattern1<span class="token punctuation">,</span> new_pattern1<span class="token punctuation">,</span> all_lines<span class="token punctuation">)</span>
-        new_lines2 <span class="token operator">=</span> re<span class="token punctuation">.</span>sub<span class="token punctuation">(</span>pattern2<span class="token punctuation">,</span> new_pattern2<span class="token punctuation">,</span> new_lines1<span class="token punctuation">)</span>
-        f_output<span class="token punctuation">.</span>write<span class="token punctuation">(</span>new_lines2<span class="token punctuation">)</span>
-
-        f<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span>
-        f_output<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span>
-    <span class="token keyword">except</span> Exception <span class="token keyword">as</span> e<span class="token punctuation">:</span>
-        <span class="token keyword">print</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span>
-
-
-<span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">'__main__'</span><span class="token punctuation">:</span>
-    file_name <span class="token operator">=</span> <span class="token string">'original_version.md'</span>
-    file_name_pre <span class="token operator">=</span> file_name<span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token string">"."</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
-    output_file_name <span class="token operator">=</span> <span class="token string">"zhihu_version.md"</span>
-    replace<span class="token punctuation">(</span>file_name<span class="token punctuation">,</span> output_file_name<span class="token punctuation">)</span>
-    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'Trans from {} to {}'</span><span class="token punctuation">.</span>format<span class="token punctuation">(</span>file_name<span class="token punctuation">,</span> output_file_name<span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
-<p>放在同一文件夹下，将markdown文件改名为’original_version.md’，运行就可以了</p>
+                <p>我一直认为人类的许多表现，都是原始本能在现代社会中的映射。编造个小故事：</p>
+<p>在这片原始的大陆上，生活着许多不同的原始部族。<code>咚塔塔人</code>也是其中一员，或许是因为脑容量大一丢丢吧，咚塔塔人首先悟出了三条生存的准则：</p>
+<ol>
+<li>猎物的肉-火烤-吃；</li>
+<li>猎物的皮毛-剥下来-穿在身上-不冷 ；</li>
+<li>猎物的腿骨-敲碎-敌人的脑袋。</li>
+</ol>
+<p>很快他们悟到了第四条准则：</p>
+<ol start="4">
+<li>笨蛋脑袋可以不敲碎，拿来生孩子当苦力</li>
+</ol>
+<p>接着是第五条：</p>
+<ol start="5">
+<li>笨蛋脑袋不好用，教会前三条就好用了</li>
+</ol>
+<p>然后是笨蛋脑袋中学会了前三条，并悟出了第六条：</p>
+<ol start="6">
+<li>咚塔塔人能做到的，我们也能！敲碎他们的脑袋！</li>
+</ol>
+<p>我想表达的是，令人们感到恐惧的不是人工智能产生意识——我们可以利用这些意识实现更多的价值——而是人工智能<strong>越来越接近</strong>人类。从某种意义上来说，人们就是在害怕自己。</p>
 
             </div>
             <hr/>
@@ -519,7 +509,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://clicker.gitee.io/2020/07/16/ru-he-jiang-markdown-dao-chu-zhi-zhi-hu/">https://clicker.gitee.io/2020/07/16/ru-he-jiang-markdown-dao-chu-zhi-zhi-hu/</a>
+                    <a href="https://clicker.gitee.io/2020/07/29/wei-shi-me-ren-lei-hui-hai-pa-ren-gong-zhi-neng/">https://clicker.gitee.io/2020/07/29/wei-shi-me-ren-lei-hui-hai-pa-ren-gong-zhi-neng/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -557,8 +547,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/MarkDown/">
-                                    <span class="chip bg-color">MarkDown</span>
+                                <a href="/tags/%E7%A7%91%E5%B9%BB/">
+                                    <span class="chip bg-color">科幻</span>
                                 </a>
                             
                         </div>
@@ -989,50 +979,52 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2020/07/19/xue-suan-fa/">
+                <a href="/2020/07/29/wei-shi-me-ren-lei-hui-hai-pa-ren-gong-zhi-neng/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="《算法设计与分析课程》笔记">
+                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="人们怕人工智能获得意识到底是怕哪个方面？">
                         
-                        <span class="card-title">《算法设计与分析课程》笔记</span>
+                        <span class="card-title">人们怕人工智能获得意识到底是怕哪个方面？</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            这是我导师在B站上更新的一门课程，我将持续更新我的课程笔记。
+                            我一直认为人类的许多表现，都是原始本能在现代社会中的映射。编造个小故事：
+在这片原始的大陆上，生活着许多不同的原始部族。咚塔塔人也是其中一员，或许是因为脑容量大一丢丢吧，咚塔塔人首先悟出了三条生存的准则：
+
+猎物的肉-火烤-吃；
+猎物的皮毛
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-07-19
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-29
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E5%AD%A6%E4%B9%A0/" class="post-category">
-                                    学习
+                            <a href="/categories/%E6%83%B3%E6%B3%95/" class="post-category">
+                                    想法
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/python/">
-                        <span class="chip bg-color">python</span>
-                    </a>
-                    
-                    <a href="/tags/%E7%AE%97%E6%B3%95/">
-                        <span class="chip bg-color">算法</span>
+                    <a href="/tags/%E7%A7%91%E5%B9%BB/">
+                        <span class="chip bg-color">科幻</span>
                     </a>
                     
                 </div>
@@ -1046,24 +1038,23 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/07/16/2020-7-16-du-lun-wen-on2vec-ji-yu-qian-ru-de-ben-ti-qun-ti-guan-xi-yu-ce/">
+                <a href="/2020/07/27/xiang-liang-xiang-si-du-ji-suan-fang-fa/">
                     <div class="card-image">
                         
+                        <img src="https://my-picbed.oss-cn-hangzhou.aliyuncs.com/img/20200728160840.png" class="responsive-img" alt="向量相似度计算方法">
                         
-                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="读论文——On2Vec：基于嵌入的本体群体关系预测">
-                        
-                        <span class="card-title">读论文——On2Vec：基于嵌入的本体群体关系预测</span>
+                        <span class="card-title">向量相似度计算方法</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            读论文，on2vec主要用来做本体填充，这也是我第一篇MarkDown文章，感觉良好。
+                            如何比较相似度，这篇笔记记录了几种比较方法。
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-16
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-27
                             </span>
                         <span class="publish-author">
                             
@@ -1080,12 +1071,16 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E6%9C%AC%E4%BD%93/">
-                        <span class="chip bg-color">本体</span>
-                    </a>
-                    
                     <a href="/tags/%E7%9F%A5%E8%AF%86%E5%B5%8C%E5%85%A5/">
                         <span class="chip bg-color">知识嵌入</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%90%91%E9%87%8F/">
+                        <span class="chip bg-color">向量</span>
+                    </a>
+                    
+                    <a href="/tags/python/">
+                        <span class="chip bg-color">python</span>
                     </a>
                     
                 </div>
