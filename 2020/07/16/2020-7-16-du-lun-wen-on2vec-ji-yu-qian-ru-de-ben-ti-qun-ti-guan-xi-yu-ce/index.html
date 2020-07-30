@@ -469,7 +469,7 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h1 id="读论文——On2Vec：基于嵌入的本体群体关系预测"><a href="#读论文——On2Vec：基于嵌入的本体群体关系预测" class="headerlink" title="读论文——On2Vec：基于嵌入的本体群体关系预测"></a>读论文——On2Vec：基于嵌入的本体群体关系预测</h1><p><em>原标题*：On2Vec: Embedding-based Relation Prediction for Ontology Population  *<a href="https://arxiv.org/abs/1809.02382" target="_blank" rel="noopener">来源</a></em> <a href="https://github.com/muhaochen/on2vec" target="_blank" rel="noopener"><em>代码</em></a></p>
-<h2 id="研究背景"><a href="#研究背景" class="headerlink" title="研究背景"></a>研究背景</h2><h3 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h3><p>Ontology population(本体填充)，指将原始信息（可以是非结构化、半结构化或者结构化的数据）转换为本体实例的过程。</p>
+<h2 id="研究背景"><a href="#研究背景" class="headerlink" title="研究背景"></a>研究背景</h2><h3 id="目标领域"><a href="#目标领域" class="headerlink" title="目标领域"></a>目标领域</h3><p>本体填充（Ontology population），指将原始信息（可以是非结构化、半结构化或者结构化的数据）转换为本体实例的过程。</p>
 <h3 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h3><p>现有的研究已经能将基于翻译的知识嵌入模式应用到实例层级的图谱中，实现较好的填充效果。相比于实例图谱，本体视图中的关系事实包含了更多复杂的语义关系，包括<code>可传递性</code>，<code>对称性</code>和<code>层次关系</code>。这种关系对于现有的嵌入模式来说过于复杂，且直接应用不可行。在TransE中我们用能量方程$S_{r}(\mathbf{s}, \mathbf{t})$去衡量一个三元组的可信度，函数值越小，代表描述就越准确。<br>$$<br>S_{r}(\mathbf{s}, \mathbf{t})=|\mathbf{s}+\mathbf{r}-\mathbf{t}|<br>$$<br>文章提出这种能量方程会导致如图所示的问题：</p>
 <img src="https://my-picbed.oss-cn-hangzhou.aliyuncs.com/img/批注 2020-07-16 162227.png" alt="图1" title="图1" style="zoom:50%;" />
 
