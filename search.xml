@@ -4,6 +4,35 @@
   
     
     <entry>
+      <title>结构化标准的教程</title>
+      <link href="/2020/08/03/jie-gou-hua-biao-zhun/"/>
+      <url>/2020/08/03/jie-gou-hua-biao-zhun/</url>
+      
+        <content type="html"><![CDATA[<h2 id="软件"><a href="#软件" class="headerlink" title="软件"></a>软件</h2><ul><li>福昕PDF阅读器</li><li>office2016以上版本</li><li>Typora Markdown</li></ul><h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><ol><li><p>使用word打开对应PDF文档，等待文档转换成可以编辑的格式。</p></li><li><p>打开识别成功的文件，清除所有的格式，将所用空格替换掉，全部<code>．</code>和<code>·</code>替换成<code>.</code>，全部<code>一</code>替换成<code>-</code></p></li><li><p>标题的处理</p><p>Markdown中的语法，#+“空格”+“文字” 就能设置标题。#个数表示标题级数。总共分为四级。具体格式参考</p><p><img src="https://my-picbed.oss-cn-hangzhou.aliyuncs.com/img/20200803165011.png" alt="标题示例"></p></li><li><p>段落的处理</p><p>检查是否有错误和纰漏，确认无误之后将对应标题下的文字复制粘贴到Typora里。</p></li><li><p>公式、表和图的处理</p><p>段落中引用公式参考</p><blockquote><p>计入强度计算的复合材料的折算厚度可按式（3-1a）计算:</p></blockquote><p>公式本身用￥+“公式编号”表示，单独占一行，示例</p><blockquote><p>￥式（3-1a）￥</p></blockquote><p>句中的公式和元素用￥￥代替，示例</p><blockquote><p>本标准所用材料的设计应力强度值￥￥</p></blockquote><p>段落中引用表格，示例</p><blockquote><p>在设计容器各部分时，必须按表3-1考虑压力、温度及静压头之间的相互关系。</p></blockquote><p>表格用如下格式表示</p><blockquote><p>￥表3-1 ￥压力与温度之间的关系</p></blockquote></li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> 技巧 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> PDF </tag>
+            
+            <tag> word </tag>
+            
+            <tag> 结构化 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>人们怕人工智能获得意识到底是怕哪个方面？</title>
       <link href="/2020/07/29/wei-shi-me-ren-lei-hui-hai-pa-ren-gong-zhi-neng/"/>
       <url>/2020/07/29/wei-shi-me-ren-lei-hui-hai-pa-ren-gong-zhi-neng/</url>

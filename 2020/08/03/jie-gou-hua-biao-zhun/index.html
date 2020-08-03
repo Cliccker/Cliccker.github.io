@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="《知识图谱：方法、实践与应用》阅读笔记——知识图谱表示与建模（2）, 分享、成长">
+    <meta name="keywords" content="结构化标准的教程, 分享、成长">
     <meta name="description" content="如果可以的话，我想多要一双眼睛">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>《知识图谱：方法、实践与应用》阅读笔记——知识图谱表示与建模（2） | 不言物语</title>
+    <title>结构化标准的教程 | 不言物语</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -286,12 +286,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/5.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/2.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">《知识图谱：方法、实践与应用》阅读笔记——知识图谱表示与建模（2）</h1>
+                    <h1 class="description center-align post-title">结构化标准的教程</h1>
                 </div>
             </div>
         </div>
@@ -408,16 +408,16 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1/">
-                                <span class="chip bg-color">知识图谱</span>
+                            <a href="/tags/PDF/">
+                                <span class="chip bg-color">PDF</span>
                             </a>
                         
-                            <a href="/tags/owl/">
-                                <span class="chip bg-color">owl</span>
+                            <a href="/tags/word/">
+                                <span class="chip bg-color">word</span>
                             </a>
                         
-                            <a href="/tags/rdf/">
-                                <span class="chip bg-color">rdf</span>
+                            <a href="/tags/%E7%BB%93%E6%9E%84%E5%8C%96/">
+                                <span class="chip bg-color">结构化</span>
                             </a>
                         
                     </div>
@@ -428,8 +428,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E5%AD%A6%E4%B9%A0/" class="post-category">
-                                学习
+                            <a href="/categories/%E6%8A%80%E5%B7%A7/" class="post-category">
+                                技巧
                             </a>
                         
                     </div>
@@ -441,7 +441,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-07-14
+                    2020-08-03
                 </div>
                 
 
@@ -450,14 +450,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.4k
+                    305
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    4 分
+                    1 分
                 </div>
                 
 
@@ -472,59 +472,46 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>距离上一篇读书笔记已经有一段日子了，中间打了很多代码，也摸了很多🐟。有时候还是比较细化打代码的，感觉比码字有意思。但是有意思的事做太多就不会有积累了，所以接着填这个坑叭！</p>
-<h2 id="互联网时代的语义网知识表示框架"><a href="#互联网时代的语义网知识表示框架" class="headerlink" title="互联网时代的语义网知识表示框架"></a>互联网时代的语义网知识表示框架</h2><p>上一篇文章中提到的“语义网”让知识表示迎来了新的春天，不过也出现了新的挑战——标准语言在哪里？HTML和XML已经跟不上这个时代了（时代变了，大人）。W3C提出了新的标准语言RDF和OWL，我们一起来欣赏一下吧。</p>
-<h3 id="核心成员RDF"><a href="#核心成员RDF" class="headerlink" title="核心成员RDF"></a>核心成员RDF</h3><p>RDF中的知识永远是以三元组的形式呈现出来，就是(subject,predicate,object)， 亦即（主语，谓语，宾语）。我们可以把它看成一个传统意义上的句子结构中的主谓宾，比如“我喜欢吃冰淇淋，吃完就长肉”👉（我，喜欢，吃冰淇淋）（我，长，肉）。同时我们也可以用（我，在什么时候吃雪糕，“12点”^xsd:date）表示“我在12点吃了雪糕”。从中我们可以看出，RDF中的主语一定是一个个体（individual），书中也解释了个体是类的实例，比如我是人“类”的一个实例，谓语表示属性，宾语可以是个体也可是实例。</p>
-<p>我们拿我怎么变胖来构建来建立一个图谱，如下</p>
-<p><img src="http://121.199.51.214/wp-content/uploads/2020/07/%E6%89%B9%E6%B3%A8-2020-07-14-153445.png" alt=""></p>
-<p>我变胖的一个图谱</p>
-<p>再来把他写成英文，如下</p>
-<p><img src="http://121.199.51.214/wp-content/uploads/2020/07/%E6%89%B9%E6%B3%A8-2020-07-14-153804-1.png" alt=""></p>
-<p>a KG of my growing weights</p>
-<p>由于在RDF中的主谓宾都有一个全局标识，所以我们再给这个图谱中的元素加点料</p>
-<p><img src="http://121.199.51.214/wp-content/uploads/2020/07/%E6%89%B9%E6%B3%A8-2020-07-14-155352-1.png" alt=""></p>
-<p>看起来是不是更像回事了？</p>
-<p>全局URL可以简化为前缀URL，当然也可以出现没有前缀的空白节点（BlankNode），长这样</p>
-<p><img src="http://121.199.51.214/wp-content/uploads/2020/07/%E6%89%B9%E6%B3%A8-2020-07-14-160905.png" alt=""></p>
-<p>空白节点可以代入你我他哦</p>
-<h3 id="开放世界假设"><a href="#开放世界假设" class="headerlink" title="开放世界假设"></a>开放世界假设</h3><p>这个假设听起来是不是很酷呢？实际上他比听起来更酷。开放世界假设使得RDF图谱里的知识可以是不完整的，例如我喜欢吃冰激凌，并不意味着我只喜欢吃冰激凌，雪糕当然也是不错的选择😋，(i,enjoy,ice-cream)代表冰淇淋至少是我的一个爱好！采用开放世界假设有什么好处呢？答案是可以实现分布式存储，像这样：</p>
-<p><img src="http://121.199.51.214/wp-content/uploads/2020/07/%E6%89%B9%E6%B3%A8-2020-07-14-162100.png" alt=""></p>
-<p>我喜欢冰淇淋&amp;冰淇淋是光明牌的</p>
-<p><img src="http://121.199.51.214/wp-content/uploads/2020/07/%E6%89%B9%E6%B3%A8-2020-07-14-162503.png" alt=""></p>
-<p>我喜欢吃光明的冰淇淋</p>
-<h3 id="RDF-Schema——RDFS"><a href="#RDF-Schema——RDFS" class="headerlink" title="RDF Schema——RDFS"></a>RDF Schema——RDFS</h3><p>RDFSchema（RDF模式，简称RDFS）提供了对类和属性的简单描述，包括上下级关系（subclass_of)，定义域(domian)，值域（range）等。这一步我直接上书上的图：</p>
-<p><img src="http://121.199.51.214/wp-content/uploads/2020/07/%E6%89%B9%E6%B3%A8-2020-07-14-163732.png" alt=""></p>
-<p>可谓图糙理不糙，上面是本体视图，下面是实例视图</p>
-<hr>
-<h2 id="主力成员OWL🦉"><a href="#主力成员OWL🦉" class="headerlink" title="主力成员OWL🦉"></a>主力成员OWL🦉</h2><p>RDF(S)可以表示一些简单的语义，但是如果场景更加复杂的化，RDF就不太行了。RDF本身缺少很多常用的特征，把书中写出来的几个简单罗列：</p>
-<p>1.无法准确的描述属性的定义、特征；</p>
-<p>2.无法描述类、个体属性是否等价（是我杀了我？）</p>
-<p>3.基数约束，即一个人不可能有两个爸爸（出了于谦儿子郭小宝）</p>
-<p>总之，RDF在描述事实的时候就像是一个年幼的孩子👶，很多事情很多关系他还不懂，我们需要一个更成熟的本体语言来替我们表达知识！</p>
-<h3 id="OWL语言特征"><a href="#OWL语言特征" class="headerlink" title="OWL语言特征"></a>OWL语言特征</h3><p>OWL1.0有三个子语言，OWL Lite&lt;OWL DL&lt;OWL Full。书中写道这三者选择的原则</p>
+                <h2 id="软件"><a href="#软件" class="headerlink" title="软件"></a>软件</h2><ul>
+<li>福昕PDF阅读器</li>
+<li>office2016以上版本</li>
+<li>Typora Markdown</li>
+</ul>
+<h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><ol>
+<li><p>使用word打开对应PDF文档，等待文档转换成可以编辑的格式。</p>
+</li>
+<li><p>打开识别成功的文件，清除所有的格式，将所用空格替换掉，全部<code>．</code>和<code>·</code>替换成<code>.</code>，全部<code>一</code>替换成<code>-</code></p>
+</li>
+<li><p>标题的处理</p>
+<p>Markdown中的语法，#+“空格”+“文字” 就能设置标题。#个数表示标题级数。总共分为四级。具体格式参考</p>
+<p><img src="https://my-picbed.oss-cn-hangzhou.aliyuncs.com/img/20200803165011.png" alt="标题示例"></p>
+</li>
+<li><p>段落的处理</p>
+<p>检查是否有错误和纰漏，确认无误之后将对应标题下的文字复制粘贴到Typora里。</p>
+</li>
+<li><p>公式、表和图的处理</p>
+<p>段落中引用公式参考</p>
 <blockquote>
-<p>●选择OWL Lite还是OWL DL主要取决于用户需要整个语言在多大程度上给出约束的可表达性；</p>
-<p>●选择OWL DL还是OWL Full主要取决于用户在多大程度上需要RDF的元模型机制，如定义类型的类型以及为类型赋予属性；</p>
-<p>●当使用OWL Full而不是OWL DL时，推理的支持可能不能工作，因为目前还没有完全支持OWL Full的系统实现。</p>
+<p>计入强度计算的复合材料的折算厚度可按式（3-1a）计算:</p>
 </blockquote>
-<p>OWL不是完全独立于RDF的，他们在很多地方都有相似之处，不过我觉得知道这个没用！</p>
-<h3 id="OWL重要词汇"><a href="#OWL重要词汇" class="headerlink" title="OWL重要词汇"></a>OWL重要词汇</h3><ol>
-<li>等价性声明</li>
-<li>属性传递声明👉a大于b，b大于c 可以推出 a大于c</li>
-<li>属性互逆声明 👉a大于b，b小于a 大于小于这两个属性互逆</li>
-<li>属性的函数声明👉a的大写是A</li>
-<li>属性的对称性声明👉a=b，b=a</li>
-<li>属性的全称限定声明👉如：母亲一定是女人</li>
-<li>属性的存在限定声明👉如：我一部分的文章发在知乎上</li>
-<li>属性的基数限定声明👉如：我只能有“一个”父亲</li>
-<li>相交的类声明👉如：妈妈是有孩子的人，即有孩子和人的交集</li>
+<p>公式本身用￥+“公式编号”表示，单独占一行，示例</p>
+<blockquote>
+<p>￥式（3-1a）￥</p>
+</blockquote>
+<p>句中的公式和元素用￥￥代替，示例</p>
+<blockquote>
+<p>本标准所用材料的设计应力强度值￥￥</p>
+</blockquote>
+<p>段落中引用表格，示例</p>
+<blockquote>
+<p>在设计容器各部分时，必须按表3-1考虑压力、温度及静压头之间的相互关系。</p>
+</blockquote>
+<p>表格用如下格式表示</p>
+<blockquote>
+<p>￥表3-1 ￥压力与温度之间的关系</p>
+</blockquote>
+</li>
 </ol>
-<p>这些词汇在书上写的很详细，这个笔记抄下来就没意思了。</p>
-<h3 id="OWL版本"><a href="#OWL版本" class="headerlink" title="OWL版本"></a>OWL版本</h3><p>OWL2的三大子语言是OWL 2 RL、OWL 2 QL和OWL 2 EL，关于这三种语言的词汇，书中有写错的地方，需要去别处找更准确的总结。</p>
-<hr>
-<h2 id="语义Markup表示语言"><a href="#语义Markup表示语言" class="headerlink" title="语义Markup表示语言"></a>语义Markup表示语言</h2><p>语义网进一步定义了在网页中嵌入语义Markup的方法和表示语言。被谷歌知识图谱以及Schema.Org采用的语义Markup语言主要包括JSON-LD、RDFa和HTML5 MicroData。</p>
-<p><strong>我似乎感觉到这本书不怎么样了，因为书里一直在罗列概念也没说要自己动手做。还是只看自己感兴趣的内容吧</strong></p>
-<p><strong><em>To Be Continued</em></strong></p>
 
             </div>
             <hr/>
@@ -550,7 +537,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://clicker.gitee.io/2020/07/14/zhi-shi-tu-pu-fang-fa-shi-jian-yu-ying-yong-yue-du-bi-ji-zhi-3/">https://clicker.gitee.io/2020/07/14/zhi-shi-tu-pu-fang-fa-shi-jian-yu-ying-yong-yue-du-bi-ji-zhi-3/</a>
+                    <a href="https://clicker.gitee.io/2020/08/03/jie-gou-hua-biao-zhun/">https://clicker.gitee.io/2020/08/03/jie-gou-hua-biao-zhun/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -588,16 +575,16 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1/">
-                                    <span class="chip bg-color">知识图谱</span>
+                                <a href="/tags/PDF/">
+                                    <span class="chip bg-color">PDF</span>
                                 </a>
                             
-                                <a href="/tags/owl/">
-                                    <span class="chip bg-color">owl</span>
+                                <a href="/tags/word/">
+                                    <span class="chip bg-color">word</span>
                                 </a>
                             
-                                <a href="/tags/rdf/">
-                                    <span class="chip bg-color">rdf</span>
+                                <a href="/tags/%E7%BB%93%E6%9E%84%E5%8C%96/">
+                                    <span class="chip bg-color">结构化</span>
                                 </a>
                             
                         </div>
@@ -1028,30 +1015,100 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2020/07/14/146/">
+                <a href="/2020/08/03/jie-gou-hua-biao-zhun/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="烧卖有梗">
+                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="结构化标准的教程">
                         
-                        <span class="card-title">烧卖有梗</span>
+                        <span class="card-title">结构化标准的教程</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            从今年开始，学生们最恐怖的噩梦从梦到上学没穿裤子变成了网课没关麦。
+                            软件
+福昕PDF阅读器
+office2016以上版本
+Typora Markdown
 
+步骤
+使用word打开对应PDF文档，等待文档转换成可以编辑的格式。
+
+打开识别成功的文件，清除所有的格式，将所用空格替换掉，全部．和·替换成.，全部一
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-07-14
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-08-03
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%8A%80%E5%B7%A7/" class="post-category">
+                                    技巧
+                                </a>
+                            
+                            
                         </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/PDF/">
+                        <span class="chip bg-color">PDF</span>
+                    </a>
+                    
+                    <a href="/tags/word/">
+                        <span class="chip bg-color">word</span>
+                    </a>
+                    
+                    <a href="/tags/%E7%BB%93%E6%9E%84%E5%8C%96/">
+                        <span class="chip bg-color">结构化</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2020/07/29/wei-shi-me-ren-lei-hui-hai-pa-ren-gong-zhi-neng/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="人们怕人工智能获得意识到底是怕哪个方面？">
+                        
+                        <span class="card-title">人们怕人工智能获得意识到底是怕哪个方面？</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            我一直认为人类的许多表现，都是原始本能在现代社会中的映射。编造个小故事：
+在这片原始的大陆上，生活着许多不同的原始部族。咚塔塔人也是其中一员，或许是因为脑容量大一丢丢吧，咚塔塔人首先悟出了三条生存的准则：
+
+猎物的肉-火烤-吃；
+猎物的皮毛
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-29
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -1067,63 +1124,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E4%B8%80%E4%B8%AA%E5%B0%8F%E7%AC%91%E8%AF%9D/">
-                        <span class="chip bg-color">一个小笑话</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2020/07/13/zhi-shi-tu-pu-fang-fa-shi-jian-yu-ying-yong-yue-du-bi-ji-zhi-2/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="《知识图谱：方法、实践与应用》阅读笔记——知识图谱概述">
-                        
-                        <span class="card-title">《知识图谱：方法、实践与应用》阅读笔记——知识图谱概述</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            什么是知识图谱？一种用图模型(probabilistic graphic models)来描述知识和建模世界万物之间的关联关系的技术方法。由节点和边组成
-知识图谱的价值
-辅助搜索
-辅助问答
-辅助大数据分析
-辅助语言理解，人机之间的相互理解
-
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-13
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/%E5%AD%A6%E4%B9%A0/" class="post-category">
-                                    学习
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1/">
-                        <span class="chip bg-color">知识图谱</span>
+                    <a href="/tags/%E7%A7%91%E5%B9%BB/">
+                        <span class="chip bg-color">科幻</span>
                     </a>
                     
                 </div>
