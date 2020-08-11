@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>读论文——Sentence-BERT:基于孪生网络的句子嵌入</title>
+      <link href="/2020/08/11/du_lun_wen_sentence_bert/"/>
+      <url>/2020/08/11/du_lun_wen_sentence_bert/</url>
+      
+        <content type="html"><![CDATA[<p>原标题：Sentence-BERT: Sentence Embeddings using Siamese BERT-Networks</p><p><a href="https://arxiv.org/abs/1908.10084" target="_blank" rel="noopener">论文地址</a></p><p><a href="https://github.com/UKPLab/sentence-transformers" target="_blank" rel="noopener">代码</a></p><h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p><code>BERT</code>（2018）和<code>RoBERTa</code>（2019）在处理文本语义相似度等句子对回归的任务上，都有不错的效果。但BERT在计算句子相似度时，需要将两个句子都输入到网络中，这就会产生巨大的计算开销。在10000个句子中找到相似的句子需要<code>5000w</code>次推理计算，这项任务在V100GPU上大约耗时<code>65h</code>。</p><p><strong>BERT的构造使得它既不适用于语义相似度搜索，也不适合于聚类等无监督任务。</strong></p><p>有研究尝试将整个句子输入到BERT中，得到该句的句向量。但是这样得到的句向量不具有语义信息，也就是说</p><p><strong>相似的句子的句向量差别可能会很大</strong></p><h1 id="解决的问题"><a href="#解决的问题" class="headerlink" title="解决的问题"></a>解决的问题</h1><p>提出了Sentence-Bert，一种改进的模型。该模型使用孪生网络（Siamese Network）来输出<strong>定长</strong>的、<strong>保有语义信息</strong>的句向量。再通过余弦距离、曼哈顿距离或欧式距离来计算其相似度。SBERT可以将原本需要<code>65h</code>的任务缩短至<code>5s</code>左右。</p><h1 id="建模"><a href="#建模" class="headerlink" title="建模"></a>建模</h1><h2 id="使用BERT处理文本匹配任务"><a href="#使用BERT处理文本匹配任务" class="headerlink" title="使用BERT处理文本匹配任务"></a>使用BERT处理文本匹配任务</h2><img src="https://my-picbed.oss-cn-hangzhou.aliyuncs.com/img/20200811143430.png" alt="BERT对文本匹配任务的微调" style="zoom:67%;" /><p>如图，<code>BERT</code>的常规做法是将两个句子拼接成一个序列，中间以<code>SEP</code>符号进行分隔，经过multi-head Transformer模块进行编码后，取输出层的字向量的<code>平均值</code>或第一个特征位置<code>CLS</code>作为句子的句向量。这种取平均值或特征值的做法使得<code>BERT</code>输出的句向量不包含充分的语义信息。</p><h2 id="Siamse-Network-孪生网络"><a href="#Siamse-Network-孪生网络" class="headerlink" title="Siamse Network_孪生网络"></a>Siamse Network_孪生网络</h2><img src="https://my-picbed.oss-cn-hangzhou.aliyuncs.com/img/20200811152102.png" alt="孪生网络的结构" style="zoom:67%;" /><p>孪生网络有两个比较显著的特点是</p><ol><li>模型的编码器（encoder）部分权重<code>W</code>是共享的d</li><li>可以直接使用余弦相似度等方法计算$u、v$之间的距离，但更常用的做法是基于$u$和$v$构建用于建模两者匹配关系的特征向量，然后用额外的模型（mlp等）来学习通用的文本关系函数映射。</li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> 学习 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> NLP </tag>
+            
+            <tag> Bert </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>结构化标准的教程</title>
       <link href="/2020/08/03/jie_gou_hua_biao_zhun/"/>
       <url>/2020/08/03/jie_gou_hua_biao_zhun/</url>
