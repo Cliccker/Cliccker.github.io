@@ -503,7 +503,7 @@
 <p>针对分类任务的训练模型如图1所示。使用元素级差分$|u-v|$来组合$u,v$，将其乘以一个可训练的权重矩阵$W_{t} \in \mathbb{R}^{3 n \times k}$（n为句向量的维度，k为标签的个数）。使用<code>Softmax</code>函数进行分类输出</p>
 <p>$$<br>o=\operatorname{softmax}\left(W_{t}(u, v,|u-v|)\right)<br>$$</p>
 <p>其中矩阵的形式如下：</p>
-<img src="https://my-picbed.oss-cn-hangzhou.aliyuncs.com/img/20200812135022.png" alt="矩阵形式" style="zoom:67%;" />
+<img src="C:\Users\76084\Desktop\20200812135022.png" alt="矩阵形式" style="zoom:67%;" />
 
 <p>最后使用交叉熵来作为优化，文章中没有提到具体形式，查到其大致形式如下：</p>
 <p>$$<br>L=\frac{1}{N} \sum_{i}^{N} L_{i}=\frac{1}{N} \sum_{i}^{N}\sum_{c=1}^{M} y_{i c} \log \left(p_{i c}\right)<br>$$<br>其中：</p>
@@ -515,7 +515,9 @@
 
 <p>直接计算、输出余弦相似度；训练损失函数采取了均方根误差；</p>
 <p>$$<br>\sigma=\sqrt{\frac{\sum d_{i}^{2}}{n}}, \mathrm{i}=1<br>$$</p>
-<h4 id="针对三元组输入"><a href="#针对三元组输入" class="headerlink" title="针对三元组输入"></a>针对<strong>三元组输入</strong></h4><p>给定一个锚定句$a$，正面句$p$，负面句$n$。这个网络的目标是调整三元组中$a$与$p$的距离小于$a$与$n$的距离。其损失函数如下：</p>
+<h4 id="针对三元组输入"><a href="#针对三元组输入" class="headerlink" title="针对三元组输入"></a>针对<strong>三元组输入</strong></h4><img src="https://my-picbed.oss-cn-hangzhou.aliyuncs.com/img/20200812184837.png" alt="针对三元组的模型" style="zoom: 33%;" />
+
+<p>给定一个锚定句$a$，正面句$p$，负面句$n$。这个网络的目标是调整三元组中$a$与$p$的距离小于$a$与$n$的距离。其损失函数如下：</p>
 <p>$$<br>\max \left(\left|s_{a}-s_{p}\right|-\left|s_{a}-s_{n}\right|+\epsilon, 0\right)<br>$$</p>
 <p>$s_x$—— $a/n/p$的句向量；</p>
 <p>$||·||$—— 计算距离，如欧式距离、曼哈顿距离；</p>
