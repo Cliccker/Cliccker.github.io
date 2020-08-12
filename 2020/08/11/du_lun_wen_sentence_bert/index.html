@@ -450,7 +450,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.2k
+                    1.3k
                 </div>
                 
 
@@ -477,8 +477,12 @@
 <p><a href="https://github.com/UKPLab/sentence-transformers" target="_blank" rel="noopener">代码</a></p>
 <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p><code>BERT</code>（2018）和<code>RoBERTa</code>（2019）在处理文本语义相似度等句子对回归的任务上，都有不错的效果。但BERT在计算句子相似度时，需要将两个句子都输入到网络中，这就会产生巨大的计算开销。在10000个句子中找到相似的句子需要<code>5000w</code>次推理计算，这项任务在V100GPU上大约耗时<code>65h</code>。</p>
 <p><strong>BERT的构造使得它既不适用于语义相似度搜索，也不适合于聚类等无监督任务。</strong></p>
-<p>有研究尝试将整个句子输入到BERT中，得到该句的句向量。但是这样得到的句向量不具有语义信息，也就是说</p>
+<p>有研究尝试将整个句子输入到BERT中，得到该句的句向量。但是这样得到的句向量包含的语义信息有限，也就是说</p>
 <p><strong>相似的句子的句向量差别可能会很大</strong></p>
+<p>这一点作者也在后续的实验中证明了：</p>
+<blockquote>
+<p>The results shows that directly using the output of BERT leads to rather poor performances. Averaging the BERT embeddings achieves an average correlation of only 54.81, and using the CLStoken output only achieves an average correlationof 29.19. Both are worse than computing average GloVe embeddings.</p>
+</blockquote>
 <h2 id="解决的问题"><a href="#解决的问题" class="headerlink" title="解决的问题"></a>解决的问题</h2><p>提出了Sentence-Bert，一种改进的模型。该模型使用孪生网络（Siamese Network）来输出<strong>定长</strong>的、<strong>保有语义信息</strong>的句向量。再通过余弦距离、曼哈顿距离或欧式距离来计算其相似度。SBERT可以将原本需要<code>65h</code>的任务缩短至<code>5s</code>左右。</p>
 <h2 id="建模"><a href="#建模" class="headerlink" title="建模"></a>建模</h2><h3 id="孪生网络（Siamse-Network）"><a href="#孪生网络（Siamse-Network）" class="headerlink" title="孪生网络（Siamse Network）"></a>孪生网络（Siamse Network）</h3><img src="https://my-picbed.oss-cn-hangzhou.aliyuncs.com/img/20200811192235.png" alt="孪生网络" style="zoom: 33%;" />
 
