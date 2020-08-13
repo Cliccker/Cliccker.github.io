@@ -503,7 +503,7 @@
 <p>针对分类任务的训练模型如图1所示。使用元素级差分$|u-v|$来组合$u,v$，将其乘以一个可训练的权重矩阵$W_{t} \in \mathbb{R}^{3 n \times k}$（n为句向量的维度，k为标签的个数）。使用<code>Softmax</code>函数进行分类输出</p>
 <p>$$<br>o=\operatorname{softmax}\left(W_{t}(u, v,|u-v|)\right)<br>$$</p>
 <p>其中矩阵的形式如下：</p>
-<img src="C:\Users\76084\Desktop\20200812135022.png" alt="矩阵形式" style="zoom:67%;" />
+<img src="https://my-picbed.oss-cn-hangzhou.aliyuncs.com/img/20200813084959.png" alt="矩阵形式" style="zoom:67%;" />
 
 <p>最后使用交叉熵来作为优化，文章中没有提到具体形式，查到其大致形式如下：</p>
 <p>$$<br>L=\frac{1}{N} \sum_{i}^{N} L_{i}=\frac{1}{N} \sum_{i}^{N}\sum_{c=1}^{M} y_{i c} \log \left(p_{i c}\right)<br>$$<br>其中：</p>
