@@ -127,9 +127,9 @@
     <category term="学习" scheme="https://cliccker.top/categories/%E5%AD%A6%E4%B9%A0/"/>
     
     
-    <category term="知识嵌入" scheme="https://cliccker.top/tags/%E7%9F%A5%E8%AF%86%E5%B5%8C%E5%85%A5/"/>
-    
     <category term="向量" scheme="https://cliccker.top/tags/%E5%90%91%E9%87%8F/"/>
+    
+    <category term="知识嵌入" scheme="https://cliccker.top/tags/%E7%9F%A5%E8%AF%86%E5%B5%8C%E5%85%A5/"/>
     
     <category term="python" scheme="https://cliccker.top/tags/python/"/>
     
@@ -266,9 +266,9 @@
     <category term="学习" scheme="https://cliccker.top/categories/%E5%AD%A6%E4%B9%A0/"/>
     
     
-    <category term="本体" scheme="https://cliccker.top/tags/%E6%9C%AC%E4%BD%93/"/>
-    
     <category term="知识嵌入" scheme="https://cliccker.top/tags/%E7%9F%A5%E8%AF%86%E5%B5%8C%E5%85%A5/"/>
+    
+    <category term="本体" scheme="https://cliccker.top/tags/%E6%9C%AC%E4%BD%93/"/>
     
   </entry>
   
@@ -320,11 +320,11 @@
     <category term="学习" scheme="https://cliccker.top/categories/%E5%AD%A6%E4%B9%A0/"/>
     
     
+    <category term="知识图谱" scheme="https://cliccker.top/tags/%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1/"/>
+    
     <category term="owl" scheme="https://cliccker.top/tags/owl/"/>
     
     <category term="rdf" scheme="https://cliccker.top/tags/rdf/"/>
-    
-    <category term="知识图谱" scheme="https://cliccker.top/tags/%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1/"/>
     
   </entry>
   
