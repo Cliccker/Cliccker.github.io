@@ -28,8 +28,7 @@
       
         
         
-    <summary type="html">&lt;p&gt;原标题：Sentence-BERT: Sentence Embeddings using Siamese BERT-Networks&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;https://arxiv.org/abs/1908.10084&quot; target=&quot;_blank&quot;</summary>
+    <summary type="html"></summary>
         
       
     
@@ -58,10 +57,7 @@
       
         
         
-    <summary type="html">&lt;h2 id=&quot;软件&quot;&gt;&lt;a href=&quot;#软件&quot; class=&quot;headerlink&quot; title=&quot;软件&quot;&gt;&lt;/a&gt;软件&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;福昕PDF阅读器&lt;/li&gt;
-&lt;li&gt;office2016以上版本或wps&lt;/li&gt;
-&lt;li&gt;Typora</summary>
+    <summary type="html"></summary>
         
       
     
@@ -90,10 +86,7 @@
       
         
         
-    <summary type="html">&lt;p&gt;我一直认为人类的许多表现，都是原始本能在现代社会中的映射。编造个小故事：&lt;/p&gt;
-&lt;p&gt;在这片原始的大陆上，生活着许多不同的原始部族。&lt;code&gt;咚塔塔人&lt;/code&gt;也是其中一员，或许是因为脑容量大一丢丢吧，咚塔塔人首先悟出了三条生存的准则：&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;猎</summary>
+    <summary type="html"></summary>
         
       
     
@@ -118,7 +111,7 @@
       
         
         
-    <summary type="html">&lt;p&gt;最近在做的嵌入模型比较，需要用到比较向量相似度，在知乎上看到了&lt;a href=&quot;https://zhuanlan.zhihu.com/p/33164335&quot; target=&quot;_blank&quot;</summary>
+    <summary type="html"></summary>
         
       
     
@@ -147,8 +140,7 @@
       
         
         
-    <summary type="html">&lt;p&gt;事情是这样的，刚打开Pycharm出现了这样的一幕：&lt;/p&gt;
-&lt;img src=&quot;https://my-picbed.oss-cn-hangzhou.aliyuncs.com/img/20200722181810.png&quot; alt=&quot;证书他又双叒过期了&quot;</summary>
+    <summary type="html"></summary>
         
       
     
@@ -175,8 +167,7 @@
       
         
         
-    <summary type="html">&lt;p&gt;最近比较烦时常抽风的GitHub，搞得我不能愉快的&lt;del&gt;克隆&lt;/del&gt;借鉴代码，再加上之前一直在用的鸡场场长跑路了，所以尝试改hosts来实现。&lt;/p&gt;
-&lt;h2 id=&quot;首先把hosts放出来&quot;&gt;&lt;a href=&quot;#首先把hosts放出来&quot;</summary>
+    <summary type="html"></summary>
         
       
     
@@ -203,7 +194,7 @@
       
         
         
-    <summary type="html">&lt;h2 id=&quot;1-1-算法的基本概念&quot;&gt;&lt;a href=&quot;#1-1-算法的基本概念&quot; class=&quot;headerlink&quot;</summary>
+    <summary type="html"></summary>
         
       
     
@@ -230,9 +221,7 @@
       
         
         
-    <summary type="html">&lt;pre class=&quot; language-python&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;&lt;span class=&quot;token comment&quot; spellcheck=&quot;true&quot;&gt;# 2019-11-26&lt;/span&gt;
-
-&lt;span</summary>
+    <summary type="html"></summary>
         
       
     
@@ -257,7 +246,7 @@
       
         
         
-    <summary type="html">&lt;h1 id=&quot;读论文——On2Vec：基于嵌入的本体群体关系预测&quot;&gt;&lt;a href=&quot;#读论文——On2Vec：基于嵌入的本体群体关系预测&quot; class=&quot;headerlink&quot;</summary>
+    <summary type="html"></summary>
         
       
     
@@ -284,8 +273,7 @@
       
         
         
-    <summary type="html">&lt;p&gt;从今年开始，学生们最恐怖的噩梦从梦到上学没穿裤子变成了网课没关麦。&lt;/p&gt;
-</summary>
+    <summary type="html"></summary>
         
       
     
@@ -310,8 +298,7 @@
       
         
         
-    <summary type="html">&lt;p&gt;距离上一篇读书笔记已经有一段日子了，中间打了很多代码，也摸了很多🐟。有时候还是比较细化打代码的，感觉比码字有意思。但是有意思的事做太多就不会有积累了，所以接着填这个坑叭！&lt;/p&gt;
-&lt;h2 id=&quot;互联网时代的语义网知识表示框架&quot;&gt;&lt;a</summary>
+    <summary type="html"></summary>
         
       
     
@@ -340,7 +327,7 @@
       
         
         
-    <summary type="html">&lt;h2 id=&quot;什么是知识图谱？&quot;&gt;&lt;a href=&quot;#什么是知识图谱？&quot; class=&quot;headerlink&quot; title=&quot;什么是知识图谱？&quot;&gt;&lt;/a&gt;什么是知识图谱？&lt;/h2&gt;&lt;p&gt;一种用&lt;strong&gt;图模型&lt;/strong&gt;(probabilistic graphic</summary>
+    <summary type="html"></summary>
         
       
     
@@ -365,8 +352,7 @@
       
         
         
-    <summary type="html">&lt;p&gt;上一篇文章中我们介绍了什么是知识图谱，而这一篇讲述了知识图谱的表示和建模方法。和编程之前需要选择平台一样，知识图谱的建模也需要我们来选择一种方法。本章主要讲述了如何使用这些方法对知识进行建模。&lt;/p&gt;
-&lt;h2 id=&quot;1-什么是知识表示&quot;&gt;&lt;a</summary>
+    <summary type="html"></summary>
         
       
     
