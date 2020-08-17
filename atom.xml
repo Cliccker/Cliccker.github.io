@@ -6,7 +6,7 @@
   <link href="https://cliccker.top/atom.xml" rel="self"/>
   
   <link href="https://cliccker.top/"/>
-  <updated>2020-08-13T00:50:07.183Z</updated>
+  <updated>2020-08-17T04:10:11.835Z</updated>
   <id>https://cliccker.top/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>gensim中的Doc2vec模型参数调整</title>
+    <link href="https://cliccker.top/2020/08/16/gensim_doc2vec_diao_can/"/>
+    <id>https://cliccker.top/2020/08/16/gensim_doc2vec_diao_can/</id>
+    <published>2020-08-16T07:28:00.000Z</published>
+    <updated>2020-08-17T04:10:11.835Z</updated>
+    
+    <content type="html"><![CDATA[<p>最近在用Doc2vec训练模型，现在现在需要做一些参数调整来提高准确率。这边记录一些参数的调整和效果。</p><pre class=" language-python"><code class="language-python">Doc2Vec<span class="token punctuation">(</span>documents<span class="token operator">=</span>None<span class="token punctuation">,</span>         <span class="token comment" spellcheck="true">#输入语料库</span>        corpus_file<span class="token operator">=</span>None<span class="token punctuation">,</span>         <span class="token comment" spellcheck="true">#LineSentence格式的语料库文件的路径。</span>        alpha <span class="token operator">=</span> float<span class="token punctuation">,</span>        <span class="token comment" spellcheck="true">#初始学习率</span>        seed <span class="token operator">=</span> <span class="token number">5</span><span class="token punctuation">;</span>        <span class="token comment" spellcheck="true">#随机种子</span>        negative <span class="token operator">=</span> <span class="token number">5</span><span class="token punctuation">,</span>        <span class="token comment" spellcheck="true">#如果数值大于零，则加入负面采样。数值多大就加入多少个“noise word” </span>        dm_mean<span class="token operator">=</span>None<span class="token punctuation">,</span>         <span class="token comment" spellcheck="true">#当使用DM训练算法时，对上下文向量相加（默认0）；若设为1，则求均值</span>        dm<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">,</span>          <span class="token comment" spellcheck="true">#默认值为1，表示使用DM模型，否则使用DBOW模型</span>        dbow_words<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span>         <span class="token comment" spellcheck="true">#当设为1时，则在训练doc_vector（DBOW）的同时训练Word_vector（Skip-gram）；默认为0，          只训练doc_vector，速度更快。</span>        dm_concat<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span>         <span class="token comment" spellcheck="true">#默认为0，当设为1时，在使用DM训练算法时，直接将上下文向量和Doc向量拼接。</span>        dm_tag_count<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">,</span>         <span class="token comment" spellcheck="true">#使用dm_concat模式时，每个文档的预期文档标签数。</span>        sammple <span class="token operator">=</span> <span class="token number">1e</span><span class="token operator">-</span><span class="token number">5</span><span class="token punctuation">,</span>        <span class="token comment" spellcheck="true">#用于配置随机采样哪些高频词的阈值，有用范围是（0，1e-5）。</span>        min_count <span class="token operator">=</span> <span class="token number">5</span><span class="token punctuation">,</span>        <span class="token comment" spellcheck="true">#忽略所有词频少于一定数值的单词</span>        docvecs<span class="token operator">=</span>None<span class="token punctuation">,</span>         docvecs_mapfile<span class="token operator">=</span>None<span class="token punctuation">,</span>         comment<span class="token operator">=</span>None<span class="token punctuation">,</span>         trim_rule<span class="token operator">=</span>None<span class="token punctuation">,</span>         <span class="token comment" spellcheck="true">#词汇修剪原则，指定某些单词应保留在词汇中</span>        callbacks<span class="token operator">=</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>         <span class="token comment" spellcheck="true">#回调列表</span>        <span class="token operator">**</span>kwargs<span class="token punctuation">)</span></code></pre>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;最近在用Doc2vec训练模型，现在现在需要做一些参数调整来提高准确率。这边记录一些参数的调整和效果。&lt;/p&gt;
+&lt;pre class=&quot; language-python&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;Doc2Vec&lt;span class=&quot;t</summary>
+      
+    
+    
+    
+    <category term="学习" scheme="https://cliccker.top/categories/%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+    <category term="python" scheme="https://cliccker.top/tags/python/"/>
+    
+    <category term="gensim" scheme="https://cliccker.top/tags/gensim/"/>
+    
+    <category term="Doc2vec" scheme="https://cliccker.top/tags/Doc2vec/"/>
+    
+  </entry>
   
   <entry>
     <title>读论文——Sentence-BERT:基于孪生网络的句子嵌入</title>
