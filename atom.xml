@@ -6,7 +6,7 @@
   <link href="https://cliccker.top/atom.xml" rel="self"/>
   
   <link href="https://cliccker.top/"/>
-  <updated>2020-08-17T04:10:11.835Z</updated>
+  <updated>2020-08-24T11:13:07.472Z</updated>
   <id>https://cliccker.top/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>《Tensorflow学习指南：深度学习系统构建详解》读书笔记</title>
+    <link href="https://cliccker.top/2020/08/24/tensorflow_xue_xi_bi_ji/"/>
+    <id>https://cliccker.top/2020/08/24/tensorflow_xue_xi_bi_ji/</id>
+    <published>2020-08-24T10:52:19.000Z</published>
+    <updated>2020-08-24T11:13:07.472Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Hello-World！"><a href="#Hello-World！" class="headerlink" title="Hello World！"></a>Hello World！</h2><pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> tensorflow <span class="token keyword">as</span> tfh <span class="token operator">=</span> tf<span class="token punctuation">.</span>constant<span class="token punctuation">(</span><span class="token string">"Ciao!"</span><span class="token punctuation">)</span>w <span class="token operator">=</span> tf<span class="token punctuation">.</span>constant<span class="token punctuation">(</span><span class="token string">"World"</span><span class="token punctuation">)</span>hw <span class="token operator">=</span> h <span class="token operator">+</span>w<span class="token keyword">with</span> tf<span class="token punctuation">.</span>compat<span class="token punctuation">.</span>v1<span class="token punctuation">.</span>Session<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">as</span> sess<span class="token punctuation">:</span>    ans <span class="token operator">=</span> sess<span class="token punctuation">.</span>run<span class="token punctuation">(</span>hw<span class="token punctuation">)</span><span class="token keyword">print</span><span class="token punctuation">(</span>ans<span class="token punctuation">)</span></code></pre><p>这一段代码展示了计算图的主要思想，集首先定义计算需要的元素，再采用一个外部机制去触发这个计算。因此<code>hw=h+w</code>并<strong>没有</strong>执行操作，真正执行操作的是<code>ans = sess.run(hw)</code></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;Hello-World！&quot;&gt;&lt;a href=&quot;#Hello-World！&quot; class=&quot;headerlink&quot; title=&quot;Hello World！&quot;&gt;&lt;/a&gt;Hello World！&lt;/h2&gt;&lt;pre class=&quot; language-python&quot;&gt;&lt;co</summary>
+      
+    
+    
+    
+    <category term="学习" scheme="https://cliccker.top/categories/%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+    <category term="python" scheme="https://cliccker.top/tags/python/"/>
+    
+    <category term="TensorFlow" scheme="https://cliccker.top/tags/TensorFlow/"/>
+    
+  </entry>
   
   <entry>
     <title>gensim中的Doc2vec模型参数调整</title>
