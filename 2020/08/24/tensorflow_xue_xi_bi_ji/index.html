@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="《Tensorflow学习指南：深度学习系统构建详解》读书笔记, 分享、成长">
+    <meta name="keywords" content="Tensorflow读书笔记, 分享、成长">
     <meta name="description" content="如果可以的话，我想多要一双眼睛">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>《Tensorflow学习指南：深度学习系统构建详解》读书笔记 | 不言物语</title>
+    <title>Tensorflow读书笔记 | 不言物语</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -287,12 +287,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/21.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/6.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">《Tensorflow学习指南：深度学习系统构建详解》读书笔记</h1>
+                    <h1 class="description center-align post-title">Tensorflow读书笔记</h1>
                 </div>
             </div>
         </div>
@@ -447,7 +447,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    98
+                    311
                 </div>
                 
 
@@ -472,11 +472,45 @@
                 <h2 id="Hello-World！"><a href="#Hello-World！" class="headerlink" title="Hello World！"></a>Hello World！</h2><pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> tensorflow <span class="token keyword">as</span> tf
 h <span class="token operator">=</span> tf<span class="token punctuation">.</span>constant<span class="token punctuation">(</span><span class="token string">"Ciao!"</span><span class="token punctuation">)</span>
 w <span class="token operator">=</span> tf<span class="token punctuation">.</span>constant<span class="token punctuation">(</span><span class="token string">"World"</span><span class="token punctuation">)</span>
-hw <span class="token operator">=</span> h <span class="token operator">+</span>w
+hw <span class="token operator">=</span> h <span class="token operator">+</span> w
 <span class="token keyword">with</span> tf<span class="token punctuation">.</span>compat<span class="token punctuation">.</span>v1<span class="token punctuation">.</span>Session<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">as</span> sess<span class="token punctuation">:</span>
     ans <span class="token operator">=</span> sess<span class="token punctuation">.</span>run<span class="token punctuation">(</span>hw<span class="token punctuation">)</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span>ans<span class="token punctuation">)</span></code></pre>
-<p>这一段代码展示了计算图的主要思想，集首先定义计算需要的元素，再采用一个外部机制去触发这个计算。因此<code>hw=h+w</code>并<strong>没有</strong>执行操作，真正执行操作的是<code>ans = sess.run(hw)</code></p>
+<span class="token keyword">print</span><span class="token punctuation">(</span>ans<span class="token punctuation">)</span>
+<span class="token operator">></span>b<span class="token string">'Ciao!World'</span></code></pre>
+<p>这一段代码展示了<strong>计算图</strong>的主要思想，即首先定义计算需要的元素，再采用一个外部机制去触发这个计算。也就是说<code>hw = h + w</code>并<strong>没有</strong>执行操作，真正执行操作的是<code>ans = sess.run(hw)</code></p>
+<h2 id="SoftmaxMnist"><a href="#SoftmaxMnist" class="headerlink" title="SoftmaxMnist"></a>SoftmaxMnist</h2><pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> tensorflow <span class="token keyword">as</span> tf
+
+<span class="token keyword">from</span> tensorflow<span class="token punctuation">.</span>examples<span class="token punctuation">.</span>tutorials<span class="token punctuation">.</span>mnist <span class="token keyword">import</span> input_data
+
+data_dir <span class="token operator">=</span> <span class="token string">'data'</span>
+num_steps <span class="token operator">=</span> <span class="token number">1000</span>
+minibatch_size <span class="token operator">=</span> <span class="token number">100</span>
+
+data <span class="token operator">=</span> input_data<span class="token punctuation">.</span>read_data_sets<span class="token punctuation">(</span>data_dir<span class="token punctuation">,</span> one_hot<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># 自动加载数据集</span>
+
+x <span class="token operator">=</span> tf<span class="token punctuation">.</span>placeholder<span class="token punctuation">(</span>tf<span class="token punctuation">.</span>float32<span class="token punctuation">,</span> <span class="token punctuation">[</span>None<span class="token punctuation">,</span> <span class="token number">784</span><span class="token punctuation">]</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># None表示当前不指定每次使用图片的数量</span>
+W <span class="token operator">=</span> tf<span class="token punctuation">.</span>Variable<span class="token punctuation">(</span>tf<span class="token punctuation">.</span>zeros<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">784</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># 权重</span>
+
+y_true <span class="token operator">=</span> tf<span class="token punctuation">.</span>placeholder<span class="token punctuation">(</span>tf<span class="token punctuation">.</span>float32<span class="token punctuation">,</span> <span class="token punctuation">[</span>None<span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+y_pred <span class="token operator">=</span> tf<span class="token punctuation">.</span>matmul<span class="token punctuation">(</span>x<span class="token punctuation">,</span> W<span class="token punctuation">)</span>
+
+cross_entropy <span class="token operator">=</span> tf<span class="token punctuation">.</span>reduce_mean<span class="token punctuation">(</span>tf<span class="token punctuation">.</span>nn<span class="token punctuation">.</span>softmax_cross_entropy_with_logits<span class="token punctuation">(</span>logits<span class="token operator">=</span>y_pred<span class="token punctuation">,</span> labels<span class="token operator">=</span>y_true<span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># 使用交叉熵作为loss</span>
+gd_step <span class="token operator">=</span> tf<span class="token punctuation">.</span>train<span class="token punctuation">.</span>GradientDescentOptimizer<span class="token punctuation">(</span><span class="token number">0.5</span><span class="token punctuation">)</span><span class="token punctuation">.</span>minimize<span class="token punctuation">(</span>cross_entropy<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># 定义如何训练</span>
+correct_mask <span class="token operator">=</span> tf<span class="token punctuation">.</span>equal<span class="token punctuation">(</span>tf<span class="token punctuation">.</span>argmax<span class="token punctuation">(</span>y_pred<span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">,</span> tf<span class="token punctuation">.</span>argmax<span class="token punctuation">(</span>y_true<span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+accuracy <span class="token operator">=</span> tf<span class="token punctuation">.</span>reduce_mean<span class="token punctuation">(</span>tf<span class="token punctuation">.</span>cast<span class="token punctuation">(</span>correct_mask<span class="token punctuation">,</span> tf<span class="token punctuation">.</span>float32<span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token keyword">with</span> tf<span class="token punctuation">.</span>Session<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">as</span> sess<span class="token punctuation">:</span>
+    sess<span class="token punctuation">.</span>run<span class="token punctuation">(</span>tf<span class="token punctuation">.</span>global_variables_initializer<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token keyword">for</span> _ <span class="token keyword">in</span> range<span class="token punctuation">(</span>num_steps<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        batch_xs<span class="token punctuation">,</span> batch_ys <span class="token operator">=</span> data<span class="token punctuation">.</span>train<span class="token punctuation">.</span>next_batch<span class="token punctuation">(</span>minibatch_size<span class="token punctuation">)</span>
+        sess<span class="token punctuation">.</span>run<span class="token punctuation">(</span>gd_step<span class="token punctuation">,</span> feed_dict<span class="token operator">=</span><span class="token punctuation">{</span>x<span class="token punctuation">:</span> batch_xs<span class="token punctuation">,</span> y_true<span class="token punctuation">:</span> batch_ys<span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+    ans <span class="token operator">=</span> sess<span class="token punctuation">.</span>run<span class="token punctuation">(</span>accuracy<span class="token punctuation">,</span> feed_dict<span class="token operator">=</span><span class="token punctuation">{</span>x<span class="token punctuation">:</span> data<span class="token punctuation">.</span>test<span class="token punctuation">.</span>images<span class="token punctuation">,</span> y_true<span class="token punctuation">:</span> data<span class="token punctuation">.</span>test<span class="token punctuation">.</span>labels<span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Accuracy: {:.4}%"</span><span class="token punctuation">.</span>format<span class="token punctuation">(</span>ans<span class="token operator">*</span><span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
+<p>由于这本书是两年前的，很多模块都有了变化，后面我找了另一本更新的TensorFlow教程来看。</p>
 
             </div>
             <hr/>
@@ -985,9 +1019,9 @@ hw <span class="token operator">=</span> h <span class="token operator">+</span>
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="《Tensorflow学习指南：深度学习系统构建详解》读书笔记">
+                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="Tensorflow读书笔记">
                         
-                        <span class="card-title">《Tensorflow学习指南：深度学习系统构建详解》读书笔记</span>
+                        <span class="card-title">Tensorflow读书笔记</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1296,7 +1330,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">11.7k</span>&nbsp;字
+                class="white-color">12k</span>&nbsp;字
             
             
             
