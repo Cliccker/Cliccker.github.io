@@ -92,11 +92,11 @@
     <category term="学习" scheme="https://cliccker.top/categories/%E5%AD%A6%E4%B9%A0/"/>
     
     
-    <category term="python" scheme="https://cliccker.top/tags/python/"/>
-    
     <category term="gensim" scheme="https://cliccker.top/tags/gensim/"/>
     
     <category term="Doc2vec" scheme="https://cliccker.top/tags/Doc2vec/"/>
+    
+    <category term="python" scheme="https://cliccker.top/tags/python/"/>
     
   </entry>
   

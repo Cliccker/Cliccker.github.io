@@ -76,11 +76,11 @@
       
         <tags>
             
-            <tag> python </tag>
-            
             <tag> gensim </tag>
             
             <tag> Doc2vec </tag>
+            
+            <tag> python </tag>
             
         </tags>
       
