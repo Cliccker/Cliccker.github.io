@@ -6,7 +6,7 @@
   <link href="https://cliccker.top/atom.xml" rel="self"/>
   
   <link href="https://cliccker.top/"/>
-  <updated>2020-08-26T06:26:57.453Z</updated>
+  <updated>2020-09-07T08:50:34.544Z</updated>
   <id>https://cliccker.top/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>读论文——graph2vec:图的分布式表示学习</title>
+    <link href="https://cliccker.top/2020/09/07/du_lun_wen_graph2vec/"/>
+    <id>https://cliccker.top/2020/09/07/du_lun_wen_graph2vec/</id>
+    <published>2020-09-07T06:30:42.000Z</published>
+    <updated>2020-09-07T08:50:34.544Z</updated>
+    
+    <content type="html"><![CDATA[<p>原论文：graph2vec: Learning Distributed Representations of Graphs</p><p>来源：MLG 2017 - 13th International Workshop on Mining and Learning with Graphs (MLG 2017)</p><p><a href="https://arxiv.org/abs/1707.05005" target="_blank" rel="noopener">论文地址</a></p><p><a href="https://github.com/benedekrozemberczki/graph2vec" target="_blank" rel="noopener">github地址</a></p><h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>在对图的分类和聚类这些知识图谱的分析任务中，我们常常需要将图表示为一个固定长度的特征向量。提取特征向量最有效的方法是图核（Graph Kernel）方法。</p><blockquote><p>Graph Kernel 方法将机器学习中的核方法（Kernel Methods）拓展到了图结构数据上，是一类计算图与图之间相似度的方法。再利用图核方法比较两个图的相似度时，需要将两个图用一定方法（如最小路径，随机游走，小图等）分解成更小的子结构，再通过定义一个核函数来的到两个图的相似度（如计算两个图中相似的子结构个数）</p></blockquote><blockquote><p>为什么是Graph Kernels而不是用Graph Embedding？</p><p>因为后者将结构化数据降维到向量空间时，损失了大量结构化信息。而前者直接面向图结构的数据，保留了核函数高效计算的优点，又包含了结构化的信息。</p></blockquote><p>文章提出，这种方式有两种存在的问题：</p><ol><li><p>不能得到显式的图嵌入，不利于计算和学习。</p></li><li><p>“人为”定义的特征（路径，步伐）不具有概括性。</p><blockquote><p>这些“人为”的特征应用在大型数据集上时，会产生高维的，稀疏的，不光滑的表示。</p></blockquote></li></ol>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;原论文：graph2vec: Learning Distributed Representations of Graphs&lt;/p&gt;
+&lt;p&gt;来源：MLG 2017 - 13th International Workshop on Mining and Learning wit</summary>
+      
+    
+    
+    
+    <category term="学习" scheme="https://cliccker.top/categories/%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+    <category term="表示学习" scheme="https://cliccker.top/tags/%E8%A1%A8%E7%A4%BA%E5%AD%A6%E4%B9%A0/"/>
+    
+    <category term="深度学习" scheme="https://cliccker.top/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+    <category term="图嵌入" scheme="https://cliccker.top/tags/%E5%9B%BE%E5%B5%8C%E5%85%A5/"/>
+    
+  </entry>
   
   <entry>
     <title>抓取某网站的摄影作品</title>
