@@ -76,11 +76,11 @@
       
         <tags>
             
+            <tag> python </tag>
+            
             <tag> gensim </tag>
             
             <tag> Doc2vec </tag>
-            
-            <tag> python </tag>
             
         </tags>
       
@@ -375,11 +375,11 @@
       
         <tags>
             
-            <tag> 知识图谱 </tag>
-            
             <tag> owl </tag>
             
             <tag> rdf </tag>
+            
+            <tag> 知识图谱 </tag>
             
         </tags>
       
