@@ -457,7 +457,7 @@
 </ol>
 <h2 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h2><p>首先，graph2vec是一种<strong>无监督</strong>的算法，设计思路参考了doc2vec，因此再熟悉grap2vec之前，我们先复习一下doc2vec。</p>
 <h3 id="doc2vec"><a href="#doc2vec" class="headerlink" title="doc2vec"></a>doc2vec</h3><p>给定一个属于文档$d_i$的词$w_j$，我们要使下列预测结果R尽可能地大：<br>$$<br>R(d_i)=\sum_{j=1}^{l_{i}} \log \operatorname{Pr}\left(w_{j} \mid d_{i}\right)<br>$$<br>式中的可能性$\operatorname{Pr}\left(w_{j} \mid d\right)$，即某个段落中出现$w_j$的可能性，能够定义为:</p>
-<img src="https://my-picbed.oss-cn-hangzhou.aliyuncs.com/img/20200909171931.png" alt="image-20200909171931729"  />
+<img src="https://my-picbed.oss-cn-hangzhou.aliyuncs.com/img/20200909171931.png"   />
 
 <p>我们可以使用负采样的方法有效的训练R。</p>
 <h3 id="graph2vec"><a href="#graph2vec" class="headerlink" title="graph2vec"></a>graph2vec</h3><p>其主要算法流程如下:</p>
