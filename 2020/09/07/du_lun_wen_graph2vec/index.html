@@ -456,7 +456,10 @@
 <li>与步长和路径相比，有根子图能够更好的捕获图谱中的非线性特征。因其具有图核的特性。（作者引用了一些实验结果来证明核方法能够更好的捕捉非线性特征）</li>
 </ol>
 <h2 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h2><p>首先，graph2vec是一种<strong>无监督</strong>的算法，设计思路参考了doc2vec，因此再熟悉grap2vec之前，我们先复习一下doc2vec。</p>
-<h3 id="doc2vec"><a href="#doc2vec" class="headerlink" title="doc2vec"></a>doc2vec</h3><p>给定一个属于文档$d_i$的词$w_j$，我们要使下列预测结果R尽可能地大：<br>$$<br>R(d_i)=\sum_{j=1}^{l_{i}} \log \operatorname{Pr}\left(w_{j} \mid d_{i}\right)<br>$$<br>式中的可能性$\operatorname{Pr}\left(w_{j} \mid d\right)$，即某个段落中出现$w_j$的可能性，能够定义为:<br>$$<br>\operatorname{Pr}\left(w_{j} \mid d\right)=\frac{\exp \left(\vec{d} \cdot \vec{w}<em>{j}\right)}{\sum</em>{w \in \mathcal{V}} \exp (\vec{d} \cdot \vec{w})}<br>$$<br>我们可以使用负采样的方法有效的训练R。</p>
+<h3 id="doc2vec"><a href="#doc2vec" class="headerlink" title="doc2vec"></a>doc2vec</h3><p>给定一个属于文档$d_i$的词$w_j$，我们要使下列预测结果R尽可能地大：<br>$$<br>R(d_i)=\sum_{j=1}^{l_{i}} \log \operatorname{Pr}\left(w_{j} \mid d_{i}\right)<br>$$<br>式中的可能性$\operatorname{Pr}\left(w_{j} \mid d\right)$，即某个段落中出现$w_j$的可能性，能够定义为:</p>
+<img src="https://my-picbed.oss-cn-hangzhou.aliyuncs.com/img/20200909171931.png" alt="image-20200909171931729"  />
+
+<p>我们可以使用负采样的方法有效的训练R。</p>
 <h3 id="graph2vec"><a href="#graph2vec" class="headerlink" title="graph2vec"></a>graph2vec</h3><p>其主要算法流程如下:</p>
 <p><img src="https://my-picbed.oss-cn-hangzhou.aliyuncs.com/img/20200909145057.png" alt="算法1 graph2vec"></p>
 <h4 id="如何提取有根子图？"><a href="#如何提取有根子图？" class="headerlink" title="如何提取有根子图？"></a>如何提取有根子图？</h4><p>上面算法中的第8行用到了一个提取子图的函数<code>GetWLSubgraph(n,Gi,d)</code>，下面来看看这个函数具体是怎么样的</p>
