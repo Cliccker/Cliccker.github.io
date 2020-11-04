@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="读论文——Sentence-BERT:基于孪生网络的句子嵌入, 分享、成长">
+    <meta name="keywords" content="读论文——Knowledge Graph Embedding Based Question Answering, 分享、成长">
     <meta name="description" content="如果可以的话，我想多要一双眼睛">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>读论文——Sentence-BERT:基于孪生网络的句子嵌入 | 不言物语</title>
+    <title>读论文——Knowledge Graph Embedding Based Question Answering | 不言物语</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -237,12 +237,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/17.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/20.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">读论文——Sentence-BERT:基于孪生网络的句子嵌入</h1>
+                    <h1 class="description center-align post-title">读论文——Knowledge Graph Embedding Based Question Answering</h1>
                 </div>
             </div>
         </div>
@@ -359,12 +359,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/NLP/">
-                                <span class="chip bg-color">NLP</span>
+                            <a href="/tags/%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1/">
+                                <span class="chip bg-color">知识图谱</span>
                             </a>
                         
-                            <a href="/tags/Bert/">
-                                <span class="chip bg-color">Bert</span>
+                            <a href="/tags/%E7%9F%A5%E8%AF%86%E5%B5%8C%E5%85%A5/">
+                                <span class="chip bg-color">知识嵌入</span>
                             </a>
                         
                             <a href="/tags/%E9%97%AE%E7%AD%94%E7%B3%BB%E7%BB%9F/">
@@ -392,7 +392,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-08-11
+                    2020-11-01
                 </div>
                 
 
@@ -401,14 +401,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.3k
+                    1.7k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    4 分
+                    6 分
                 </div>
                 
 
@@ -423,63 +423,64 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>原标题：Sentence-BERT: Sentence Embeddings using Siamese BERT-Networks</p>
-<p><a href="https://arxiv.org/abs/1908.10084" target="_blank" rel="noopener">论文地址</a></p>
-<p><a href="https://github.com/UKPLab/sentence-transformers" target="_blank" rel="noopener">代码</a></p>
-<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p><code>BERT</code>（2018）和<code>RoBERTa</code>（2019）在处理文本语义相似度等句子对回归的任务上，都有不错的效果。但BERT在计算句子相似度时，需要将两个句子都输入到网络中，这就会产生巨大的计算开销。在10000个句子中找到相似的句子需要<code>5000w</code>次推理计算，这项任务在V100GPU上大约耗时<code>65h</code>。</p>
-<p><strong>BERT的构造使得它既不适用于语义相似度搜索，也不适合于聚类等无监督任务。</strong></p>
-<p>有研究尝试将整个句子输入到BERT中，得到该句的句向量。但是这样得到的句向量包含的语义信息有限，也就是说</p>
-<p><strong>相似的句子的句向量差别可能会很大</strong></p>
-<p>这一点作者也在后续的实验中证明了：</p>
-<blockquote>
-<p>The results shows that directly using the output of BERT leads to rather poor performances. Averaging the BERT embeddings achieves an average correlation of only 54.81, and using the CLStoken output only achieves an average correlationof 29.19. Both are worse than computing average GloVe embeddings.</p>
-</blockquote>
-<h2 id="解决的问题"><a href="#解决的问题" class="headerlink" title="解决的问题"></a>解决的问题</h2><p>提出了Sentence-Bert，一种改进的模型。该模型使用孪生网络（Siamese Network）来输出<strong>定长</strong>的、<strong>保有语义信息</strong>的句向量。再通过余弦距离、曼哈顿距离或欧式距离来计算其相似度。SBERT可以将原本需要<code>65h</code>的任务缩短至<code>5s</code>左右。</p>
-<h2 id="建模"><a href="#建模" class="headerlink" title="建模"></a>建模</h2><h3 id="孪生网络（Siamse-Network）"><a href="#孪生网络（Siamse-Network）" class="headerlink" title="孪生网络（Siamse Network）"></a>孪生网络（Siamse Network）</h3><img src="https://my-picbed.oss-cn-hangzhou.aliyuncs.com/img/20200811192235.png" alt="孪生网络" style="zoom: 33%;" />
-
-<p>孪生网络结构相对简单，在计算句子相似度方面有很多良好的表现。最主要的特征是孪生网络的两个解码器（encoder）共享权重<code>W</code>。在输出层，可以通过余弦相似度等方法比较$u,v$两个向量之间的相似度。也可以用额外的模型来生成两个句子之间<strong>关系的特征向量</strong>，用于问答系统等更复杂的任务。</p>
-<h3 id="使用BERT处理文本匹配任务"><a href="#使用BERT处理文本匹配任务" class="headerlink" title="使用BERT处理文本匹配任务"></a>使用BERT处理文本匹配任务</h3><img src="https://my-picbed.oss-cn-hangzhou.aliyuncs.com/img/20200811200024.png" alt="BERT处理文本匹配任务" style="zoom: 50%;" />
-
-<p>如图，<code>BERT</code>的常规做法是将两个句子拼接成一个序列，中间以<code>SEP</code>符号进行分隔，经过特定模块进行编码后，取输出层的字向量的<code>平均值</code>或第一个特征位置<code>CLS</code>作为句子的句向量。这种取平均值或特征值的做法使得<code>BERT</code>输出的句向量不包含充分的语义信息。</p>
-<h3 id="Sentence-Bert"><a href="#Sentence-Bert" class="headerlink" title="Sentence-Bert"></a>Sentence-Bert</h3><p>SBERT沿用了孪生网络的结构，两个Sentence Encoder使用的是同一个BERT，并在其后加入了一个池化（pooling）操作来实现输出相同大小的句向量。文章一共试验了三种池化策略：</p>
-<ol>
-<li>CLS-token 以特征位置向量作为句向量</li>
-<li>MEAN-strategy 求取所有输出向量的平均值（默认）</li>
-<li>MAX-strategy 求取所有输出向量中的最大值</li>
+                <p>来源：WSDM ’19</p>
+<p><a href="https://dl.acm.org/doi/10.1145/3289600.3290956" target="_blank" rel="noopener">论文地址</a></p>
+<p><a href="https://github.com/xhuang31/KEQA_WSDM19" target="_blank" rel="noopener">github</a></p>
+<h2 id="研究背景"><a href="#研究背景" class="headerlink" title="研究背景"></a>研究背景</h2><h3 id="目标领域"><a href="#目标领域" class="headerlink" title="目标领域"></a>目标领域</h3><p>对于终端用户（end user）来说，知识图谱（KG）的结构往往过于复杂，难以访问有价值的信息，基于知识图的问答（QA-KG）旨在解决这一问题，以让用户更高效的获取知识图谱中蕴含的讯息。举例说明：</p>
+<ul>
+<li><p>Q：Which Olympic was in Beijing?</p>
+<p>QA-KG旨在确定这个问题相关的两个事实，用三元组的形式可以表示为</p>
+</li>
+<li><p>(Beijing,Olympics_participated_in,2008 Summer Olympics)</p>
+</li>
+</ul>
+<h3 id="挑战"><a href="#挑战" class="headerlink" title="挑战"></a>挑战</h3><ol>
+<li><p>谓语在自然语言中存在多种不同的表达方式。</p>
+<p>例：谓语<em>person.nationality</em>可以表示为</p>
+<ul>
+<li>“what is … ’s nationality”</li>
+<li>“which country is … from”</li>
+<li>“where is … from”</li>
+</ul>
+<p>三种形式。</p>
+</li>
+<li><p>模糊或者不全的实体名会导致答案的数量过于庞大。</p>
+<p>例：”How old is Obama?”</p>
+<p>只包含了<em>Barak Obama​</em>这一实体的一部分。</p>
+</li>
+<li><p>用户提出问题的领域五花八门，没有哪一个知识图谱能够涵盖所有领域。</p>
+</li>
 </ol>
-<p>通过池化操作进一步将BERT输出后的字向量进行特征提取、压缩，得到$u,v$。</p>
-<p>最后将$u,v$进行组合，针对不同的任务提出不同的组合方式</p>
-<h4 id="针对分类任务"><a href="#针对分类任务" class="headerlink" title="针对分类任务"></a>针对<strong>分类任务</strong></h4><img src="https://my-picbed.oss-cn-hangzhou.aliyuncs.com/img/20200811193651.png" alt="SBERT的一种训练模型" style="zoom:50%;" />
-
-<p>针对分类任务的训练模型如图1所示。使用元素级差分$|u-v|$来组合$u,v$，将其乘以一个可训练的权重矩阵$W_{t} \in \mathbb{R}^{3 n \times k}$（n为句向量的维度，k为标签的个数）。使用<code>Softmax</code>函数进行分类输出</p>
-<p>$$<br>o=\operatorname{softmax}\left(W_{t}(u, v,|u-v|)\right)<br>$$</p>
-<p>其中矩阵的形式如下：</p>
-<img src="https://my-picbed.oss-cn-hangzhou.aliyuncs.com/img/20200813084959.png" alt="矩阵形式" style="zoom:67%;" />
-
-<p>最后使用交叉熵来作为优化，文章中没有提到具体形式，查到其大致形式如下：</p>
-<p>$$<br>L=\frac{1}{N} \sum_{i}^{N} L_{i}=\frac{1}{N} \sum_{i}^{N}\sum_{c=1}^{M} y_{i c} \log \left(p_{i c}\right)<br>$$<br>其中：</p>
-<p>$M$—— 类别的数量；</p>
-<p>$N$—— 样本的数量；</p>
-<p>$y_c$—— 指示变量（0或1)，如果该类别和样本的类别相同就是1，否则是0；</p>
-<p>$p_c$——对于观测样本属于类别$c$的预测概率。</p>
-<h4 id="针对相似度计算"><a href="#针对相似度计算" class="headerlink" title="针对相似度计算"></a>针对<strong>相似度</strong>计算</h4><img src="https://my-picbed.oss-cn-hangzhou.aliyuncs.com/img/20200812131036.png" alt="相似度计算" style="zoom: 50%;" />
-
-<p>直接计算、输出余弦相似度；训练损失函数采取了均方根误差；</p>
-<p>$$<br>\sigma=\sqrt{\frac{\sum d_{i}^{2}}{n}}, \mathrm{i}=1<br>$$</p>
-<h4 id="针对三元组输入"><a href="#针对三元组输入" class="headerlink" title="针对三元组输入"></a>针对<strong>三元组输入</strong></h4><img src="https://my-picbed.oss-cn-hangzhou.aliyuncs.com/img/20200812184837.png" alt="针对三元组的模型" style="zoom: 33%;" />
-
-<p>给定一个锚定句$a$，正面句$p$，负面句$n$。这个网络的目标是调整三元组中$a$与$p$的距离小于$a$与$n$的距离。其损失函数如下：</p>
-<p>$$<br>\max \left(\left|s_{a}-s_{p}\right|-\left|s_{a}-s_{n}\right|+\epsilon, 0\right)<br>$$</p>
-<p>$s_x$—— $a/n/p$的句向量；</p>
-<p>$||·||$—— 计算距离，如欧式距离、曼哈顿距离；</p>
-<p>$\epsilon$ —— 边界，保证$s_p$与$s_a$之间的距离至少要比$s_n$与$s_a$小$\epsilon$，文中取1</p>
-<h2 id="实验"><a href="#实验" class="headerlink" title="实验"></a>实验</h2><h3 id="比较组合方式和池化策略的差异"><a href="#比较组合方式和池化策略的差异" class="headerlink" title="比较组合方式和池化策略的差异"></a>比较组合方式和池化策略的差异</h3><img src="https://my-picbed.oss-cn-hangzhou.aliyuncs.com/img/20200812134015.png" alt="不同池化策略和组合方式的差异" style="zoom:67%;" />
-
-<p>可以看到平均池化策略的表现比较好；</p>
-<p>再平均池化策略下，使用$(u, v,|u-v|)$组合方式表现比较好。</p>
-<h3 id="计算效率"><a href="#计算效率" class="headerlink" title="计算效率"></a>计算效率</h3><img src="https://my-picbed.oss-cn-hangzhou.aliyuncs.com/img/20200812134540.png" alt="不同嵌入模型的计算效率比较" style="zoom:67%;" />
-
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>本文提出了在Siamse Network上改进而来的Sentence-BERT模型，通过其实验结果可以看出，该模型在计算效率上有非常大的提高，可能会在工业领域有比较好的应用。</p>
+<h3 id="改进"><a href="#改进" class="headerlink" title="改进"></a>改进</h3><ol>
+<li>提出了一种以知识图谱嵌入为基础的问答系统框架（KEQA），将问题中的头部实体，谓语，尾部实体嵌入到向量空间，用以解决上述的三个问题。</li>
+<li>提出了一种考虑知识图谱中结构和关系差异的联合距离度量方式。</li>
+</ol>
+<h2 id="KEQA"><a href="#KEQA" class="headerlink" title="KEQA"></a>KEQA</h2><h3 id="为什么使用KGE（知识图谱嵌入）技术？"><a href="#为什么使用KGE（知识图谱嵌入）技术？" class="headerlink" title="为什么使用KGE（知识图谱嵌入）技术？"></a>为什么使用KGE（知识图谱嵌入）技术？</h3><p>知识图嵌入目标用于学习KG中每个谓词/实体的低维矢量表示，使得原始关系在矢量中得到很好的保留。 这些学习的矢量表示可用于有效地完成各种下游应用。目前已经有了知识图谱补全、关系提取、推荐系统等方面的应用。</p>
+<h3 id="KEQA的主要思想"><a href="#KEQA的主要思想" class="headerlink" title="KEQA的主要思想"></a>KEQA的主要思想</h3><p><img src="https://my-picbed.oss-cn-hangzhou.aliyuncs.com/img/20201101155507.png" alt="图1 KEQA如何回答一个简单问题"></p>
+<p>如图所示，图谱G被嵌入到了两个低维的向量空间中，包括谓语嵌入空间和实体嵌入空间。每个事实三元组$(h,l,t)$都有其向量表示$(e_h,p_l,e_t)$。给定一个问题Q，首先要学习到该问题的$e_h$、$p_l$，并且预测出$e_t$，组成<em>“预测事实”</em>，再通过<em>度量向量距离</em>寻找同预测事实最接近的<em>事实</em>，就能得到该问题可能的答案。</p>
+<h3 id="知识图谱的嵌入"><a href="#知识图谱的嵌入" class="headerlink" title="知识图谱的嵌入"></a>知识图谱的嵌入</h3><p>文章简单描述了所采用的嵌入方法，其核心思想与TransE、TransR相同，都是通过最小化$e_t$和$f(e_h,p_l)$之间的距离来得到实体和关系的嵌入（函数$f(·)$是用来衡量三元组中向量关系的函数。TransE中$f(e_h,p_l)=e_h+p_l$），文章没有明确具体是哪一种方法。</p>
+<h3 id="谓语和头部实体学习模型"><a href="#谓语和头部实体学习模型" class="headerlink" title="谓语和头部实体学习模型"></a>谓语和头部实体学习模型</h3><p>给定一个简单问题，目标是找到谓语向量空间中的一点来作为该问题的谓语向量$p_l$，在实体向量空间中找到一点作为头部实体向量$e_h$。该模型的核心思想是考虑不同问题中词的语序（order）和词的重要性（importance），为此文中引入了双向LSTM和注意力机制。关于词的重要性，文章中举例说明：当我们在学习谓语的向量时，实体就显得不那么重要了。</p>
+<h4 id="谓语表示学习"><a href="#谓语表示学习" class="headerlink" title="谓语表示学习"></a>谓语表示学习</h4><p>一般预测谓语的方法包括：</p>
+<ol>
+<li><p>学习基于语义解析的映射，再人为的标注语义；</p>
+</li>
+<li><p>为每个谓语做标注，转化成分类任务</p>
+<p>文章提出，因为用户提出问题的领域会非常广泛，以至于一个新问题的谓语可能与其他所有已有的谓语都不相同。·    </p>
+</li>
+</ol>
+<p><img src="https://my-picbed.oss-cn-hangzhou.aliyuncs.com/img/20201102191453.png" alt="图2 谓语表示神经网络结构"></p>
+<p>模型训练时的目标是：输入一个简单问句，找到离$p_l$（标注）最近的$\hat p_l$（预测）</p>
+<h4 id="头部实体表示学习及头部实体识别"><a href="#头部实体表示学习及头部实体识别" class="headerlink" title="头部实体表示学习及头部实体识别"></a>头部实体表示学习及头部实体识别</h4><p>神经网络的结构与谓语表示学习相同，不同点在于图谱中的实体数往往非常庞大，如果要将$\hat e_h$与每一个实体的$e_h$比较的话耗费会非常大，因此文章引入了一个<strong>头部实体检测模型HED</strong>，该模型的训练集是一系列<strong>已知事实</strong>的问题，其结构如图所示：</p>
+<p><img src="https://my-picbed.oss-cn-hangzhou.aliyuncs.com/img/20201102210212.png" alt="图3 头部实体检测模型"></p>
+<p>可以观察到该网络与谓语表示学习网络的结构也十分相似，不同点在于没有Attention，同时输出结果$v_j$是一个二维的向量，其含义如图。很明显，该模型的训练目标是找到与已知事实中的头部实体名称相同的token。</p>
+<p>利用训练过的HED模型，我们可以标记出问题中的实体名称，所有包含该实体名称的实体都将作为候选实体。</p>
+<p>简单来说，这一步在做实体名称的模糊匹配，比如问题是“How old is Obama?”，HED识别出了实体名称”Obama”，包含该实体名称的实体包括”Barak Obama”,”Michelle Obama”,”Obama”等等，这些实体所属的三元组都将被列为候选三元组，相比之下，查找范围缩小了很多，也在一定程度上解决了<strong>实体名称不全</strong>的问题。但该方法仍有不足，因为KG会有很多实体是<strong>同名</strong>的。</p>
+<h3 id="向量空间上的联合搜索"><a href="#向量空间上的联合搜索" class="headerlink" title="向量空间上的联合搜索"></a>向量空间上的联合搜索</h3><p>前面的部分能够得到一个问题谓语和头部实体的表示$\hat p_l和\hat e_h$，以及若干个候选三元组，最后的任务是在候选三元组中找到最符合条件（距离最近）的三元组，距离的计算公式如下：<br>$$<br>\begin{aligned}<br>\operatorname{minimize}<em>{(h, \ell, t) \in C} &amp;\left|\mathrm{p}</em>{\ell}-\hat{\mathrm{p}}<em>{\ell}\right|</em>{2}+\beta_{1}\left|\mathrm{e}<em>{h}-\hat{\mathrm{e}}</em>{h}\right|<em>{2}+\beta</em>{2}\left|f\left(\mathrm{e}<em>{h}, \mathrm{p}</em>{\ell}\right)-f\left(\hat{\mathrm{e}}<em>{h}, \hat{\mathrm{p}}</em>{\ell}\right)\right|<em>{2} \<br>&amp;-\beta</em>{3} \operatorname{sim}\left[n(h), \mathrm{HED}<em>{\text {entity }}\right]-\beta</em>{4} \operatorname{sim}\left[n(\ell), \mathrm{HED}_{\text {non }}\right]<br>\end{aligned}<br>$$<br>第一行表示候选三元组与预测结果在空间上的距离，其中尾部三元组的向量表示$e_t$由$f(e_h,p_t)$求得，而不是直接选用候选三元组中的$e_t$，这样做是因为在图谱中可能会存在$e_h,p_l$相同但$e_t$不同的情况；</p>
+<p>第四项表示尽量选择候选实体名称与标记出的$HED_{entity}$相同的三元组；</p>
+<p>第五项表示尽量选择谓语被问题所提及的三元组；</p>
+<h2 id="实验"><a href="#实验" class="headerlink" title="实验"></a>实验</h2><h3 id="数据集"><a href="#数据集" class="headerlink" title="数据集"></a>数据集</h3><p><img src="https://my-picbed.oss-cn-hangzhou.aliyuncs.com/img/20201104160911.png" alt="图4 数据集"></p>
+<p>FB2M和FB5M都是Freebase的子集，包含大量结构化的数据。</p>
+<p>SimpleQuestions包含了一万多个有相关事实的简单问题，且这些事实都存在于FB2M中</p>
 
             </div>
             <hr/>
@@ -505,7 +506,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://cliccker.top/2020/08/11/du_lun_wen_sentence_bert/">https://cliccker.top/2020/08/11/du_lun_wen_sentence_bert/</a>
+                    <a href="https://cliccker.top/2020/11/01/du_lun_wen_keqa_ji_yu_zhi_shi_tu_pu_qian_ru_de_wen_da_xi_tong/">https://cliccker.top/2020/11/01/du_lun_wen_keqa_ji_yu_zhi_shi_tu_pu_qian_ru_de_wen_da_xi_tong/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -543,12 +544,12 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/NLP/">
-                                    <span class="chip bg-color">NLP</span>
+                                <a href="/tags/%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1/">
+                                    <span class="chip bg-color">知识图谱</span>
                                 </a>
                             
-                                <a href="/tags/Bert/">
-                                    <span class="chip bg-color">Bert</span>
+                                <a href="/tags/%E7%9F%A5%E8%AF%86%E5%B5%8C%E5%85%A5/">
+                                    <span class="chip bg-color">知识嵌入</span>
                                 </a>
                             
                                 <a href="/tags/%E9%97%AE%E7%AD%94%E7%B3%BB%E7%BB%9F/">
@@ -983,33 +984,30 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2020/08/16/gensim_doc2vec_diao_can/">
+                <a href="/2020/11/01/du_lun_wen_keqa_ji_yu_zhi_shi_tu_pu_qian_ru_de_wen_da_xi_tong/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="gensim中的Doc2vec模型参数调整">
+                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="读论文——Knowledge Graph Embedding Based Question Answering">
                         
-                        <span class="card-title">gensim中的Doc2vec模型参数调整</span>
+                        <span class="card-title">读论文——Knowledge Graph Embedding Based Question Answering</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            最近在用Doc2vec训练模型，现在现在需要做一些参数调整来提高准确率。这边记录一些参数的调整和效果。
-Doc2Vec(documents=None, 
-        #输入语料库
-        corpus_file=None, 
- 
+                            一篇来源于百度研究团队的文章，描述了如何利用知识图谱的嵌入构建问答系统。
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-08-16
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-11-01
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -1022,19 +1020,20 @@ Doc2Vec(documents=None,
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/python/">
-                        <span class="chip bg-color">python</span>
+                    <a href="/tags/%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1/">
+                        <span class="chip bg-color">知识图谱</span>
                     </a>
                     
-                    <a href="/tags/gensim/">
-                        <span class="chip bg-color">gensim</span>
+                    <a href="/tags/%E7%9F%A5%E8%AF%86%E5%B5%8C%E5%85%A5/">
+                        <span class="chip bg-color">知识嵌入</span>
                     </a>
                     
-                    <a href="/tags/Doc2vec/">
-                        <span class="chip bg-color">Doc2vec</span>
+                    <a href="/tags/%E9%97%AE%E7%AD%94%E7%B3%BB%E7%BB%9F/">
+                        <span class="chip bg-color">问答系统</span>
                     </a>
                     
                 </div>
@@ -1048,39 +1047,34 @@ Doc2Vec(documents=None,
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/08/03/jie_gou_hua_biao_zhun/">
+                <a href="/2020/10/09/146/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="结构化标准的教程">
+                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="焦虑逃离计划">
                         
-                        <span class="card-title">结构化标准的教程</span>
+                        <span class="card-title">焦虑逃离计划</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            软件
-福昕PDF阅读器
-office2016以上版本或wps
-Typora Markdown
-
-步骤
-使用word打开对应PDF文档，等待文档转换成可以编辑的格式。
-
-打开识别成功的文件，清除所有的格式，将所用空格替换掉，全部．和·替换成.
+                            采访了一下身边的“社会人”（拒绝使用社畜这种词！）小吴同学，了解到了她的焦虑。
+“那个湖边上的外婆家，当初我来杭州找不到工作，就在那边坐了很久，那段日子真的很焦虑。”
+“每天都在花钱住酒店，工作又没啥消息，都是小破公司。”
+“感觉自己能力不
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-08-03
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-10-09
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E6%8A%80%E5%B7%A7/" class="post-category">
-                                    技巧
+                            <a href="/categories/%E6%83%B3%E6%B3%95/" class="post-category">
+                                    想法
                                 </a>
                             
                             
@@ -1090,16 +1084,8 @@ Typora Markdown
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/PDF/">
-                        <span class="chip bg-color">PDF</span>
-                    </a>
-                    
-                    <a href="/tags/word/">
-                        <span class="chip bg-color">word</span>
-                    </a>
-                    
-                    <a href="/tags/%E7%BB%93%E6%9E%84%E5%8C%96/">
-                        <span class="chip bg-color">结构化</span>
+                    <a href="/tags/%E9%9A%8F%E7%AC%94/">
+                        <span class="chip bg-color">随笔</span>
                     </a>
                     
                 </div>
