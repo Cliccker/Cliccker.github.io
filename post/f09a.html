@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="抓取某网站的摄影作品, 分享、成长">
+    <meta name="keywords" content="烧卖有梗, 分享、成长">
     <meta name="description" content="如果可以的话，我想多要一双眼睛">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>抓取某网站的摄影作品 | 不言物语</title>
+    <title>烧卖有梗 | 不言物语</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -237,12 +237,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://my-picbed.oss-cn-hangzhou.aliyuncs.com/img/20200826140039.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/21.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">抓取某网站的摄影作品</h1>
+                    <h1 class="description center-align post-title">烧卖有梗</h1>
                 </div>
             </div>
         </div>
@@ -359,16 +359,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/python/">
-                                <span class="chip bg-color">python</span>
-                            </a>
-                        
-                            <a href="/tags/%E7%88%AC%E8%99%AB/">
-                                <span class="chip bg-color">爬虫</span>
-                            </a>
-                        
-                            <a href="/tags/%E6%91%84%E5%BD%B1/">
-                                <span class="chip bg-color">摄影</span>
+                            <a href="/tags/%E4%B8%80%E4%B8%AA%E5%B0%8F%E7%AC%91%E8%AF%9D/">
+                                <span class="chip bg-color">一个小笑话</span>
                             </a>
                         
                     </div>
@@ -379,8 +371,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E5%AE%9E%E8%B7%B5/" class="post-category">
-                                实践
+                            <a href="/categories/%E6%83%B3%E6%B3%95/" class="post-category">
+                                想法
                             </a>
                         
                     </div>
@@ -392,7 +384,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-08-26
+                    2020-07-14
                 </div>
                 
 
@@ -401,7 +393,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    232
+                    31
                 </div>
                 
 
@@ -423,52 +415,7 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>最近逛知乎找到了一个神奇的网站<a href="https://seaside-station.com/" target="_blank" rel="noopener">SEASIDE STATION IN JAPAN</a></p>
-<p>这个网站记录了大大小小182个靠海车站的景色</p>
-<p><img src="https://my-picbed.oss-cn-hangzhou.aliyuncs.com/img/20200826131956.png" alt="网站首页"></p>
-<p>其中不乏一些我比较喜欢的图片，比如</p>
-<img src="https://my-picbed.oss-cn-hangzhou.aliyuncs.com/img/20200826132210.png" alt="wabuka站" style="zoom: 50%;" />
-
-<img src="https://my-picbed.oss-cn-hangzhou.aliyuncs.com/img/20200826132255.png" alt="umishibaura站" style="zoom: 50%;" />
-
-<p>许多图片我都想保存下来，但是那样做实在太麻烦了，所以选择用爬虫的方式，代码如下：</p>
-<pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> requests
-<span class="token keyword">import</span> re
-<span class="token keyword">import</span> time
-<span class="token keyword">from</span> tqdm <span class="token keyword">import</span> tqdm
-
-
-<span class="token keyword">def</span> <span class="token function">get_url</span><span class="token punctuation">(</span>index<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    wb_date <span class="token operator">=</span> requests<span class="token punctuation">.</span>get<span class="token punctuation">(</span>index<span class="token punctuation">)</span><span class="token punctuation">.</span>text
-    res <span class="token operator">=</span> re<span class="token punctuation">.</span>compile<span class="token punctuation">(</span>r<span class="token string">'***"'</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true"># 保护一下这个网站</span>
-    reg <span class="token operator">=</span> re<span class="token punctuation">.</span>findall<span class="token punctuation">(</span>res<span class="token punctuation">,</span> wb_date<span class="token punctuation">)</span>
-    <span class="token keyword">print</span><span class="token punctuation">(</span>reg<span class="token punctuation">)</span>
-    <span class="token keyword">return</span> reg
-
-
-<span class="token keyword">def</span> <span class="token function">get_picture</span><span class="token punctuation">(</span>url<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    wb_date <span class="token operator">=</span> requests<span class="token punctuation">.</span>get<span class="token punctuation">(</span>url<span class="token punctuation">)</span><span class="token punctuation">.</span>text
-    res <span class="token operator">=</span> re<span class="token punctuation">.</span>compile<span class="token punctuation">(</span>r<span class="token string">'src="(http.+?jpg)"'</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># 正则表达式匹配图片</span>
-    reg <span class="token operator">=</span> re<span class="token punctuation">.</span>findall<span class="token punctuation">(</span>res<span class="token punctuation">,</span> wb_date<span class="token punctuation">)</span>
-    nun <span class="token operator">=</span> <span class="token number">0</span>
-    <span class="token keyword">for</span> i <span class="token keyword">in</span> tqdm<span class="token punctuation">(</span>reg<span class="token punctuation">)</span><span class="token punctuation">:</span>  <span class="token comment" spellcheck="true"># 遍历</span>
-        a <span class="token operator">=</span> requests<span class="token punctuation">.</span>get<span class="token punctuation">(</span>i<span class="token punctuation">)</span>
-        name <span class="token operator">=</span> re<span class="token punctuation">.</span>sub<span class="token punctuation">(</span>r<span class="token string">"***"</span><span class="token punctuation">,</span> <span class="token string">""</span><span class="token punctuation">,</span> i<span class="token punctuation">)</span>
-        f <span class="token operator">=</span> open<span class="token punctuation">(</span><span class="token string">'all_station/'</span> <span class="token operator">+</span> name<span class="token punctuation">,</span> <span class="token string">'wb'</span><span class="token punctuation">)</span>
-        f<span class="token punctuation">.</span>write<span class="token punctuation">(</span>a<span class="token punctuation">.</span>content<span class="token punctuation">)</span>
-        f<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span>
-        nun <span class="token operator">=</span> nun <span class="token operator">+</span> <span class="token number">1</span>
-
-
-urls <span class="token operator">=</span> get_url<span class="token punctuation">(</span><span class="token string">'***'</span><span class="token punctuation">)</span>
-<span class="token keyword">for</span> i<span class="token punctuation">,</span> urls <span class="token keyword">in</span> tqdm<span class="token punctuation">(</span>enumerate<span class="token punctuation">(</span>urls<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token keyword">try</span><span class="token punctuation">:</span>
-        get_picture<span class="token punctuation">(</span>urls<span class="token punctuation">)</span>
-    <span class="token keyword">except</span><span class="token punctuation">:</span>
-        <span class="token keyword">continue</span>
-    time<span class="token punctuation">.</span>sleep<span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span>
-</code></pre>
-<p>如果你也喜欢这些图片，可以在评论里索取，千万不要学我！！！</p>
+                <p>从今年开始，学生们最恐怖的噩梦从梦到上学没穿裤子变成了网课没关麦。</p>
 
             </div>
             <hr/>
@@ -494,7 +441,7 @@ urls <span class="token operator">=</span> get_url<span class="token punctuation
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://cliccker.top/posts/25022.html">https://cliccker.top/posts/25022.html</a>
+                    <a href="https://cliccker.top/post/f09a.html">https://cliccker.top/post/f09a.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -532,16 +479,8 @@ urls <span class="token operator">=</span> get_url<span class="token punctuation
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/python/">
-                                    <span class="chip bg-color">python</span>
-                                </a>
-                            
-                                <a href="/tags/%E7%88%AC%E8%99%AB/">
-                                    <span class="chip bg-color">爬虫</span>
-                                </a>
-                            
-                                <a href="/tags/%E6%91%84%E5%BD%B1/">
-                                    <span class="chip bg-color">摄影</span>
+                                <a href="/tags/%E4%B8%80%E4%B8%AA%E5%B0%8F%E7%AC%91%E8%AF%9D/">
+                                    <span class="chip bg-color">一个小笑话</span>
                                 </a>
                             
                         </div>
@@ -976,24 +915,24 @@ urls <span class="token operator">=</span> get_url<span class="token punctuation
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/posts/7820.html">
+                <a href="/post/947f.html">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="读论文——graph2vec:图的分布式表示学习">
+                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="读论文——On2Vec：基于嵌入的本体群体关系预测">
                         
-                        <span class="card-title">读论文——graph2vec:图的分布式表示学习</span>
+                        <span class="card-title">读论文——On2Vec：基于嵌入的本体群体关系预测</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            又一个2vec，我们一起来看看吧。
+                            读论文，on2vec主要用来做本体填充，这也是我第一篇MarkDown文章，感觉良好。
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-09-07
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-07-16
                         </span>
                         <span class="publish-author">
                             
@@ -1010,16 +949,12 @@ urls <span class="token operator">=</span> get_url<span class="token punctuation
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E8%A1%A8%E7%A4%BA%E5%AD%A6%E4%B9%A0/">
-                        <span class="chip bg-color">表示学习</span>
+                    <a href="/tags/%E7%9F%A5%E8%AF%86%E5%B5%8C%E5%85%A5/">
+                        <span class="chip bg-color">知识嵌入</span>
                     </a>
                     
-                    <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">
-                        <span class="chip bg-color">深度学习</span>
-                    </a>
-                    
-                    <a href="/tags/%E5%9B%BE%E5%B5%8C%E5%85%A5/">
-                        <span class="chip bg-color">图嵌入</span>
+                    <a href="/tags/%E6%9C%AC%E4%BD%93/">
+                        <span class="chip bg-color">本体</span>
                     </a>
                     
                 </div>
@@ -1033,23 +968,25 @@ urls <span class="token operator">=</span> get_url<span class="token punctuation
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/posts/53334.html">
+                <a href="/post/fe4d.html">
                     <div class="card-image">
                         
-                        <img src="https://my-picbed.oss-cn-hangzhou.aliyuncs.com/img/20200825155153.jpg" class="responsive-img" alt="Tensorflow读书笔记">
                         
-                        <span class="card-title">Tensorflow读书笔记</span>
+                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="《知识图谱：方法、实践与应用》阅读笔记——知识图谱表示与建模（2）">
+                        
+                        <span class="card-title">《知识图谱：方法、实践与应用》阅读笔记——知识图谱表示与建模（2）</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            系统的学习TensorFlow
+                            距离上一篇读书笔记已经有一段日子了，中间打了很多代码，也摸了很多🐟。有时候还是比较细化打代码的，感觉比码字有意思。但是有意思的事做太多就不会有积累了，所以接着填这个坑叭！
+互联网时代的语义网知识表示框架上一篇文章中提到的“语义网”让知识表
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-08-24
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-14
                             </span>
                         <span class="publish-author">
                             
@@ -1066,12 +1003,16 @@ urls <span class="token operator">=</span> get_url<span class="token punctuation
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/python/">
-                        <span class="chip bg-color">python</span>
+                    <a href="/tags/owl/">
+                        <span class="chip bg-color">owl</span>
                     </a>
                     
-                    <a href="/tags/TensorFlow/">
-                        <span class="chip bg-color">TensorFlow</span>
+                    <a href="/tags/rdf/">
+                        <span class="chip bg-color">rdf</span>
+                    </a>
+                    
+                    <a href="/tags/%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1/">
+                        <span class="chip bg-color">知识图谱</span>
                     </a>
                     
                 </div>
