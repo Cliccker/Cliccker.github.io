@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Tensorflow读书笔记, 分享，成长">
+    <meta name="keywords" content="用PyQT写小工具, 分享，成长">
     <meta name="description" content="一个记录成长的博客">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Tensorflow读书笔记 | 不言物语</title>
+    <title>用PyQT写小工具 | 不言物语</title>
     <link rel="icon" type="image/png" href="/medias/logo.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -238,12 +238,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://my-picbed.oss-cn-hangzhou.aliyuncs.com/img/20200825155153.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/20.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Tensorflow读书笔记</h1>
+                    <h1 class="description center-align post-title">用PyQT写小工具</h1>
                 </div>
             </div>
         </div>
@@ -360,27 +360,18 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/python/">
-                                <span class="chip bg-color">python</span>
+                            <a href="/tags/pyqt5/">
+                                <span class="chip bg-color">pyqt5</span>
                             </a>
                         
-                            <a href="/tags/TensorFlow/">
-                                <span class="chip bg-color">TensorFlow</span>
+                            <a href="/tags/QTdesigner/">
+                                <span class="chip bg-color">QTdesigner</span>
                             </a>
                         
                     </div>
                     
                 </div>
                 <div class="col s5 right-align">
-                    
-                    <div class="post-cate">
-                        <i class="fas fa-bookmark fa-fw icon-category"></i>
-                        
-                            <a href="/categories/%E5%AD%A6%E4%B9%A0/" class="post-category">
-                                学习
-                            </a>
-                        
-                    </div>
                     
                 </div>
             </div>
@@ -389,7 +380,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-08-24
+                    2021-01-19
                 </div>
                 
 
@@ -398,14 +389,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    311
+                    749
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    2 分
                 </div>
                 
 
@@ -420,48 +411,105 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="Hello-World！"><a href="#Hello-World！" class="headerlink" title="Hello World！"></a>Hello World！</h2><pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> tensorflow <span class="token keyword">as</span> tf
-h <span class="token operator">=</span> tf<span class="token punctuation">.</span>constant<span class="token punctuation">(</span><span class="token string">"Ciao!"</span><span class="token punctuation">)</span>
-w <span class="token operator">=</span> tf<span class="token punctuation">.</span>constant<span class="token punctuation">(</span><span class="token string">"World"</span><span class="token punctuation">)</span>
-hw <span class="token operator">=</span> h <span class="token operator">+</span> w
-<span class="token keyword">with</span> tf<span class="token punctuation">.</span>compat<span class="token punctuation">.</span>v1<span class="token punctuation">.</span>Session<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">as</span> sess<span class="token punctuation">:</span>
-    ans <span class="token operator">=</span> sess<span class="token punctuation">.</span>run<span class="token punctuation">(</span>hw<span class="token punctuation">)</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span>ans<span class="token punctuation">)</span>
-<span class="token operator">></span>b<span class="token string">'Ciao!World'</span></code></pre>
-<p>这一段代码展示了<strong>计算图</strong>的主要思想，即首先定义计算需要的元素，再采用一个外部机制去触发这个计算。也就是说<code>hw = h + w</code>并<strong>没有</strong>执行操作，真正执行操作的是<code>ans = sess.run(hw)</code></p>
-<h2 id="SoftmaxMnist"><a href="#SoftmaxMnist" class="headerlink" title="SoftmaxMnist"></a>SoftmaxMnist</h2><pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> tensorflow <span class="token keyword">as</span> tf
+                <p>最近写的论文有手动建立案例的需求，一开始采用的方法是建一个json模板，然后在模板上改关键词，就像这样：</p>
+<pre class=" language-json"><code class="language-json"><span class="token punctuation">{</span>
+    <span class="token property">"有限元分析案例"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+        <span class="token punctuation">{</span>
+            <span class="token property">"产品信息"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+                <span class="token punctuation">{</span>
+                    <span class="token property">"产品名称"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+                        <span class="token string">"none"</span>
+                    <span class="token punctuation">]</span><span class="token punctuation">,</span>
+                    <span class="token property">"分析对象"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+                        <span class="token string">"none"</span>
+                    <span class="token punctuation">]</span><span class="token punctuation">,</span>
+                    <span class="token property">"产品材料"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+                        <span class="token string">"none"</span>
+                    <span class="token punctuation">]</span>
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">]</span><span class="token punctuation">,</span>
+            <span class="token property">"设计"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+                <span class="token punctuation">{</span>
+                    <span class="token property">"设计尺寸"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+                        <span class="token string">"none"</span>
+                    <span class="token punctuation">]</span><span class="token punctuation">,</span>
+                    <span class="token property">"设计参数"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+                        <span class="token string">"none"</span>
+                    <span class="token punctuation">]</span><span class="token punctuation">,</span>
+                    <span class="token property">"补强条件"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+                        <span class="token string">"none"</span>
+                    <span class="token punctuation">]</span>
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">]</span><span class="token punctuation">,</span>
+            <span class="token property">"工况"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+                <span class="token punctuation">{</span>
+                    <span class="token property">"介质"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+                        <span class="token string">"none"</span>
+                    <span class="token punctuation">]</span><span class="token punctuation">,</span>
+                    <span class="token property">"环境条件"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+                        <span class="token string">"none"</span>
+                    <span class="token punctuation">]</span><span class="token punctuation">,</span>
+                    <span class="token property">"应力条件"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+                        <span class="token string">"none"</span>
+                    <span class="token punctuation">]</span>
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">]</span><span class="token punctuation">,</span>
+            <span class="token property">"分析条件"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+                <span class="token punctuation">{</span>
+                    <span class="token property">"材料属性"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+                        <span class="token string">"none"</span>
+                    <span class="token punctuation">]</span><span class="token punctuation">,</span>
+                    <span class="token property">"边界条件"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+                        <span class="token string">"none"</span>
+                    <span class="token punctuation">]</span><span class="token punctuation">,</span>
+                    <span class="token property">"接触类型"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+                        <span class="token string">"none"</span>
+                    <span class="token punctuation">]</span><span class="token punctuation">,</span>
+                    <span class="token property">"约束条件"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+                        <span class="token string">"none"</span>
+                    <span class="token punctuation">]</span><span class="token punctuation">,</span>
+                    <span class="token property">"载荷类型"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+                        <span class="token string">"none"</span>
+                    <span class="token punctuation">]</span>
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">]</span><span class="token punctuation">,</span>
+            <span class="token property">"分析类型"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+                <span class="token string">"none"</span>
+            <span class="token punctuation">]</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">]</span>
+<span class="token punctuation">}</span></code></pre>
+<p>但是这样做效率太低了，遂有了做一个小工具的想法。主要实现几个功能：</p>
+<ul>
+<li>信息通过文本框录入，是最基本的交互方式；</li>
+<li>建立的案例以json格式保存；</li>
+<li>要能够读取和修改案例，实现案例的管理（还没做😂）</li>
+</ul>
+<p>最后做出来这个样子的界面：</p>
+<p><img src="https://my-picbed.oss-cn-hangzhou.aliyuncs.com/img/20210119103800.png" alt="小工具的主界面"></p>
+<p>总结一下做这个的时候遇到的一些坑：</p>
+<h3 id="1-Text与PlainText（小坑）"><a href="#1-Text与PlainText（小坑）" class="headerlink" title="1. Text与PlainText（小坑）"></a>1. Text与PlainText（小坑）</h3><p>QTdesigner中有两种文本框输入控件</p>
+<p><img src="https://my-picbed.oss-cn-hangzhou.aliyuncs.com/img/20210119104145.png" alt="两种控件"></p>
+<p>一开始我用了第一种<code>Text Edit</code>，手动输入文本没有问题，但是从别处复制粘贴过来的文本都是带格式的。再看这俩控件的图标，原来<code>Plain Text</code>意思是无论输入什么格式的文本，都会变成不带格式的普通文本。</p>
+<h3 id="2-Layout和Frame（小坑）"><a href="#2-Layout和Frame（小坑）" class="headerlink" title="2. Layout和Frame（小坑）"></a>2. Layout和Frame（小坑）</h3><p>一开始写的时候标签和文本框都是手动对齐的😂</p>
+<p>直到用上了<code>Layout</code>和<code>Frame</code>，这俩能让你的图形界面看起来更像一个图形界面。但是这俩有啥不同能，看看他们之间参数上的差异：</p>
+<p><img src="https://my-picbed.oss-cn-hangzhou.aliyuncs.com/img/20210119105537.png" alt="Layout"></p>
+<p><img src="https://my-picbed.oss-cn-hangzhou.aliyuncs.com/img/20210119105653.png" alt="Frame"></p>
+<p>简单来说，<code>Layout</code>作为幕后黑手，规定了整个图形界面的布局样式，我们看不到他。而<code>Frame</code>作为容器，我们可以通过改变他的样式来给<code>Frame</code>之间做区分。</p>
+<h3 id="3-Table-Widget（大坑）"><a href="#3-Table-Widget（大坑）" class="headerlink" title="3. Table Widget（大坑）"></a>3. Table Widget（大坑）</h3><p>因为一个产品中可能会有好几种材料，这些材料要考虑的参数也不一样。所以要一条一条添加材料的信息。一开始的想法是，点一次按钮就往Frame里加一个这样的Widget：</p>
+<p><img src="https://my-picbed.oss-cn-hangzhou.aliyuncs.com/img/20210119111036.png" alt="材料信息Widget"></p>
+<p>可这就带来了一个新的问题，别的文本框都能这样获取文本</p>
+<pre class=" language-python"><code class="language-python">CaseName <span class="token operator">=</span> self<span class="token punctuation">.</span>CaseName<span class="token punctuation">.</span>toPlainText<span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre>
+<p>但是这个Widget中文本框没有标签名，需要遍历整个Frame来获取文本。这很麻烦，效率很低。</p>
+<p>然后我注意到了QTDesigner中的Table Widget，该控件更适合这种场景。但又遇到一个问题，如果我要初始化表格，需要一行一行的删除，正常的思路是从头删到尾，可怎么写都会出现，有一行没删掉或者多删了一行的问题。找了一下网上的方法，原来要从最后一行开始，写一个逆循环来删：</p>
+<pre class=" language-python"><code class="language-python">    <span class="token keyword">def</span> <span class="token function">initTable</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token triple-quoted-string string">"""
+        初始化材料表格
+        """</span>
+        <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> self<span class="token punctuation">.</span>MaterialTable<span class="token punctuation">.</span>rowCount<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">:</span>  <span class="token comment" spellcheck="true"># 删除新增的行</span>
+            self<span class="token punctuation">.</span>MaterialTable<span class="token punctuation">.</span>removeRow<span class="token punctuation">(</span>i<span class="token punctuation">)</span>
 
-<span class="token keyword">from</span> tensorflow<span class="token punctuation">.</span>examples<span class="token punctuation">.</span>tutorials<span class="token punctuation">.</span>mnist <span class="token keyword">import</span> input_data
-
-data_dir <span class="token operator">=</span> <span class="token string">'data'</span>
-num_steps <span class="token operator">=</span> <span class="token number">1000</span>
-minibatch_size <span class="token operator">=</span> <span class="token number">100</span>
-
-data <span class="token operator">=</span> input_data<span class="token punctuation">.</span>read_data_sets<span class="token punctuation">(</span>data_dir<span class="token punctuation">,</span> one_hot<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># 自动加载数据集</span>
-
-x <span class="token operator">=</span> tf<span class="token punctuation">.</span>placeholder<span class="token punctuation">(</span>tf<span class="token punctuation">.</span>float32<span class="token punctuation">,</span> <span class="token punctuation">[</span>None<span class="token punctuation">,</span> <span class="token number">784</span><span class="token punctuation">]</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># None表示当前不指定每次使用图片的数量</span>
-W <span class="token operator">=</span> tf<span class="token punctuation">.</span>Variable<span class="token punctuation">(</span>tf<span class="token punctuation">.</span>zeros<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">784</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># 权重</span>
-
-y_true <span class="token operator">=</span> tf<span class="token punctuation">.</span>placeholder<span class="token punctuation">(</span>tf<span class="token punctuation">.</span>float32<span class="token punctuation">,</span> <span class="token punctuation">[</span>None<span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
-y_pred <span class="token operator">=</span> tf<span class="token punctuation">.</span>matmul<span class="token punctuation">(</span>x<span class="token punctuation">,</span> W<span class="token punctuation">)</span>
-
-cross_entropy <span class="token operator">=</span> tf<span class="token punctuation">.</span>reduce_mean<span class="token punctuation">(</span>tf<span class="token punctuation">.</span>nn<span class="token punctuation">.</span>softmax_cross_entropy_with_logits<span class="token punctuation">(</span>logits<span class="token operator">=</span>y_pred<span class="token punctuation">,</span> labels<span class="token operator">=</span>y_true<span class="token punctuation">)</span><span class="token punctuation">)</span>
-<span class="token comment" spellcheck="true"># 使用交叉熵作为loss</span>
-gd_step <span class="token operator">=</span> tf<span class="token punctuation">.</span>train<span class="token punctuation">.</span>GradientDescentOptimizer<span class="token punctuation">(</span><span class="token number">0.5</span><span class="token punctuation">)</span><span class="token punctuation">.</span>minimize<span class="token punctuation">(</span>cross_entropy<span class="token punctuation">)</span>
-<span class="token comment" spellcheck="true"># 定义如何训练</span>
-correct_mask <span class="token operator">=</span> tf<span class="token punctuation">.</span>equal<span class="token punctuation">(</span>tf<span class="token punctuation">.</span>argmax<span class="token punctuation">(</span>y_pred<span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">,</span> tf<span class="token punctuation">.</span>argmax<span class="token punctuation">(</span>y_true<span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-accuracy <span class="token operator">=</span> tf<span class="token punctuation">.</span>reduce_mean<span class="token punctuation">(</span>tf<span class="token punctuation">.</span>cast<span class="token punctuation">(</span>correct_mask<span class="token punctuation">,</span> tf<span class="token punctuation">.</span>float32<span class="token punctuation">)</span><span class="token punctuation">)</span>
-
-<span class="token keyword">with</span> tf<span class="token punctuation">.</span>Session<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">as</span> sess<span class="token punctuation">:</span>
-    sess<span class="token punctuation">.</span>run<span class="token punctuation">(</span>tf<span class="token punctuation">.</span>global_variables_initializer<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-    <span class="token keyword">for</span> _ <span class="token keyword">in</span> range<span class="token punctuation">(</span>num_steps<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        batch_xs<span class="token punctuation">,</span> batch_ys <span class="token operator">=</span> data<span class="token punctuation">.</span>train<span class="token punctuation">.</span>next_batch<span class="token punctuation">(</span>minibatch_size<span class="token punctuation">)</span>
-        sess<span class="token punctuation">.</span>run<span class="token punctuation">(</span>gd_step<span class="token punctuation">,</span> feed_dict<span class="token operator">=</span><span class="token punctuation">{</span>x<span class="token punctuation">:</span> batch_xs<span class="token punctuation">,</span> y_true<span class="token punctuation">:</span> batch_ys<span class="token punctuation">}</span><span class="token punctuation">)</span>
-
-    ans <span class="token operator">=</span> sess<span class="token punctuation">.</span>run<span class="token punctuation">(</span>accuracy<span class="token punctuation">,</span> feed_dict<span class="token operator">=</span><span class="token punctuation">{</span>x<span class="token punctuation">:</span> data<span class="token punctuation">.</span>test<span class="token punctuation">.</span>images<span class="token punctuation">,</span> y_true<span class="token punctuation">:</span> data<span class="token punctuation">.</span>test<span class="token punctuation">.</span>labels<span class="token punctuation">}</span><span class="token punctuation">)</span>
-
-<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Accuracy: {:.4}%"</span><span class="token punctuation">.</span>format<span class="token punctuation">(</span>ans<span class="token operator">*</span><span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
-<p>由于这本书是两年前的，很多模块都有了变化，后面我找了另一本更新的TensorFlow教程来看。</p>
+        self<span class="token punctuation">.</span>MaterialTable<span class="token punctuation">.</span>insertRow<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span></code></pre>
 
             </div>
             <hr/>
@@ -487,7 +535,7 @@ accuracy <span class="token operator">=</span> tf<span class="token punctuation"
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://cliccker.top/post/53334.html">https://cliccker.top/post/53334.html</a>
+                    <a href="https://cliccker.top/post/3515.html">https://cliccker.top/post/3515.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -525,12 +573,12 @@ accuracy <span class="token operator">=</span> tf<span class="token punctuation"
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/python/">
-                                    <span class="chip bg-color">python</span>
+                                <a href="/tags/pyqt5/">
+                                    <span class="chip bg-color">pyqt5</span>
                                 </a>
                             
-                                <a href="/tags/TensorFlow/">
-                                    <span class="chip bg-color">TensorFlow</span>
+                                <a href="/tags/QTdesigner/">
+                                    <span class="chip bg-color">QTdesigner</span>
                                 </a>
                             
                         </div>
@@ -961,61 +1009,48 @@ accuracy <span class="token operator">=</span> tf<span class="token punctuation"
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/post/25022.html">
+                <a href="/post/3515.html">
                     <div class="card-image">
                         
-                        <img src="https://my-picbed.oss-cn-hangzhou.aliyuncs.com/img/20200826140039.jpg" class="responsive-img" alt="抓取某网站的摄影作品">
                         
-                        <span class="card-title">抓取某网站的摄影作品</span>
+                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="用PyQT写小工具">
+                        
+                        <span class="card-title">用PyQT写小工具</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            最近逛知乎找到了一个神奇的网站SEASIDE STATION IN JAPAN
-这个网站记录了大大小小182个靠海车站的景色
-
-其中不乏一些我比较喜欢的图片，比如
-
-
-
-
-许多图片我都想保存下来，但是那样做实在太麻烦了，所以选择用爬虫的方式
+                            使用PyQT5时遇到的一些坑
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-08-26
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-01-19
+                            </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/%E5%AE%9E%E8%B7%B5/" class="post-category">
-                                    实践
-                                </a>
-                            
+                            <i class="fas fa-user fa-fw"></i>
+                            Hank
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/python/">
-                        <span class="chip bg-color">python</span>
+                    <a href="/tags/pyqt5/">
+                        <span class="chip bg-color">pyqt5</span>
                     </a>
                     
-                    <a href="/tags/%E7%88%AC%E8%99%AB/">
-                        <span class="chip bg-color">爬虫</span>
-                    </a>
-                    
-                    <a href="/tags/%E6%91%84%E5%BD%B1/">
-                        <span class="chip bg-color">摄影</span>
+                    <a href="/tags/QTdesigner/">
+                        <span class="chip bg-color">QTdesigner</span>
                     </a>
                     
                 </div>
@@ -1029,35 +1064,36 @@ accuracy <span class="token operator">=</span> tf<span class="token punctuation"
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/post/85dd.html">
+                <a href="/post/721.html">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="gensim中的Doc2vec模型参数调整">
+                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="关于播客的思考">
                         
-                        <span class="card-title">gensim中的Doc2vec模型参数调整</span>
+                        <span class="card-title">关于播客的思考</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            最近在用Doc2vec训练模型，现在现在需要做一些参数调整来提高准确率。这边记录一些参数的调整和效果。
-Doc2Vec(documents=None, 
-        #输入语料库
-        corpus_file=None, 
- 
+                            
+
+一个多月前，开始用小宇宙。
+我自己之前也做过播客，都已经是三年前的事了，我一个人写词，录音，剪辑。大概做了有二十多期。
+我的听众来自我的朋友圈，当然我也在网易云的电台上更新，不过几乎没有人收听。
+现在思考一下原因，大概是因为我的播客没有
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-08-16
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-11-08
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E5%AD%A6%E4%B9%A0/" class="post-category">
-                                    学习
+                            <a href="/categories/%E6%83%B3%E6%B3%95/" class="post-category">
+                                    想法
                                 </a>
                             
                             
@@ -1067,16 +1103,8 @@ Doc2Vec(documents=None,
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/python/">
-                        <span class="chip bg-color">python</span>
-                    </a>
-                    
-                    <a href="/tags/gensim/">
-                        <span class="chip bg-color">gensim</span>
-                    </a>
-                    
-                    <a href="/tags/Doc2vec/">
-                        <span class="chip bg-color">Doc2vec</span>
+                    <a href="/tags/%E9%9A%8F%E4%BE%BF%E5%86%99%E5%86%99/">
+                        <span class="chip bg-color">随便写写</span>
                     </a>
                     
                 </div>
@@ -1214,13 +1242,6 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
 
 </main>
 
-
-<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-<script>
-    MathJax.Hub.Config({
-        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
-    });
-</script>
 
 
 
